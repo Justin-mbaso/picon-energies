@@ -437,14 +437,17 @@ body:has(.hero) .site-header .header-cta { animation: hero-copy-enter 560ms var(
 .footer-bottom { display: flex; justify-content: space-between; gap: 1rem; margin-top: 2.5rem; padding-top: 1rem; border-top: 1px solid rgba(255, 255, 255, .2); }
 .footer-bottom p { margin: 0; color: rgba(255, 255, 255, .7); font-size: .66rem; line-height: 1.5; }
 
-@media (max-width: 64rem) {
-  .footer-inner { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2.5rem 2rem; }
-  .solutions-heading-mark { display: none; }
+@media (max-width: 76rem) {
   .solar-feature { min-height: 0; grid-template-columns: minmax(0, 1fr); }
   .solar-copy { width: min(100%, 55rem); padding: clamp(3.5rem, 7vw, 5.5rem) clamp(2rem, 7vw, 6rem); }
   .solar-title { max-width: 11ch; font-size: clamp(3rem, 6.2vw, 4.65rem); }
   .solar-visual { min-height: clamp(31rem, 60vw, 42rem); margin: 0 clamp(1rem, 3vw, 2rem) clamp(1rem, 3vw, 2rem); border-radius: 1.75rem; }
   .solar-audience { left: clamp(1.5rem, 5vw, 3.5rem); width: min(22rem, 48%); }
+}
+
+@media (max-width: 64rem) {
+  .footer-inner { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2.5rem 2rem; }
+  .solutions-heading-mark { display: none; }
 }
 @media (max-width: 58rem) {
   .capabilities-heading { align-items: start; grid-template-columns: minmax(0, 1fr); gap: .8rem; }
@@ -772,4 +775,71 @@ body:has(.hero) .site-header .header-cta { animation: hero-copy-enter 560ms var(
 
 @media (max-width: 22rem) {
   .capability-art { right: -1.25rem; width: 49%; }
+}
+
+/* Motion-only enhancement. Content remains visible until observation is ready. */
+html.has-scroll-motion .motion-reveal {
+  opacity: 0;
+  transform: translate3d(0, .75rem, 0);
+  transition: opacity 560ms cubic-bezier(.2, .7, .2, 1) var(--motion-reveal-delay, 0ms), transform 560ms cubic-bezier(.2, .7, .2, 1) var(--motion-reveal-delay, 0ms);
+}
+
+html.has-scroll-motion .motion-reveal.motion-revealed,
+html.has-scroll-motion .motion-reveal:focus-within {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+html.has-scroll-motion .capabilities-cards > .capability-tile:nth-child(2),
+html.has-scroll-motion .ev-infrastructure .solution-card:nth-child(2),
+html.has-scroll-motion .solution-paths-grid > .solution-path:nth-child(2) {
+  --motion-reveal-delay: 90ms;
+}
+
+html.has-scroll-motion .capabilities-cards > .capability-tile:nth-child(3),
+html.has-scroll-motion .ev-infrastructure .solution-card:nth-child(3),
+html.has-scroll-motion .solution-paths-grid > .solution-path:nth-child(3) {
+  --motion-reveal-delay: 180ms;
+}
+
+html.has-scroll-motion .solar-process-list > .solar-process-group:nth-child(2),
+html.has-scroll-motion .ev-infrastructure .mobility-line-areas > li:nth-child(2),
+html.has-scroll-motion .ev-lite .ev-lite-pillars > li:nth-child(2) {
+  --motion-reveal-delay: 100ms;
+}
+
+html.has-scroll-motion .solar-process-list > .solar-process-group:nth-child(3),
+html.has-scroll-motion .ev-infrastructure .mobility-line-areas > li:nth-child(3),
+html.has-scroll-motion .ev-lite .ev-lite-pillars > li:nth-child(3) {
+  --motion-reveal-delay: 200ms;
+}
+
+html.has-scroll-motion .hero .hero-eyebrow,
+html.has-scroll-motion .hero .hero-title,
+html.has-scroll-motion .hero .hero-description,
+html.has-scroll-motion .hero .hero-actions {
+  animation: picon-hero-rise 620ms cubic-bezier(.2, .7, .2, 1) both;
+}
+
+html.has-scroll-motion .hero .hero-eyebrow { animation-delay: 80ms; }
+html.has-scroll-motion .hero .hero-title { animation-delay: 160ms; }
+html.has-scroll-motion .hero .hero-description { animation-delay: 280ms; }
+html.has-scroll-motion .hero .hero-actions { animation-delay: 380ms; }
+
+@keyframes picon-hero-rise {
+  from { opacity: 0; transform: translate3d(0, .65rem, 0); }
+  to { opacity: 1; transform: translate3d(0, 0, 0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html.has-scroll-motion .motion-reveal,
+  html.has-scroll-motion .hero .hero-eyebrow,
+  html.has-scroll-motion .hero .hero-title,
+  html.has-scroll-motion .hero .hero-description,
+  html.has-scroll-motion .hero .hero-actions {
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
+    transition: none !important;
+  }
 }

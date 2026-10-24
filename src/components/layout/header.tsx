@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Container } from "@/components/ui/container";
 import { SolutionsDropdown } from "@/components/layout/solutions-dropdown";
+import { MobileMenu } from "@/components/layout/mobile-menu";
 
 export function Header() {
   return (
@@ -48,17 +49,7 @@ export function Header() {
             </ul>
           </nav>
 
-          <details className="mobile-menu">
-            <summary aria-label="Open navigation menu">MENU</summary>
-            <nav aria-label="Mobile navigation">
-              <ul>
-                <li><Link href="/#capabilities">SOLUTIONS</Link></li>
-                <li><Link href="/#ev-lite">EV LITE</Link></li>
-                <li><Link href="/about">ABOUT</Link></li>
-                <li><Link href="/#contact-frame">CONTACT</Link></li>
-              </ul>
-            </nav>
-          </details>
+          <MobileMenu />
 
           <Link className="header-cta" href="/contact?intent=enquiry">
             MAKE AN ENQUIRY <span aria-hidden="true">→</span>
