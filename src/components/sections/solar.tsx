@@ -89,6 +89,9 @@ export function Solar() {
             <Button href="/contact?intent=solar-assessment">
               Get a Solar Assessment
             </Button>
+            <Button href="/solar-calculator" variant="secondary">
+              Calculate Your Solar Needs
+            </Button>
           </div>
           <div className="solar-process-strip">
             <ol className="solar-process-list" aria-label="Solar assessment process">
@@ -110,7 +113,7 @@ export function Solar() {
         <div className="solar-visual">
           <figure className="solar-photo">
             <Image
-              src="/images/solar-rooftop-installation.jpg"
+              src="/images/approved/solar-installation.webp"
               alt="A technician installing solar panels on a rooftop"
               fill
               sizes="(max-width: 64rem) 100vw, 62vw"

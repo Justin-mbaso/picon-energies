@@ -42,10 +42,8 @@ export function SolutionsDropdown() {
         onClick={() => setIsOpen((open) => !open)}
         ref={triggerRef}
       >
-        SOLUTIONS
-        <span className={`solutions-chevron${isOpen ? " is-open" : ""}`} aria-hidden="true">
-          ↓
-        </span>
+        Solutions
+        <span className={`solutions-chevron${isOpen ? " is-open" : ""}`} aria-hidden="true" />
       </button>
       <nav
         className={`solutions-dropdown${isOpen ? " is-open" : ""}`}

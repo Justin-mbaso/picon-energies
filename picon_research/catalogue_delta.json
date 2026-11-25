@@ -1,0 +1,1892 @@
+{
+  "schema_version": "research-handover-v1",
+  "as_of": "2026-11-24",
+  "scope": "Delta evidence only; existing catalogue 16 products / 41 offers / 7 configs not available as records. Merge by reviewed exact identity, never replace wholesale.",
+  "sources": [
+    {
+      "id": "D01",
+      "title": "Deye ESS brochure, 20260202 v1.0",
+      "url": "https://deye.com/wp-content/uploads/2026/06/deye-se-f5se-f5-plusse-f12se-f16sun-3-3.6-5-6k-og01lp1-eu-am2-series_brochure-20260202v1.0-1.pdf",
+      "type": "manufacturer",
+      "accessed_on": "2026-11-24"
+    },
+    {
+      "id": "D02",
+      "title": "Deye SE-F5 manual issue 10, 2026-01-28 (mirror)",
+      "url": "https://device.report/manual/21361925",
+      "type": "manufacturer_manual_mirror",
+      "accessed_on": "2026-11-24"
+    },
+    {
+      "id": "J01",
+      "title": "Jinko F2-US datasheet",
+      "url": "https://jinkosolar.us/wp-content/uploads/2023/08/30mm-EAGLE-72-G6B-JKM565-585N-72HL4-BDV-F2-US.pdf",
+      "type": "manufacturer",
+      "accessed_on": "2026-11-24"
+    },
+    {
+      "id": "J02",
+      "title": "Jinko F9-EN datasheet (mirror)",
+      "url": "https://anhduong24h.com/wp-content/uploads/2025/04/Datasheet-jinko-585w-JKM585N-72HL4-BDV.pdf",
+      "type": "manufacturer_mirror",
+      "accessed_on": "2026-11-24"
+    },
+    {
+      "id": "J03",
+      "title": "Jinko general installation manual 2023",
+      "url": "https://jinkosolarcdn.shwebspace.com/uploads/Installation%20Manual%20Jinko%20%28IEC%29%20updated%20version-2023.02.01.pdf",
+      "type": "manufacturer_manual",
+      "accessed_on": "2026-11-24"
+    },
+    {
+      "id": "I01",
+      "title": "itel 4/6kW Pro datasheet",
+      "url": "https://www.itel-life.com/fileadmin/assets/img/ESS/User_Manual/IPV-4K24U_Pro_IPV-6K48U_Pro_Datasheet.pdf",
+      "type": "manufacturer",
+      "accessed_on": "2026-11-24"
+    },
+    {
+      "id": "I02",
+      "title": "itel IPV-8K48T datasheet (ENF mirror)",
+      "url": "https://cdn.enfsolar.com/z/pp/2026/4/4rs6ctq68enra7/ipv-8k48t-1.pdf",
+      "type": "manufacturer_mirror",
+      "accessed_on": "2026-11-24"
+    },
+    {
+      "id": "I03",
+      "title": "itel IPV-8K48U/12K48U datasheet",
+      "url": "https://www.itel-life.com/fileadmin/assets/img/ESS/User_Manual/IP54_IPV-8K48U_IPV-12K48U_Datasheet.pdf",
+      "type": "manufacturer",
+      "accessed_on": "2026-11-24"
+    },
+    {
+      "id": "I04",
+      "title": "itel IHY-6K6L1C datasheet (Transsion)",
+      "url": "https://transsion-platform01.oss-accelerate.aliyuncs.com/app/packages/IHY-6K6L1C-1.pdf",
+      "type": "manufacturer_document",
+      "accessed_on": "2026-11-24"
+    },
+    {
+      "id": "I05",
+      "title": "itel IHY-8KL3/12KL3 datasheet",
+      "url": "https://www.itel-life.com/fileadmin/assets/img/ESS/User_Manual/IP66_IHY-8KL3_IHY-12KL3_Datasheet.pdf",
+      "type": "manufacturer",
+      "accessed_on": "2026-11-24"
+    },
+    {
+      "id": "I06",
+      "title": "itel IPW-51100 datasheet",
+      "url": "https://www.itel-life.com/fileadmin/assets/img/ESS/User_Manual/5.12kWh_ESS_LV_Battery-IPW-51100.pdf",
+      "type": "manufacturer",
+      "accessed_on": "2026-11-24"
+    },
+    {
+      "id": "I07",
+      "title": "itel IPL-51314H datasheet (mirror)",
+      "url": "https://www.cvcenergy.com/wp-content/uploads/2026/09/ipl-51314h-16kwh-lifepo4-battery-datasheet.pdf",
+      "type": "manufacturer_mirror",
+      "accessed_on": "2026-11-24"
+    },
+    {
+      "id": "I08",
+      "title": "itel battery family manual, charging table",
+      "url": "https://www.itel-life.com/fileadmin/assets/img/ESS/User_Manual/IPW-25100-User_Manual-20250620.pdf",
+      "type": "manufacturer_indexed_excerpt",
+      "accessed_on": "2026-11-24"
+    },
+    {
+      "id": "I09",
+      "title": "itel 25.6V 200Ah listing",
+      "url": "https://itelsolar.com/product/itel-5120wh-lithium-battery-wall-mounted-24v-100ah-5-12kwh-ipl-25200x/",
+      "type": "supplier",
+      "accessed_on": "2026-11-24"
+    },
+    {
+      "id": "I10",
+      "title": "itel IPL-51200X listing",
+      "url": "https://itelsolar.com/product/itel-10240wh-lithium-battery-standing-48v-200ah-10-24kwh-ipl-51200/",
+      "type": "supplier",
+      "accessed_on": "2026-11-24"
+    },
+    {
+      "id": "S01",
+      "title": "SolarVillage Deye inverter",
+      "url": "https://solarvillage.africa/deye/deye-inverter/deye-sun-6kw-single-phase-hybrid-inverter-sun-6k-og01lp1-eu-am222.html",
+      "type": "supplier",
+      "accessed_on": "2026-11-24"
+    },
+    {
+      "id": "S02",
+      "title": "Sygnite prices dated 2026-10-23",
+      "url": "https://sygniteng.com/equipment",
+      "type": "supplier",
+      "accessed_on": "2026-11-24"
+    },
+    {
+      "id": "S03",
+      "title": "CDcare Deye SE-F5-L",
+      "url": "https://www.cdcare.ng/product/8wjlI6A7INcsIrfNu4jJ",
+      "type": "supplier",
+      "accessed_on": "2026-11-24"
+    },
+    {
+      "id": "S04",
+      "title": "Demyl Deye SE-F5-L",
+      "url": "https://demylpower.com/shop/5kwh-lithium-battery-lifepo4-51-2v-100ah",
+      "type": "supplier",
+      "accessed_on": "2026-11-24"
+    },
+    {
+      "id": "S05",
+      "title": "Ephratop Jinko 585W",
+      "url": "https://www.ephratop.com/product/585-watts-jinko-bifacial-n-type-solar-panel72hl4-bdv/",
+      "type": "supplier",
+      "accessed_on": "2026-11-24"
+    },
+    {
+      "id": "S06",
+      "title": "Demyl Jinko 585W",
+      "url": "https://www.demylpower.com/shop/585w-mono-perc-solar-panel",
+      "type": "supplier",
+      "accessed_on": "2026-11-24"
+    },
+    {
+      "id": "S07",
+      "title": "Thrillhouse price list dated 2026-11-06",
+      "url": "https://www.thrillhouse.com.ng/wp-content/uploads/2026/11/SOLAR.EQUIPMENTTOOLSACCESSORIES.6th-November.2026.pdf",
+      "type": "supplier_price_list",
+      "accessed_on": "2026-11-24"
+    },
+    {
+      "id": "S08",
+      "title": "NIKADE itel catalogue, indexed page",
+      "url": "https://itelsolarnigeria.com/products",
+      "type": "supplier_indexed",
+      "accessed_on": "2026-11-24"
+    },
+    {
+      "id": "S09",
+      "title": "SolarVillage itel battery catalogue",
+      "url": "https://solarvillage.africa/itel/itel-lithium-battery.html",
+      "type": "supplier",
+      "accessed_on": "2026-11-24"
+    },
+    {
+      "id": "S10",
+      "title": "Innovate Energy mounting accessories",
+      "url": "https://innovateenergy.com.ng/product-category/solar-accessories/",
+      "type": "supplier",
+      "accessed_on": "2026-11-24"
+    },
+    {
+      "id": "S11",
+      "title": "Ogabassey battery catalogue",
+      "url": "https://ogabassey.com/lithium-batteries",
+      "type": "supplier_indexed",
+      "accessed_on": "2026-11-24"
+    },
+    {
+      "id": "E01",
+      "title": "IEC 62548-1:2023+AMD1:2025 catalogue abstract",
+      "url": "https://webstore.iec.ch/en/publication/110893",
+      "type": "standard_abstract",
+      "accessed_on": "2026-11-24"
+    },
+    {
+      "id": "E02",
+      "title": "NEMSA renewable energy certification guidance",
+      "url": "https://nemsa.gov.ng/wp-content/uploads/2022/02/NEMSA_Guidelines-and-Procedures-for-Renewable-Energy-Certification.pdf",
+      "type": "regulator",
+      "accessed_on": "2026-11-24"
+    },
+    {
+      "id": "E03",
+      "title": "JRC PVGIS 5 performance model",
+      "url": "https://joint-research-centre.ec.europa.eu/photovoltaic-geographical-information-system-pvgis/using-pvgis-5/pvgis-5-tools/grid-connected-pv_en",
+      "type": "public_data_documentation",
+      "accessed_on": "2026-11-24"
+    },
+    {
+      "id": "E04",
+      "title": "Global Solar Atlas FAQ",
+      "url": "https://globalsolaratlas.info/support/faq",
+      "type": "public_data_documentation",
+      "accessed_on": "2026-11-24"
+    },
+    {
+      "id": "E05",
+      "title": "Zeus Nigeria city yield table derived from GSA; secondary",
+      "url": "https://zeus.africa/research/nigeria-solar-resource/",
+      "type": "secondary_data",
+      "accessed_on": "2026-11-24"
+    },
+    {
+      "id": "E06",
+      "title": "PVGIS 6 API documentation",
+      "url": "https://photovoltaic-geographic-information-system.ec.europa.eu/api/v6/docs",
+      "type": "public_data_documentation",
+      "accessed_on": "2026-11-24"
+    }
+  ],
+  "products": [
+    {
+      "research_id": "deye-6k-og",
+      "brand": "Deye",
+      "model": "SUN-6K-OG01LP1-EU-AM2",
+      "kind": "inverter",
+      "source_ids": [
+        "D01"
+      ],
+      "specifications": {
+        "ac_rated_w": 6000,
+        "ac_rated_va": 6000,
+        "phase_count": 1,
+        "battery_voltage_range_v": [
+          40,
+          60
+        ],
+        "pv_input_w": 9600,
+        "pv_voltage_absolute_max_v": 500,
+        "mppt_range_v": [
+          150,
+          425
+        ],
+        "mppt_operating_current_max_a": [
+          18,
+          18
+        ],
+        "mppt_count": 2,
+        "strings_per_mppt_max": [
+          1,
+          1
+        ],
+        "battery_charge_max_a": 135,
+        "battery_discharge_max_a": 135,
+        "surge_value": 12000,
+        "surge_unit": "W",
+        "surge_duration_s": 10,
+        "ip": "IP65",
+        "pv_access_w": 12000,
+        "mppt_full_load_range_v": [
+          300,
+          425
+        ],
+        "mppt_short_circuit_max_a": [
+          27,
+          27
+        ],
+        "start_voltage_v": 125,
+        "ac_output_max_a": 26.1,
+        "derate_above_c": 45,
+        "integrated_spd_ac": "Type II",
+        "integrated_spd_dc": "Type II",
+        "integrated_dc_switch": true
+      },
+      "technical_status": "documented_candidate",
+      "hardware_revision_confirmed": false,
+      "customer_recommendation_eligible": false,
+      "notes": ""
+    },
+    {
+      "research_id": "deye-se-f5",
+      "brand": "Deye",
+      "model": "SE-F5",
+      "kind": "battery",
+      "source_ids": [
+        "D01",
+        "D02"
+      ],
+      "specifications": {
+        "chemistry": "LFP",
+        "nominal_v": 51.2,
+        "ah": 100,
+        "nominal_kwh": 5.12,
+        "operating_v": [
+          44.8,
+          57.6
+        ],
+        "recommended_dod": 0.8,
+        "recommended_charge_a": 50,
+        "recommended_discharge_a": 50,
+        "continuous_charge_a": 100,
+        "continuous_discharge_a": 120,
+        "peak_charge_a": 120,
+        "peak_discharge_a": 150,
+        "peak_duration_s": 10,
+        "max_parallel": 32,
+        "max_physical_stack": 6,
+        "ip": "IP21",
+        "weight_kg": 41,
+        "communication": [
+          "CAN",
+          "RS485"
+        ]
+      },
+      "technical_status": "documented_candidate",
+      "hardware_revision_confirmed": false,
+      "customer_recommendation_eligible": false,
+      "notes": "SE-F5-L/C/E exact revision and manual mapping pending; supplier figures must not overwrite manufacturer document."
+    },
+    {
+      "research_id": "jinko-585-f2-us",
+      "brand": "Jinko",
+      "model": "JKM585N-72HL4-BDV",
+      "kind": "panel",
+      "source_ids": [
+        "J01",
+        "J03"
+      ],
+      "specifications": {
+        "document_revision": "F2-US",
+        "pmax_w": 585,
+        "vmp_v": 42.74,
+        "imp_a": 13.69,
+        "voc_v": 51.67,
+        "isc_a": 14.43,
+        "voc_temp_coefficient_per_c": -0.0025,
+        "pmax_temp_coefficient_per_c": -0.0029,
+        "isc_temp_coefficient_per_c": 0.00045,
+        "voc_positive_tolerance": null,
+        "vmp_temp_coefficient_per_c": null,
+        "screening_voc_tolerance": 0.03,
+        "screening_isc_tolerance": 0.04,
+        "max_series_fuse_a": 30,
+        "max_module_system_voltage_v": 1500,
+        "bifacial": true,
+        "dimensions_mm": [
+          2278,
+          1134,
+          30
+        ],
+        "weight_kg": 32
+      },
+      "technical_status": "documented_candidate",
+      "hardware_revision_confirmed": false,
+      "customer_recommendation_eligible": false,
+      "notes": "Document revision is not proven hardware revision. F9 BNPI Imp 14.58 A, Isc 15.31 A, Voc 52.73 V. General tolerance is screening only; power tolerance is not voltage tolerance."
+    },
+    {
+      "research_id": "jinko-585-f9-en",
+      "brand": "Jinko",
+      "model": "JKM585N-72HL4-BDV",
+      "kind": "panel",
+      "source_ids": [
+        "J02",
+        "J03"
+      ],
+      "specifications": {
+        "document_revision": "F9-EN",
+        "pmax_w": 585,
+        "vmp_v": 44.02,
+        "imp_a": 13.29,
+        "voc_v": 52.7,
+        "isc_a": 14.01,
+        "voc_temp_coefficient_per_c": -0.0025,
+        "pmax_temp_coefficient_per_c": -0.0029,
+        "isc_temp_coefficient_per_c": 0.00045,
+        "voc_positive_tolerance": null,
+        "vmp_temp_coefficient_per_c": null,
+        "screening_voc_tolerance": 0.03,
+        "screening_isc_tolerance": 0.04,
+        "max_series_fuse_a": 30,
+        "max_module_system_voltage_v": 1500,
+        "bifacial": true,
+        "dimensions_mm": [
+          2278,
+          1134,
+          30
+        ],
+        "weight_kg": 31
+      },
+      "technical_status": "documented_candidate",
+      "hardware_revision_confirmed": false,
+      "customer_recommendation_eligible": false,
+      "notes": "Document revision is not proven hardware revision. F9 BNPI Imp 14.58 A, Isc 15.31 A, Voc 52.73 V. General tolerance is screening only; power tolerance is not voltage tolerance."
+    },
+    {
+      "research_id": "itel-6k-pro",
+      "brand": "itel",
+      "model": "IPV-6K48U Pro",
+      "kind": "inverter",
+      "source_ids": [
+        "I01"
+      ],
+      "specifications": {
+        "ac_rated_w": 6000,
+        "ac_rated_va": 6000,
+        "phase_count": 1,
+        "battery_voltage_range_v": [
+          40,
+          60
+        ],
+        "pv_input_w": 8000,
+        "pv_voltage_absolute_max_v": 500,
+        "mppt_range_v": [
+          85,
+          450
+        ],
+        "mppt_operating_current_max_a": [
+          27
+        ],
+        "mppt_count": 1,
+        "strings_per_mppt_max": null,
+        "battery_charge_max_a": 120,
+        "battery_discharge_max_a": 130,
+        "surge_value": 12000,
+        "surge_unit": "W",
+        "surge_duration_s": 5,
+        "ip": "IP54",
+        "start_voltage_v": 80,
+        "derate_above_c": 45,
+        "mppt_short_circuit_max_a": null
+      },
+      "technical_status": "documented_candidate",
+      "hardware_revision_confirmed": false,
+      "customer_recommendation_eligible": false,
+      "notes": ""
+    },
+    {
+      "research_id": "itel-8kt",
+      "brand": "itel",
+      "model": "IPV-8K48T",
+      "kind": "inverter",
+      "source_ids": [
+        "I02"
+      ],
+      "specifications": {
+        "ac_rated_w": 8000,
+        "ac_rated_va": 8000,
+        "phase_count": 1,
+        "battery_voltage_range_v": [
+          40,
+          60
+        ],
+        "pv_input_w": 16000,
+        "pv_voltage_absolute_max_v": 535,
+        "mppt_range_v": [
+          75,
+          500
+        ],
+        "mppt_operating_current_max_a": [
+          30,
+          20
+        ],
+        "mppt_count": 2,
+        "strings_per_mppt_max": [
+          2,
+          1
+        ],
+        "battery_charge_max_a": 160,
+        "battery_discharge_max_a": 180,
+        "surge_value": 16000,
+        "surge_unit": "VA",
+        "surge_duration_s": 5,
+        "ip": "IP54",
+        "start_voltage_v": 85,
+        "mains_charge_max_a": 140,
+        "mppt_short_circuit_max_a": null,
+        "derate_above_c": 45
+      },
+      "technical_status": "documented_candidate",
+      "hardware_revision_confirmed": false,
+      "customer_recommendation_eligible": false,
+      "notes": ""
+    },
+    {
+      "research_id": "itel-12ku",
+      "brand": "itel",
+      "model": "IPV-12K48U",
+      "kind": "inverter",
+      "source_ids": [
+        "I03"
+      ],
+      "specifications": {
+        "ac_rated_w": 12000,
+        "ac_rated_va": 12000,
+        "phase_count": 1,
+        "battery_voltage_range_v": [
+          40,
+          60
+        ],
+        "pv_input_w": 16000,
+        "pv_voltage_absolute_max_v": 500,
+        "mppt_range_v": [
+          85,
+          450
+        ],
+        "mppt_operating_current_max_a": [
+          27,
+          27
+        ],
+        "mppt_count": 2,
+        "strings_per_mppt_max": null,
+        "battery_charge_max_a": 210,
+        "battery_discharge_max_a": 250,
+        "surge_value": 24000,
+        "surge_unit": "W",
+        "surge_duration_s": 5,
+        "ip": "IP54",
+        "start_voltage_v": 75,
+        "mppt_short_circuit_max_a": null,
+        "derate_above_c": 45
+      },
+      "technical_status": "documented_candidate",
+      "hardware_revision_confirmed": false,
+      "customer_recommendation_eligible": false,
+      "notes": ""
+    },
+    {
+      "research_id": "itel-6k6",
+      "brand": "itel",
+      "model": "IHY-6K6L1C",
+      "kind": "inverter",
+      "source_ids": [
+        "I04"
+      ],
+      "specifications": {
+        "ac_rated_w": 6600,
+        "ac_rated_va": 6600,
+        "phase_count": 1,
+        "battery_voltage_range_v": [
+          40,
+          60
+        ],
+        "pv_input_w": 13200,
+        "pv_voltage_absolute_max_v": 500,
+        "mppt_range_v": [
+          60,
+          425
+        ],
+        "mppt_operating_current_max_a": [
+          20,
+          20
+        ],
+        "mppt_count": 2,
+        "strings_per_mppt_max": [
+          1,
+          1
+        ],
+        "battery_charge_max_a": 140,
+        "battery_discharge_max_a": 140,
+        "surge_value": 13200,
+        "surge_unit": "VA",
+        "surge_duration_s": 5,
+        "ip": "IP66",
+        "start_voltage_v": 60,
+        "mppt_short_circuit_max_a": null,
+        "derate_above_c": 45
+      },
+      "technical_status": "documented_candidate",
+      "hardware_revision_confirmed": false,
+      "customer_recommendation_eligible": false,
+      "notes": ""
+    },
+    {
+      "research_id": "itel-8kl3",
+      "brand": "itel",
+      "model": "IHY-8KL3",
+      "kind": "inverter",
+      "source_ids": [
+        "I05"
+      ],
+      "specifications": {
+        "ac_rated_w": 8000,
+        "ac_rated_va": 8800,
+        "phase_count": 3,
+        "battery_voltage_range_v": [
+          40,
+          60
+        ],
+        "pv_input_w": 16000,
+        "pv_voltage_absolute_max_v": 1000,
+        "mppt_range_v": [
+          200,
+          800
+        ],
+        "mppt_operating_current_max_a": [
+          18,
+          18
+        ],
+        "mppt_count": 2,
+        "strings_per_mppt_max": null,
+        "battery_charge_max_a": 190,
+        "battery_discharge_max_a": 190,
+        "surge_value": 16000,
+        "surge_unit": "VA",
+        "surge_duration_s": 15,
+        "ip": "IP66",
+        "start_voltage_v": 150,
+        "mppt_short_circuit_max_a": null,
+        "derate_above_c": 45,
+        "ac_output_max_a": 13.3
+      },
+      "technical_status": "documented_candidate",
+      "hardware_revision_confirmed": false,
+      "customer_recommendation_eligible": false,
+      "notes": ""
+    },
+    {
+      "research_id": "itel-12kl3",
+      "brand": "itel",
+      "model": "IHY-12KL3",
+      "kind": "inverter",
+      "source_ids": [
+        "I05"
+      ],
+      "specifications": {
+        "ac_rated_w": 12000,
+        "ac_rated_va": 13200,
+        "phase_count": 3,
+        "battery_voltage_range_v": [
+          40,
+          60
+        ],
+        "pv_input_w": 24000,
+        "pv_voltage_absolute_max_v": 1000,
+        "mppt_range_v": [
+          200,
+          800
+        ],
+        "mppt_operating_current_max_a": [
+          36,
+          18
+        ],
+        "mppt_count": 2,
+        "strings_per_mppt_max": null,
+        "battery_charge_max_a": 250,
+        "battery_discharge_max_a": 250,
+        "surge_value": 24000,
+        "surge_unit": "VA",
+        "surge_duration_s": 15,
+        "ip": "IP66",
+        "start_voltage_v": 150,
+        "mppt_short_circuit_max_a": null,
+        "derate_above_c": 45,
+        "ac_output_max_a": 20
+      },
+      "technical_status": "documented_candidate",
+      "hardware_revision_confirmed": false,
+      "customer_recommendation_eligible": false,
+      "notes": ""
+    },
+    {
+      "research_id": "itel-ipw51100",
+      "brand": "itel",
+      "model": "IPW-51100",
+      "kind": "battery",
+      "source_ids": [
+        "I06",
+        "I08"
+      ],
+      "specifications": {
+        "chemistry": "LFP",
+        "nominal_v": 51.2,
+        "ah": 100,
+        "nominal_kwh": 5.12,
+        "operating_v": [
+          40,
+          57.6
+        ],
+        "recommended_charge_a": 50,
+        "recommended_discharge_a": 50,
+        "continuous_charge_a": 100,
+        "continuous_discharge_a": 100,
+        "peak_discharge_a": 150,
+        "peak_duration_s": null,
+        "recommended_dod": null,
+        "communication": [
+          "RS485",
+          "RS232",
+          "CAN"
+        ],
+        "ip": "IP21",
+        "weight_kg": 45
+      },
+      "technical_status": "documented_candidate",
+      "hardware_revision_confirmed": false,
+      "customer_recommendation_eligible": false,
+      "notes": "Manual family settings show 47V low cutoff; hardware cutoff 40V is not recommended operating cutoff. Pairing/protocol not approved."
+    },
+    {
+      "research_id": "itel-ipl51314h",
+      "brand": "itel",
+      "model": "IPL-51314H",
+      "kind": "battery",
+      "source_ids": [
+        "I07"
+      ],
+      "specifications": {
+        "chemistry": "LFP",
+        "nominal_v": 51.2,
+        "ah": 314,
+        "nominal_kwh": 16,
+        "operating_v": [
+          43.2,
+          57.6
+        ],
+        "recommended_dod": 0.9,
+        "continuous_charge_a": 157,
+        "continuous_discharge_a": 157,
+        "peak_charge_a": 175,
+        "peak_charge_duration_s": 1,
+        "peak_discharge_a": 175,
+        "peak_discharge_duration_s": 3,
+        "max_parallel": 32,
+        "communication": [
+          "CAN",
+          "RS485"
+        ],
+        "ip": "IP20",
+        "weight_kg": 120
+      },
+      "technical_status": "documented_candidate",
+      "hardware_revision_confirmed": false,
+      "customer_recommendation_eligible": false,
+      "notes": "Datasheet headline power conflicts with current table; use current-based screening and require manufacturer clarification. 51.2*314/1000=16.0768 kWh arithmetic; retain published 16 kWh separately."
+    },
+    {
+      "research_id": "itel-ipl25200x",
+      "brand": "itel",
+      "model": "IPL-25200X",
+      "kind": "battery",
+      "source_ids": [
+        "I09",
+        "I08"
+      ],
+      "specifications": {
+        "chemistry": "LFP",
+        "nominal_v": 25.6,
+        "ah": 200,
+        "nominal_kwh": 5.12,
+        "recommended_charge_setting_a_per_unit": 100,
+        "continuous_charge_a": null,
+        "continuous_discharge_a": null,
+        "operating_v": null,
+        "recommended_dod": null,
+        "max_parallel": null
+      },
+      "technical_status": "incomplete_candidate",
+      "hardware_revision_confirmed": false,
+      "customer_recommendation_eligible": false,
+      "notes": "Voltage and capacity from supplier and family charging table, exact model datasheet and hardware revision needed. No automatic pairing."
+    },
+    {
+      "research_id": "itel-ipl51200x",
+      "brand": "itel",
+      "model": "IPL-51200X",
+      "kind": "battery",
+      "source_ids": [
+        "I10",
+        "I08"
+      ],
+      "specifications": {
+        "chemistry": "LFP",
+        "nominal_v": 51.2,
+        "ah": 200,
+        "nominal_kwh": 10.24,
+        "recommended_charge_setting_a_per_unit": 100,
+        "continuous_charge_a": null,
+        "continuous_discharge_a": null,
+        "operating_v": null,
+        "recommended_dod": null,
+        "max_parallel": null
+      },
+      "technical_status": "incomplete_candidate",
+      "hardware_revision_confirmed": false,
+      "customer_recommendation_eligible": false,
+      "notes": "Voltage and capacity from supplier and family charging table, exact model datasheet and hardware revision needed. No automatic pairing."
+    }
+  ],
+  "offers": [
+    {
+      "research_offer_id": "o01",
+      "research_product_id": "deye-6k-og",
+      "supplier": "SolarVillage",
+      "supplier_sku": "SUN-6K-OG01LP1-EU-AM2",
+      "price_ngn": 516500,
+      "unit": "each",
+      "source_id": "S01",
+      "observed_on": "2026-11-24",
+      "source_price_date": null,
+      "listed_stock": "in_stock",
+      "confirmed_stock_qty": null,
+      "condition": null,
+      "warranty": null,
+      "vat_included": null,
+      "delivery_ngn": null,
+      "valid_until": null,
+      "match_status": "exact_model_label",
+      "offer_kind": "public_listing_not_quote",
+      "procurement_eligible": false,
+      "notes": ""
+    },
+    {
+      "research_offer_id": "o02",
+      "research_product_id": "deye-6k-og",
+      "supplier": "Sygnite",
+      "supplier_sku": null,
+      "price_ngn": 600000,
+      "unit": "each",
+      "source_id": "S02",
+      "observed_on": "2026-11-24",
+      "source_price_date": "2026-10-23",
+      "listed_stock": null,
+      "confirmed_stock_qty": null,
+      "condition": null,
+      "warranty": null,
+      "vat_included": null,
+      "delivery_ngn": null,
+      "valid_until": null,
+      "match_status": "exact_model_label",
+      "offer_kind": "public_listing_not_quote",
+      "procurement_eligible": false,
+      "notes": ""
+    },
+    {
+      "research_offer_id": "o03",
+      "research_product_id": "deye-se-f5",
+      "supplier": "CDcare",
+      "supplier_sku": "DEYEBATSE-F5-L 48V",
+      "price_ngn": 998850.58,
+      "unit": "each",
+      "source_id": "S03",
+      "observed_on": "2026-11-24",
+      "source_price_date": null,
+      "listed_stock": null,
+      "confirmed_stock_qty": null,
+      "condition": null,
+      "warranty": null,
+      "vat_included": null,
+      "delivery_ngn": null,
+      "valid_until": null,
+      "match_status": "variant_unresolved",
+      "offer_kind": "public_listing_not_quote",
+      "procurement_eligible": false,
+      "notes": "Full product price; delivery extra."
+    },
+    {
+      "research_offer_id": "o04",
+      "research_product_id": "deye-se-f5",
+      "supplier": "Demyl Power",
+      "supplier_sku": "DP-SE-F5-L",
+      "price_ngn": 995000,
+      "unit": "each",
+      "source_id": "S04",
+      "observed_on": "2026-11-24",
+      "source_price_date": null,
+      "listed_stock": "in_stock",
+      "confirmed_stock_qty": null,
+      "condition": null,
+      "warranty": "5 years advertised",
+      "vat_included": null,
+      "delivery_ngn": null,
+      "valid_until": null,
+      "match_status": "variant_unresolved",
+      "offer_kind": "public_listing_not_quote",
+      "procurement_eligible": false,
+      "notes": ""
+    },
+    {
+      "research_offer_id": "o05",
+      "research_product_id": "deye-se-f5",
+      "supplier": "Thrillhouse",
+      "supplier_sku": null,
+      "price_ngn": 950000,
+      "unit": "each",
+      "source_id": "S07",
+      "observed_on": "2026-11-24",
+      "source_price_date": "2026-11-06",
+      "listed_stock": null,
+      "confirmed_stock_qty": null,
+      "condition": null,
+      "warranty": "5 years advertised",
+      "vat_included": null,
+      "delivery_ngn": null,
+      "valid_until": null,
+      "match_status": "variant_unresolved",
+      "offer_kind": "public_listing_not_quote",
+      "procurement_eligible": false,
+      "notes": "Supplier continuous current/DoD conflicts with D01; no confirmed quantity."
+    },
+    {
+      "research_offer_id": "o06",
+      "research_product_id": null,
+      "supplier": "Ephratop",
+      "supplier_sku": "72HL4-BDV",
+      "price_ngn": 137000,
+      "unit": "each",
+      "source_id": "S05",
+      "observed_on": "2026-11-24",
+      "source_price_date": null,
+      "listed_stock": null,
+      "confirmed_stock_qty": null,
+      "condition": null,
+      "warranty": "12-year product / 25-year linear advertised",
+      "vat_included": null,
+      "delivery_ngn": null,
+      "valid_until": null,
+      "match_status": "panel_revision_unresolved",
+      "offer_kind": "public_listing_not_quote",
+      "procurement_eligible": false,
+      "notes": "585W Jinko; link to exact revision only after confirmation."
+    },
+    {
+      "research_offer_id": "o07",
+      "research_product_id": null,
+      "supplier": "Demyl Power",
+      "supplier_sku": "DP-PNL-585",
+      "price_ngn": 122000,
+      "unit": "each",
+      "source_id": "S06",
+      "observed_on": "2026-11-24",
+      "source_price_date": null,
+      "listed_stock": "in_stock",
+      "confirmed_stock_qty": null,
+      "condition": null,
+      "warranty": null,
+      "vat_included": null,
+      "delivery_ngn": null,
+      "valid_until": null,
+      "match_status": "panel_revision_unresolved",
+      "offer_kind": "public_listing_not_quote",
+      "procurement_eligible": false,
+      "notes": "585W Jinko; manufacturer full code and revision missing."
+    },
+    {
+      "research_offer_id": "o08",
+      "research_product_id": "itel-6k-pro",
+      "supplier": "NIKADE itel Energy",
+      "supplier_sku": null,
+      "price_ngn": 620000,
+      "unit": "each",
+      "source_id": "S08",
+      "observed_on": "2026-11-24",
+      "source_price_date": null,
+      "listed_stock": null,
+      "confirmed_stock_qty": null,
+      "condition": null,
+      "warranty": "3-year replacement advertised",
+      "vat_included": null,
+      "delivery_ngn": null,
+      "valid_until": null,
+      "match_status": "model_label_only",
+      "offer_kind": "public_listing_not_quote",
+      "procurement_eligible": false,
+      "notes": "Indexed catalogue, no stock quantity; supplier specs conflict on some models."
+    },
+    {
+      "research_offer_id": "o09",
+      "research_product_id": "itel-8kt",
+      "supplier": "NIKADE itel Energy",
+      "supplier_sku": null,
+      "price_ngn": 845000,
+      "unit": "each",
+      "source_id": "S08",
+      "observed_on": "2026-11-24",
+      "source_price_date": null,
+      "listed_stock": null,
+      "confirmed_stock_qty": null,
+      "condition": null,
+      "warranty": "3-year replacement advertised",
+      "vat_included": null,
+      "delivery_ngn": null,
+      "valid_until": null,
+      "match_status": "model_label_only",
+      "offer_kind": "public_listing_not_quote",
+      "procurement_eligible": false,
+      "notes": "Indexed catalogue, no stock quantity; supplier specs conflict on some models."
+    },
+    {
+      "research_offer_id": "o10",
+      "research_product_id": "itel-12ku",
+      "supplier": "NIKADE itel Energy",
+      "supplier_sku": null,
+      "price_ngn": 1254000,
+      "unit": "each",
+      "source_id": "S08",
+      "observed_on": "2026-11-24",
+      "source_price_date": null,
+      "listed_stock": null,
+      "confirmed_stock_qty": null,
+      "condition": null,
+      "warranty": "3-year replacement advertised",
+      "vat_included": null,
+      "delivery_ngn": null,
+      "valid_until": null,
+      "match_status": "model_label_only",
+      "offer_kind": "public_listing_not_quote",
+      "procurement_eligible": false,
+      "notes": "Indexed catalogue, no stock quantity; supplier specs conflict on some models."
+    },
+    {
+      "research_offer_id": "o11",
+      "research_product_id": "itel-6k6",
+      "supplier": "NIKADE itel Energy",
+      "supplier_sku": null,
+      "price_ngn": 780000,
+      "unit": "each",
+      "source_id": "S08",
+      "observed_on": "2026-11-24",
+      "source_price_date": null,
+      "listed_stock": null,
+      "confirmed_stock_qty": null,
+      "condition": null,
+      "warranty": "3-year replacement advertised",
+      "vat_included": null,
+      "delivery_ngn": null,
+      "valid_until": null,
+      "match_status": "model_label_only",
+      "offer_kind": "public_listing_not_quote",
+      "procurement_eligible": false,
+      "notes": "Indexed catalogue, no stock quantity; supplier specs conflict on some models."
+    },
+    {
+      "research_offer_id": "o12",
+      "research_product_id": "itel-8kl3",
+      "supplier": "NIKADE itel Energy",
+      "supplier_sku": null,
+      "price_ngn": 1420000,
+      "unit": "each",
+      "source_id": "S08",
+      "observed_on": "2026-11-24",
+      "source_price_date": null,
+      "listed_stock": null,
+      "confirmed_stock_qty": null,
+      "condition": null,
+      "warranty": "3-year replacement advertised",
+      "vat_included": null,
+      "delivery_ngn": null,
+      "valid_until": null,
+      "match_status": "model_label_only",
+      "offer_kind": "public_listing_not_quote",
+      "procurement_eligible": false,
+      "notes": "Indexed catalogue, no stock quantity; supplier specs conflict on some models."
+    },
+    {
+      "research_offer_id": "o13",
+      "research_product_id": "itel-6k-pro",
+      "supplier": "Thrillhouse",
+      "supplier_sku": null,
+      "price_ngn": 540000,
+      "unit": "each",
+      "source_id": "S07",
+      "observed_on": "2026-11-24",
+      "source_price_date": "2026-11-06",
+      "listed_stock": null,
+      "confirmed_stock_qty": null,
+      "condition": null,
+      "warranty": null,
+      "vat_included": null,
+      "delivery_ngn": null,
+      "valid_until": null,
+      "match_status": "model_label_only",
+      "offer_kind": "public_listing_not_quote",
+      "procurement_eligible": false,
+      "notes": "Supplier electrical specs conflict with technical evidence; verify exact revision."
+    },
+    {
+      "research_offer_id": "o14",
+      "research_product_id": "itel-8kt",
+      "supplier": "Thrillhouse",
+      "supplier_sku": null,
+      "price_ngn": 760000,
+      "unit": "each",
+      "source_id": "S07",
+      "observed_on": "2026-11-24",
+      "source_price_date": "2026-11-06",
+      "listed_stock": null,
+      "confirmed_stock_qty": null,
+      "condition": null,
+      "warranty": null,
+      "vat_included": null,
+      "delivery_ngn": null,
+      "valid_until": null,
+      "match_status": "model_label_only",
+      "offer_kind": "public_listing_not_quote",
+      "procurement_eligible": false,
+      "notes": "Supplier electrical specs conflict with technical evidence; verify exact revision."
+    },
+    {
+      "research_offer_id": "o15",
+      "research_product_id": "itel-ipl25200x",
+      "supplier": "Thrillhouse",
+      "supplier_sku": null,
+      "price_ngn": 995000,
+      "unit": "each",
+      "source_id": "S07",
+      "observed_on": "2026-11-24",
+      "source_price_date": "2026-11-06",
+      "listed_stock": null,
+      "confirmed_stock_qty": null,
+      "condition": null,
+      "warranty": null,
+      "vat_included": null,
+      "delivery_ngn": null,
+      "valid_until": null,
+      "match_status": "model_label_only",
+      "offer_kind": "public_listing_not_quote",
+      "procurement_eligible": false,
+      "notes": "Supplier electrical specs conflict with technical evidence; verify exact revision."
+    },
+    {
+      "research_offer_id": "o16",
+      "research_product_id": "itel-ipw51100",
+      "supplier": "SolarVillage",
+      "supplier_sku": null,
+      "price_ngn": 989000,
+      "unit": "each",
+      "source_id": "S09",
+      "observed_on": "2026-11-24",
+      "source_price_date": null,
+      "listed_stock": null,
+      "confirmed_stock_qty": null,
+      "condition": null,
+      "warranty": null,
+      "vat_included": null,
+      "delivery_ngn": null,
+      "valid_until": null,
+      "match_status": "model_label_only",
+      "offer_kind": "public_listing_not_quote",
+      "procurement_eligible": false,
+      "notes": "Category listing; exact physical revision, quantity and price validity pending."
+    },
+    {
+      "research_offer_id": "o17",
+      "research_product_id": "itel-ipl51200x",
+      "supplier": "SolarVillage",
+      "supplier_sku": null,
+      "price_ngn": 1852300,
+      "unit": "each",
+      "source_id": "S09",
+      "observed_on": "2026-11-24",
+      "source_price_date": null,
+      "listed_stock": null,
+      "confirmed_stock_qty": null,
+      "condition": null,
+      "warranty": null,
+      "vat_included": null,
+      "delivery_ngn": null,
+      "valid_until": null,
+      "match_status": "model_label_only",
+      "offer_kind": "public_listing_not_quote",
+      "procurement_eligible": false,
+      "notes": "Category listing; exact physical revision, quantity and price validity pending."
+    },
+    {
+      "research_offer_id": "o18",
+      "research_product_id": "itel-ipl51314h",
+      "supplier": "SolarVillage",
+      "supplier_sku": null,
+      "price_ngn": 2247920,
+      "unit": "each",
+      "source_id": "S09",
+      "observed_on": "2026-11-24",
+      "source_price_date": null,
+      "listed_stock": null,
+      "confirmed_stock_qty": null,
+      "condition": null,
+      "warranty": null,
+      "vat_included": null,
+      "delivery_ngn": null,
+      "valid_until": null,
+      "match_status": "model_label_only",
+      "offer_kind": "public_listing_not_quote",
+      "procurement_eligible": false,
+      "notes": "Category listing; exact physical revision, quantity and price validity pending."
+    },
+    {
+      "research_offer_id": "o19",
+      "research_product_id": "itel-ipl51314h",
+      "supplier": "Ogabassey",
+      "supplier_sku": null,
+      "price_ngn": 2541000,
+      "unit": "each",
+      "source_id": "S11",
+      "observed_on": "2026-11-24",
+      "source_price_date": null,
+      "listed_stock": null,
+      "confirmed_stock_qty": null,
+      "condition": null,
+      "warranty": null,
+      "vat_included": null,
+      "delivery_ngn": null,
+      "valid_until": null,
+      "match_status": "model_label_only",
+      "offer_kind": "public_listing_not_quote",
+      "procurement_eligible": false,
+      "notes": "Indexed category listing; no stock quantity."
+    },
+    {
+      "research_offer_id": "o20",
+      "research_product_id": "itel-ipl25200x",
+      "supplier": "Ogabassey",
+      "supplier_sku": null,
+      "price_ngn": 1037300,
+      "unit": "each",
+      "source_id": "S11",
+      "observed_on": "2026-11-24",
+      "source_price_date": null,
+      "listed_stock": null,
+      "confirmed_stock_qty": null,
+      "condition": null,
+      "warranty": null,
+      "vat_included": null,
+      "delivery_ngn": null,
+      "valid_until": null,
+      "match_status": "model_label_only",
+      "offer_kind": "public_listing_not_quote",
+      "procurement_eligible": false,
+      "notes": "Indexed category listing; no stock quantity."
+    }
+  ],
+  "accessory_price_leads": [
+    {
+      "id": "a01",
+      "category": "DC MCCB",
+      "listed_spec": "Moreday 125A/600V",
+      "price_ngn": 23000,
+      "unit": "each",
+      "supplier": "Thrillhouse",
+      "source_id": "S07",
+      "observed_on": "2026-11-24",
+      "source_price_date": "2026-11-06",
+      "required_qty": null,
+      "stock_qty": null,
+      "procurement_eligible": false,
+      "notes": "Candidate pricing only; verify exact rating, certification, installation suitability, quote and quantity. No automatic BOM selection."
+    },
+    {
+      "id": "a02",
+      "category": "DC MCCB",
+      "listed_spec": "Moreday 250A/600V",
+      "price_ngn": 32000,
+      "unit": "each",
+      "supplier": "Thrillhouse",
+      "source_id": "S07",
+      "observed_on": "2026-11-24",
+      "source_price_date": "2026-11-06",
+      "required_qty": null,
+      "stock_qty": null,
+      "procurement_eligible": false,
+      "notes": "Candidate pricing only; verify exact rating, certification, installation suitability, quote and quantity. No automatic BOM selection."
+    },
+    {
+      "id": "a03",
+      "category": "AC MCB",
+      "listed_spec": "Moreday 2P 220V 32A",
+      "price_ngn": 3500,
+      "unit": "each",
+      "supplier": "Thrillhouse",
+      "source_id": "S07",
+      "observed_on": "2026-11-24",
+      "source_price_date": "2026-11-06",
+      "required_qty": null,
+      "stock_qty": null,
+      "procurement_eligible": false,
+      "notes": "Candidate pricing only; verify exact rating, certification, installation suitability, quote and quantity. No automatic BOM selection."
+    },
+    {
+      "id": "a04",
+      "category": "AC MCB",
+      "listed_spec": "Moreday 2P 220V 63A",
+      "price_ngn": 4500,
+      "unit": "each",
+      "supplier": "Thrillhouse",
+      "source_id": "S07",
+      "observed_on": "2026-11-24",
+      "source_price_date": "2026-11-06",
+      "required_qty": null,
+      "stock_qty": null,
+      "procurement_eligible": false,
+      "notes": "Candidate pricing only; verify exact rating, certification, installation suitability, quote and quantity. No automatic BOM selection."
+    },
+    {
+      "id": "a05",
+      "category": "DC fuse holder",
+      "listed_spec": "Moreday 30A limit/1000V",
+      "price_ngn": 3500,
+      "unit": "each",
+      "supplier": "Thrillhouse",
+      "source_id": "S07",
+      "observed_on": "2026-11-24",
+      "source_price_date": "2026-11-06",
+      "required_qty": null,
+      "stock_qty": null,
+      "procurement_eligible": false,
+      "notes": "Candidate pricing only; verify exact rating, certification, installation suitability, quote and quantity. No automatic BOM selection."
+    },
+    {
+      "id": "a06",
+      "category": "DC fuse link",
+      "listed_spec": "Moreday 15A",
+      "price_ngn": 1500,
+      "unit": "each",
+      "supplier": "Thrillhouse",
+      "source_id": "S07",
+      "observed_on": "2026-11-24",
+      "source_price_date": "2026-11-06",
+      "required_qty": null,
+      "stock_qty": null,
+      "procurement_eligible": false,
+      "notes": "Candidate pricing only; verify exact rating, certification, installation suitability, quote and quantity. No automatic BOM selection."
+    },
+    {
+      "id": "a07",
+      "category": "DC fuse link",
+      "listed_spec": "Moreday 30A",
+      "price_ngn": 1500,
+      "unit": "each",
+      "supplier": "Thrillhouse",
+      "source_id": "S07",
+      "observed_on": "2026-11-24",
+      "source_price_date": "2026-11-06",
+      "required_qty": null,
+      "stock_qty": null,
+      "procurement_eligible": false,
+      "notes": "Candidate pricing only; verify exact rating, certification, installation suitability, quote and quantity. No automatic BOM selection."
+    },
+    {
+      "id": "a08",
+      "category": "DC SPD",
+      "listed_spec": "Moreday 2P/600V",
+      "price_ngn": 12500,
+      "unit": "each",
+      "supplier": "Thrillhouse",
+      "source_id": "S07",
+      "observed_on": "2026-11-24",
+      "source_price_date": "2026-11-06",
+      "required_qty": null,
+      "stock_qty": null,
+      "procurement_eligible": false,
+      "notes": "Candidate pricing only; verify exact rating, certification, installation suitability, quote and quantity. No automatic BOM selection."
+    },
+    {
+      "id": "a09",
+      "category": "DC SPD",
+      "listed_spec": "Moreday 2P/1000V",
+      "price_ngn": 13500,
+      "unit": "each",
+      "supplier": "Thrillhouse",
+      "source_id": "S07",
+      "observed_on": "2026-11-24",
+      "source_price_date": "2026-11-06",
+      "required_qty": null,
+      "stock_qty": null,
+      "procurement_eligible": false,
+      "notes": "Candidate pricing only; verify exact rating, certification, installation suitability, quote and quantity. No automatic BOM selection."
+    },
+    {
+      "id": "a10",
+      "category": "AC SPD",
+      "listed_spec": "Moreday 2P 20–40kA/275V",
+      "price_ngn": 8500,
+      "unit": "each",
+      "supplier": "Thrillhouse",
+      "source_id": "S07",
+      "observed_on": "2026-11-24",
+      "source_price_date": "2026-11-06",
+      "required_qty": null,
+      "stock_qty": null,
+      "procurement_eligible": false,
+      "notes": "Candidate pricing only; verify exact rating, certification, installation suitability, quote and quantity. No automatic BOM selection."
+    },
+    {
+      "id": "a11",
+      "category": "Transfer switch",
+      "listed_spec": "Moreday 2P 63A 400V manual",
+      "price_ngn": 8500,
+      "unit": "each",
+      "supplier": "Thrillhouse",
+      "source_id": "S07",
+      "observed_on": "2026-11-24",
+      "source_price_date": "2026-11-06",
+      "required_qty": null,
+      "stock_qty": null,
+      "procurement_eligible": false,
+      "notes": "Candidate pricing only; verify exact rating, certification, installation suitability, quote and quantity. No automatic BOM selection."
+    },
+    {
+      "id": "a12",
+      "category": "Distribution enclosure",
+      "listed_spec": "Moreday DB 8 ways",
+      "price_ngn": 8000,
+      "unit": "each",
+      "supplier": "Thrillhouse",
+      "source_id": "S07",
+      "observed_on": "2026-11-24",
+      "source_price_date": "2026-11-06",
+      "required_qty": null,
+      "stock_qty": null,
+      "procurement_eligible": false,
+      "notes": "Candidate pricing only; verify exact rating, certification, installation suitability, quote and quantity. No automatic BOM selection."
+    },
+    {
+      "id": "a13",
+      "category": "PV connector",
+      "listed_spec": "Moreday MC4 1000V/30A 4–6mm²",
+      "price_ngn": 800,
+      "unit": "listing unit unknown",
+      "supplier": "Thrillhouse",
+      "source_id": "S07",
+      "observed_on": "2026-11-24",
+      "source_price_date": "2026-11-06",
+      "required_qty": null,
+      "stock_qty": null,
+      "procurement_eligible": false,
+      "notes": "Candidate pricing only; verify exact rating, certification, installation suitability, quote and quantity. No automatic BOM selection."
+    },
+    {
+      "id": "a14",
+      "category": "PV cable",
+      "listed_spec": "4mm² double core tinned copper",
+      "price_ngn": 2900,
+      "unit": "listing unit unknown",
+      "supplier": "Thrillhouse",
+      "source_id": "S07",
+      "observed_on": "2026-11-24",
+      "source_price_date": "2026-11-06",
+      "required_qty": null,
+      "stock_qty": null,
+      "procurement_eligible": false,
+      "notes": "Candidate pricing only; verify exact rating, certification, installation suitability, quote and quantity. No automatic BOM selection."
+    },
+    {
+      "id": "a15",
+      "category": "PV cable",
+      "listed_spec": "6mm² double core tinned copper",
+      "price_ngn": 4200,
+      "unit": "listing unit unknown",
+      "supplier": "Thrillhouse",
+      "source_id": "S07",
+      "observed_on": "2026-11-24",
+      "source_price_date": "2026-11-06",
+      "required_qty": null,
+      "stock_qty": null,
+      "procurement_eligible": false,
+      "notes": "Candidate pricing only; verify exact rating, certification, installation suitability, quote and quantity. No automatic BOM selection."
+    },
+    {
+      "id": "a16",
+      "category": "PV cable",
+      "listed_spec": "10mm² double core",
+      "price_ngn": 6500,
+      "unit": "listing unit unknown",
+      "supplier": "Thrillhouse",
+      "source_id": "S07",
+      "observed_on": "2026-11-24",
+      "source_price_date": "2026-11-06",
+      "required_qty": null,
+      "stock_qty": null,
+      "procurement_eligible": false,
+      "notes": "Candidate pricing only; verify exact rating, certification, installation suitability, quote and quantity. No automatic BOM selection."
+    },
+    {
+      "id": "a17",
+      "category": "Battery cable",
+      "listed_spec": "35mm² single core red",
+      "price_ngn": 12000,
+      "unit": "listing unit unknown",
+      "supplier": "Thrillhouse",
+      "source_id": "S07",
+      "observed_on": "2026-11-24",
+      "source_price_date": "2026-11-06",
+      "required_qty": null,
+      "stock_qty": null,
+      "procurement_eligible": false,
+      "notes": "Candidate pricing only; verify exact rating, certification, installation suitability, quote and quantity. No automatic BOM selection."
+    },
+    {
+      "id": "a18",
+      "category": "Battery cable",
+      "listed_spec": "35mm² single core black",
+      "price_ngn": 12000,
+      "unit": "listing unit unknown",
+      "supplier": "Thrillhouse",
+      "source_id": "S07",
+      "observed_on": "2026-11-24",
+      "source_price_date": "2026-11-06",
+      "required_qty": null,
+      "stock_qty": null,
+      "procurement_eligible": false,
+      "notes": "Candidate pricing only; verify exact rating, certification, installation suitability, quote and quantity. No automatic BOM selection."
+    },
+    {
+      "id": "a19",
+      "category": "Battery cable",
+      "listed_spec": "50mm² single core red",
+      "price_ngn": 14000,
+      "unit": "listing unit unknown",
+      "supplier": "Thrillhouse",
+      "source_id": "S07",
+      "observed_on": "2026-11-24",
+      "source_price_date": "2026-11-06",
+      "required_qty": null,
+      "stock_qty": null,
+      "procurement_eligible": false,
+      "notes": "Candidate pricing only; verify exact rating, certification, installation suitability, quote and quantity. No automatic BOM selection."
+    },
+    {
+      "id": "a20",
+      "category": "Battery cable",
+      "listed_spec": "50mm² single core black",
+      "price_ngn": 14000,
+      "unit": "listing unit unknown",
+      "supplier": "Thrillhouse",
+      "source_id": "S07",
+      "observed_on": "2026-11-24",
+      "source_price_date": "2026-11-06",
+      "required_qty": null,
+      "stock_qty": null,
+      "procurement_eligible": false,
+      "notes": "Candidate pricing only; verify exact rating, certification, installation suitability, quote and quantity. No automatic BOM selection."
+    },
+    {
+      "id": "a21",
+      "category": "Battery cable",
+      "listed_spec": "70mm² single core red",
+      "price_ngn": 16000,
+      "unit": "listing unit unknown",
+      "supplier": "Thrillhouse",
+      "source_id": "S07",
+      "observed_on": "2026-11-24",
+      "source_price_date": "2026-11-06",
+      "required_qty": null,
+      "stock_qty": null,
+      "procurement_eligible": false,
+      "notes": "Candidate pricing only; verify exact rating, certification, installation suitability, quote and quantity. No automatic BOM selection."
+    },
+    {
+      "id": "a22",
+      "category": "Battery cable",
+      "listed_spec": "70mm² single core black",
+      "price_ngn": 16000,
+      "unit": "listing unit unknown",
+      "supplier": "Thrillhouse",
+      "source_id": "S07",
+      "observed_on": "2026-11-24",
+      "source_price_date": "2026-11-06",
+      "required_qty": null,
+      "stock_qty": null,
+      "procurement_eligible": false,
+      "notes": "Candidate pricing only; verify exact rating, certification, installation suitability, quote and quantity. No automatic BOM selection."
+    },
+    {
+      "id": "a23",
+      "category": "Mounting rail",
+      "listed_spec": "4.7m",
+      "price_ngn": 24000,
+      "unit": "each",
+      "supplier": "Thrillhouse",
+      "source_id": "S07",
+      "observed_on": "2026-11-24",
+      "source_price_date": "2026-11-06",
+      "required_qty": null,
+      "stock_qty": null,
+      "procurement_eligible": false,
+      "notes": "Candidate pricing only; verify exact rating, certification, installation suitability, quote and quantity. No automatic BOM selection."
+    },
+    {
+      "id": "a24",
+      "category": "End clamp",
+      "listed_spec": "30/35mm",
+      "price_ngn": 1200,
+      "unit": "each",
+      "supplier": "Thrillhouse",
+      "source_id": "S07",
+      "observed_on": "2026-11-24",
+      "source_price_date": "2026-11-06",
+      "required_qty": null,
+      "stock_qty": null,
+      "procurement_eligible": false,
+      "notes": "Candidate pricing only; verify exact rating, certification, installation suitability, quote and quantity. No automatic BOM selection."
+    },
+    {
+      "id": "a25",
+      "category": "Mid clamp",
+      "listed_spec": "30/35mm",
+      "price_ngn": 1200,
+      "unit": "each",
+      "supplier": "Thrillhouse",
+      "source_id": "S07",
+      "observed_on": "2026-11-24",
+      "source_price_date": "2026-11-06",
+      "required_qty": null,
+      "stock_qty": null,
+      "procurement_eligible": false,
+      "notes": "Candidate pricing only; verify exact rating, certification, installation suitability, quote and quantity. No automatic BOM selection."
+    },
+    {
+      "id": "a26",
+      "category": "Grounding lug",
+      "listed_spec": "supplier listed",
+      "price_ngn": 1200,
+      "unit": "each",
+      "supplier": "Thrillhouse",
+      "source_id": "S07",
+      "observed_on": "2026-11-24",
+      "source_price_date": "2026-11-06",
+      "required_qty": null,
+      "stock_qty": null,
+      "procurement_eligible": false,
+      "notes": "Candidate pricing only; verify exact rating, certification, installation suitability, quote and quantity. No automatic BOM selection."
+    },
+    {
+      "id": "a27",
+      "category": "L-foot",
+      "listed_spec": "supplier listed",
+      "price_ngn": 1500,
+      "unit": "each",
+      "supplier": "Thrillhouse",
+      "source_id": "S07",
+      "observed_on": "2026-11-24",
+      "source_price_date": "2026-11-06",
+      "required_qty": null,
+      "stock_qty": null,
+      "procurement_eligible": false,
+      "notes": "Candidate pricing only; verify exact rating, certification, installation suitability, quote and quantity. No automatic BOM selection."
+    },
+    {
+      "id": "a28",
+      "category": "Rail joiner",
+      "listed_spec": "supplier listed",
+      "price_ngn": 1400,
+      "unit": "each",
+      "supplier": "Thrillhouse",
+      "source_id": "S07",
+      "observed_on": "2026-11-24",
+      "source_price_date": "2026-11-06",
+      "required_qty": null,
+      "stock_qty": null,
+      "procurement_eligible": false,
+      "notes": "Candidate pricing only; verify exact rating, certification, installation suitability, quote and quantity. No automatic BOM selection."
+    },
+    {
+      "id": "a29",
+      "category": "Mounting kit",
+      "listed_spec": "6-panel kit mini rails/end/mid clamps",
+      "price_ngn": 72800,
+      "unit": "kit",
+      "supplier": "Thrillhouse",
+      "source_id": "S07",
+      "observed_on": "2026-11-24",
+      "source_price_date": "2026-11-06",
+      "required_qty": null,
+      "stock_qty": null,
+      "procurement_eligible": false,
+      "notes": "Candidate pricing only; verify exact rating, certification, installation suitability, quote and quantity. No automatic BOM selection."
+    },
+    {
+      "id": "a30",
+      "category": "Mounting rail",
+      "listed_spec": "4.2m",
+      "price_ngn": 24000,
+      "unit": "each",
+      "supplier": "Innovate Energy",
+      "source_id": "S10",
+      "observed_on": "2026-11-24",
+      "source_price_date": null,
+      "required_qty": null,
+      "stock_qty": null,
+      "procurement_eligible": false,
+      "notes": "Candidate pricing only."
+    },
+    {
+      "id": "a31",
+      "category": "Mid clamp",
+      "listed_spec": "solar mount",
+      "price_ngn": 950,
+      "unit": "each",
+      "supplier": "Innovate Energy",
+      "source_id": "S10",
+      "observed_on": "2026-11-24",
+      "source_price_date": null,
+      "required_qty": null,
+      "stock_qty": null,
+      "procurement_eligible": false,
+      "notes": "Candidate pricing only."
+    },
+    {
+      "id": "a32",
+      "category": "Splice bar",
+      "listed_spec": "solar mount",
+      "price_ngn": 2000,
+      "unit": "each",
+      "supplier": "Innovate Energy",
+      "source_id": "S10",
+      "observed_on": "2026-11-24",
+      "source_price_date": null,
+      "required_qty": null,
+      "stock_qty": null,
+      "procurement_eligible": false,
+      "notes": "Candidate pricing only."
+    }
+  ],
+  "conflicts": [
+    {
+      "id": "C01",
+      "subject": "Jinko JKM585N-72HL4-BDV",
+      "issue": "F2-US vs F9-EN electrical values differ; neither supplier offer establishes revision",
+      "action": "Keep separate spec records; exact nameplate and datasheet mapping required."
+    },
+    {
+      "id": "C02",
+      "subject": "Deye SE-F5",
+      "issue": "SE-F5-L vs family label; Thrillhouse advertises 50A continuous discharge and 90% DoD vs D01 120A and recommended 80%",
+      "action": "Do not promote offer to exact match; obtain serial/nameplate and applicable manual."
+    },
+    {
+      "id": "C03",
+      "subject": "itel IPV-6K48U Pro",
+      "issue": "NIKADE dual MPPT vs I01 one MPPT; Thrillhouse 100A charge vs I01 120A",
+      "action": "Keep manufacturer figures per revision; do not assume two trackers."
+    },
+    {
+      "id": "C04",
+      "subject": "itel IPV-8K48T",
+      "issue": "Thrillhouse lists 500V/85–450V and 30+15 vs I02 535V/75–500V and 30+20; appears similar to IPV-8K48U",
+      "action": "Keep T/U distinct; confirm revision, short-circuit rating and PV terminals."
+    },
+    {
+      "id": "C05",
+      "subject": "itel IHY-6K6L1C / IHY-8KL3",
+      "issue": "NIKADE describes high-voltage battery; I04/I05 state 48V nominal, 40–60V range",
+      "action": "Never classify 1000V PV input as battery voltage; use document-specific phase and battery specs."
+    },
+    {
+      "id": "C06",
+      "subject": "itel IPL-25200X",
+      "issue": "Thrillhouse 25.6V nominal but 40–57.6V range incompatible; I08 has 28.8V charge and 23.5V cutoff settings",
+      "action": "Do not approve until exact official model specification available."
+    },
+    {
+      "id": "C07",
+      "subject": "itel IPL-51200X",
+      "issue": "SolarVillage lists 10.024kWh vs 51.2V x 200Ah = 10.24kWh",
+      "action": "Verify nameplate, preserve supplier discrepancy."
+    },
+    {
+      "id": "C08",
+      "subject": "itel IPL-51314H",
+      "issue": "I07 headline discharge power exceeds current-table-derived capability; supplier IP21 vs I07 IP20",
+      "action": "Use conservative current-based screen, not headline surge; verify manual and revision."
+    }
+  ],
+  "configuration_screens": [
+    {
+      "id": "deye-9s2-f2-us",
+      "inverter_id": "deye-6k-og",
+      "battery_id": "deye-se-f5",
+      "battery_qty": 8,
+      "panel_id": "jinko-585-f2-us",
+      "panel_qty": 18,
+      "mppt_strings": [
+        {
+          "series": 9,
+          "parallel": 1
+        },
+        {
+          "series": 9,
+          "parallel": 1
+        }
+      ],
+      "pv_stc_kwp": 10.53,
+      "screening_min_module_temp_c": 10,
+      "screening_voc_tolerance": 0.03,
+      "screening_max_voc_v": 496.942684,
+      "battery_nominal_kwh": 40.96,
+      "customer_backup_kwh": 19.68,
+      "audit_usable_ac_kwh": 24.37,
+      "engineering_status": "pending_engineering",
+      "procurement_eligible": false,
+      "customer_recommendation_eligible": false,
+      "notes": "No approved site temperature, hot Vmp, confirmed revision, current uplift, complete BOM, BMS arrangement or supplier quotes. 18-panel cases require PV oversizing review."
+    },
+    {
+      "id": "deye-9s2-f9-en",
+      "inverter_id": "deye-6k-og",
+      "battery_id": "deye-se-f5",
+      "battery_qty": 8,
+      "panel_id": "jinko-585-f9-en",
+      "panel_qty": 18,
+      "mppt_strings": [
+        {
+          "series": 9,
+          "parallel": 1
+        },
+        {
+          "series": 9,
+          "parallel": 1
+        }
+      ],
+      "pv_stc_kwp": 10.53,
+      "screening_min_module_temp_c": 10,
+      "screening_voc_tolerance": 0.03,
+      "screening_max_voc_v": 506.848838,
+      "battery_nominal_kwh": 40.96,
+      "customer_backup_kwh": 19.68,
+      "audit_usable_ac_kwh": 24.37,
+      "engineering_status": "blocked_screen",
+      "procurement_eligible": false,
+      "customer_recommendation_eligible": false,
+      "notes": "No approved site temperature, hot Vmp, confirmed revision, current uplift, complete BOM, BMS arrangement or supplier quotes. 18-panel cases require PV oversizing review."
+    },
+    {
+      "id": "deye-8s2-f2-us",
+      "inverter_id": "deye-6k-og",
+      "battery_id": "deye-se-f5",
+      "battery_qty": 8,
+      "panel_id": "jinko-585-f2-us",
+      "panel_qty": 16,
+      "mppt_strings": [
+        {
+          "series": 8,
+          "parallel": 1
+        },
+        {
+          "series": 8,
+          "parallel": 1
+        }
+      ],
+      "pv_stc_kwp": 9.36,
+      "screening_min_module_temp_c": 10,
+      "screening_voc_tolerance": 0.03,
+      "screening_max_voc_v": 441.72683,
+      "battery_nominal_kwh": 40.96,
+      "customer_backup_kwh": 19.68,
+      "audit_usable_ac_kwh": 24.37,
+      "engineering_status": "pending_engineering",
+      "procurement_eligible": false,
+      "customer_recommendation_eligible": false,
+      "notes": "No approved site temperature, hot Vmp, confirmed revision, current uplift, complete BOM, BMS arrangement or supplier quotes. 18-panel cases require PV oversizing review."
+    },
+    {
+      "id": "deye-8s2-f9-en",
+      "inverter_id": "deye-6k-og",
+      "battery_id": "deye-se-f5",
+      "battery_qty": 8,
+      "panel_id": "jinko-585-f9-en",
+      "panel_qty": 16,
+      "mppt_strings": [
+        {
+          "series": 8,
+          "parallel": 1
+        },
+        {
+          "series": 8,
+          "parallel": 1
+        }
+      ],
+      "pv_stc_kwp": 9.36,
+      "screening_min_module_temp_c": 10,
+      "screening_voc_tolerance": 0.03,
+      "screening_max_voc_v": 450.5323,
+      "battery_nominal_kwh": 40.96,
+      "customer_backup_kwh": 19.68,
+      "audit_usable_ac_kwh": 24.37,
+      "engineering_status": "pending_engineering",
+      "procurement_eligible": false,
+      "customer_recommendation_eligible": false,
+      "notes": "No approved site temperature, hot Vmp, confirmed revision, current uplift, complete BOM, BMS arrangement or supplier quotes. 18-panel cases require PV oversizing review."
+    }
+  ]
+}

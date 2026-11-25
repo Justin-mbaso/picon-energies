@@ -148,7 +148,6 @@ export function EvInfrastructure() {
                   </h3>
                   {"detail" in solution && <p>{solution.detail}</p>}
                 </div>
-                <span className="solution-arrow" aria-hidden="true">→</span>
               </div>
             </article>
           ))}

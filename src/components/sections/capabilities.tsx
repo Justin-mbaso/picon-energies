@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Container } from "@/components/ui/container";
+import { ScrollMotion } from "@/components/ui/scroll-motion";
 
 export function Capabilities() {
   return (
@@ -42,7 +43,7 @@ export function Capabilities() {
 
           <Link className="capability-tile capability-tile-photo" href="/#solar">
             <Image
-              src="/images/solar-rooftop-installation.jpg"
+              src="/images/approved/solar-installation.webp"
               alt=""
               fill
               sizes="(max-width: 42rem) 100vw, (max-width: 58rem) 50vw, 33vw"
@@ -73,6 +74,7 @@ export function Capabilities() {
             </span>
           </Link>
         </div>
+        <ScrollMotion />
       </Container>
     </section>
   );

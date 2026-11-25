@@ -1,0 +1,299 @@
+{
+  "schemaVersion": 1,
+  "version": "2026-11-22.deye-preliminary-01",
+  "configurations": [
+    {
+      "id": "portable-01",
+      "category": "portable",
+      "verification": "review_required",
+      "documentation": [
+        {
+          "url": "https://transsion-platform01.oss-accelerate.aliyuncs.com/app/packages/320ACT_User%20Manual_EN_V1.0-1.pdf",
+          "revision": "320ACT User Manual EN V1.0-1, specification panel on PDF page 1"
+        }
+      ],
+      "reviewNotes": [
+        "Exact usable AC energy / supported runtime is not yet documented. No inferred nominal-to-usable factor is accepted."
+      ],
+      "components": [
+        {
+          "role": "unit",
+          "productId": "itel-iess-320act",
+          "quantity": 1
+        }
+      ],
+      "pv": null,
+      "chargingA": null,
+      "bmsProtocol": null,
+      "solarIncluded": false,
+      "requiredEquipmentComplete": true
+    },
+    {
+      "id": "portable-02",
+      "category": "portable",
+      "verification": "review_required",
+      "documentation": [
+        {
+          "url": "https://transsion-platform01.oss-accelerate.aliyuncs.com/app/packages/IESS-05K10N_User%20Manual_EN_V1.0-1.pdf",
+          "revision": "IESS-05K10N User Manual EN V1.0-1, PDF page 14 / printed page 11"
+        }
+      ],
+      "reviewNotes": [
+        "Exact usable AC energy / supported runtime is not yet documented. No inferred nominal-to-usable factor is accepted."
+      ],
+      "components": [
+        {
+          "role": "unit",
+          "productId": "itel-iess-05k10n",
+          "quantity": 1
+        }
+      ],
+      "pv": null,
+      "chargingA": null,
+      "bmsProtocol": null,
+      "solarIncluded": false,
+      "requiredEquipmentComplete": true
+    },
+    {
+      "id": "portable-03",
+      "category": "portable",
+      "verification": "review_required",
+      "documentation": [
+        {
+          "url": "https://transsion-platform01.oss-accelerate.aliyuncs.com/app/packages/IESS-1K20N_User_Manual.pdf",
+          "revision": "IESS-1K20N User Manual, PDF page 16 / printed page 13"
+        }
+      ],
+      "reviewNotes": [
+        "Exact usable AC energy / supported runtime is not yet documented. No inferred nominal-to-usable factor is accepted."
+      ],
+      "components": [
+        {
+          "role": "unit",
+          "productId": "itel-iess-1k20n",
+          "quantity": 1
+        }
+      ],
+      "pv": null,
+      "chargingA": null,
+      "bmsProtocol": null,
+      "solarIncluded": false,
+      "requiredEquipmentComplete": true
+    },
+    {
+      "id": "compact-01",
+      "category": "compact",
+      "verification": "review_required",
+      "documentation": [
+        {
+          "url": "https://www.itel-life.com/fileadmin/assets/img/ESS/User_Manual/All-in-One_IESS-3K680N_Datasheet.pdf",
+          "revision": "Exact All-in-One IESS-3K680N datasheet; no revision printed, retrieved 2026-11-21"
+        }
+      ],
+      "reviewNotes": [
+        "Exact usable AC energy / supported runtime is not yet documented. No inferred nominal-to-usable factor is accepted."
+      ],
+      "components": [
+        {
+          "role": "unit",
+          "productId": "itel-iess-3k680n",
+          "quantity": 1
+        }
+      ],
+      "pv": null,
+      "chargingA": null,
+      "bmsProtocol": null,
+      "solarIncluded": false,
+      "requiredEquipmentComplete": true
+    },
+    {
+      "id": "full-01",
+      "category": "full",
+      "verification": "review_required",
+      "documentation": [
+        {
+          "url": "https://www.itel-life.com/fileadmin/assets/img/ESS/User_Manual/IPV-4K24U_Pro_IPV-6K48U_Pro_Datasheet.pdf",
+          "revision": "Exact IPV-4K24U Pro / IPV-6K48U Pro datasheet, 2024-10-15 artwork; one MPP tracker. Short-circuit input from exact Pro manual p7."
+        },
+        {
+          "url": "https://transsion-platform01.oss-accelerate.aliyuncs.com/app/packages/IPL-51100%205.12kWh%EF%BC%8BIPW-51100%205.12kWh%20Datasheet%EF%BC%88PK2%EF%BC%89_2.pdf",
+          "revision": "PK2_2 exact IPW-51100 datasheet; page 2"
+        }
+      ],
+      "reviewNotes": [
+        "Draft reviewed-model identities only. Exact battery/inverter firmware pairing, usable AC energy, complete PV electrical validation and major equipment bill remain pending. No exact current battery offer is eligible for pricing."
+      ],
+      "components": [
+        {
+          "role": "inverter",
+          "productId": "itel-ipv-6k48u-pro",
+          "quantity": 1
+        },
+        {
+          "role": "battery",
+          "productId": "itel-ipw-51100-pk2",
+          "quantity": 2
+        },
+        {
+          "role": "panel",
+          "productId": "itel-isp-620w",
+          "quantity": 8
+        }
+      ],
+      "pv": null,
+      "chargingA": null,
+      "bmsProtocol": null,
+      "solarIncluded": true,
+      "requiredEquipmentComplete": false
+    },
+    {
+      "id": "full-02",
+      "category": "full",
+      "verification": "review_required",
+      "documentation": [
+        {
+          "url": "https://transsion-platform01.oss-accelerate.aliyuncs.com/app/packages/IPL-51100%205.12kWh%EF%BC%8BIPW-51100%205.12kWh%20Datasheet%EF%BC%88PK2%EF%BC%89_2.pdf",
+          "revision": "PK2_2 exact IPW-51100 datasheet; page 2"
+        }
+      ],
+      "reviewNotes": [
+        "Draft reviewed-model identities only. Exact battery/inverter firmware pairing, usable AC energy, complete PV electrical validation and major equipment bill remain pending. No exact current battery offer is eligible for pricing."
+      ],
+      "components": [
+        {
+          "role": "inverter",
+          "productId": "itel-ipv-12k48u",
+          "quantity": 1
+        },
+        {
+          "role": "battery",
+          "productId": "itel-ipw-51100-pk2",
+          "quantity": 8
+        },
+        {
+          "role": "panel",
+          "productId": "itel-isp-620w",
+          "quantity": 16
+        }
+      ],
+      "pv": null,
+      "chargingA": null,
+      "bmsProtocol": null,
+      "solarIncluded": true,
+      "requiredEquipmentComplete": false
+    },
+    {
+      "id": "deye-residential-01",
+      "category": "full",
+      "verification": "review_required",
+      "documentation": [
+        {
+          "url": "https://www.deyeinverter.com/deyeinverter/2026/04/06/BManualSUN-36-6K-OG01LP1-EU-AM220260406en-72nS.pdf",
+          "revision": "SUN-(3.6-6)K-OG01LP1-EU-AM2 manual v1.1.0; datasheet, PV limits, protection and wiring sections"
+        },
+        {
+          "url": "https://www.deyeinverter.com/deyeinverter/2025/04/14/%E3%80%90b%E3%80%91deyeoff-gridesssolution20250408v1.0.pdf",
+          "revision": "Deye off-grid ESS solution v1.0; SUN-(3.6/5/6)K-OG01LP1-EU-AM2 with SE-F5 battery pairing"
+        },
+        {
+          "url": "https://au.deyeinverter.com/deyeinverter/2025/05/27/rand/64/deye%20ess%20brochure_global_2025%20v2.6.pdf",
+          "revision": "Deye ESS Brochure Global 2025 v2.6; SE-F5 technical data and DoD guidance"
+        },
+        {
+          "url": "https://www.jinkosolar.com/uploads/JKM570-590N-72HL4-BDV-F9-EN.pdf",
+          "revision": "Tiger Neo N-type 72HL4-BDV 575-600W F9 EN; exact JKM585N-72HL4-BDV column"
+        }
+      ],
+      "reviewNotes": [
+        "Fixed preliminary candidate for the documented 3.28 kW peak / 24.08 kWh daily / 19.68 kWh backup scenario. Picon estimate: 8 × 5.12 kWh = 40.96 kWh nominal; at existing 70% DoD × 85% DC-to-AC planning factors this is 24.37 kWh estimated AC energy. This is an estimate, not manufacturer-stated usable AC energy.",
+    "PV layout screened as 9 modules in series on each of 2 MPPTs: 18 × 585 W = 10.53 kWp nameplate. It is below Deye 12.0 kW PV access limit, while the 9.6 kW conversion input limit may clip power. At 10°C the nominal temperature-adjusted string Voc is approximately 492.1 V; Jinko does not state a Voc production tolerance, so the 500 V maximum cannot be confirmed and this configuration must not be presented as electrically approved.",
+        "Per string: STC Imp 13.29 A < 18 A MPPT input; Isc × Picon 1.25 screening factor = 17.51 A < 27 A MPPT short-circuit limit. Derived hot Vmp uses STC and NOCT Vmp only as a planning estimate; it is not manufacturer-certified. Confirm exact installed panel batch voltage tolerance and site/design temperatures before installation.",
+        "Battery quantity is within Deye parallel limit. Inverter charge setting is capped at 135 A (inverter max); 8 × SE-F5 aggregate charge capability is 400 A. Manufacturer-approved inverter/battery pairing is documented, but complete installation design is not approved.",
+        "Required balance-of-system scope remains unpriced / site-dependent: external battery breaker and disconnect, PV string DC isolation and surge-protected junction/combiner enclosure, two separate 40 A AC breakers, distribution/RCD/branch protection, panel mounting structure, PV and battery cabling/connectors, earthing/bonding and termination hardware. No arbitrary quantities, offers or prices are assumed.",
+        "Exact Nigerian panel supplier offer (model + new condition + current stock) and a complete current priced materials bill are unavailable. Do not show a numerical system price until all required component prices are verified."
+      ],
+      "components": [
+        {
+          "role": "inverter",
+          "productId": "deye-sun-6k-og01lp1-eu-am2",
+          "quantity": 1
+        },
+        {
+          "role": "battery",
+          "productId": "deye-se-f5",
+          "quantity": 8
+        },
+        {
+          "role": "panel",
+          "productId": "jinko-jkm585n-72hl4-bdv",
+          "quantity": 18
+        }
+      ],
+      "pv": {
+        "series": 9,
+        "parallel": 1,
+        "derivedVmpTempCoefficient": -0.003372
+      },
+      "chargingA": 135,
+      "bmsProtocol": "CAN",
+      "solarIncluded": true,
+      "requiredEquipmentComplete": false,
+      "equipmentRequirements": [
+        {
+          "name": "External battery over-current protection and isolator",
+          "quantity": 1,
+          "scope": "site_assessed",
+          "selectionNote": "Deye requires external battery over-current protection/disconnect; final rating and cable coordination are selected by the designer."
+        },
+        {
+          "name": "PV string DC isolation / over-current protection",
+          "quantity": 2,
+          "scope": "fixed",
+          "selectionNote": "One protected string path for each inverter MPPT; exact DC ratings and enclosure must match the final design."
+        },
+        {
+          "name": "PV surge-protection enclosure / junction box",
+          "quantity": 1,
+          "scope": "fixed",
+          "selectionNote": "Confirm coordination with the inverter-integrated Type II SPD and the final site earthing design."
+        },
+        {
+          "name": "AC input and backup-output two-pole breakers",
+          "quantity": 2,
+          "scope": "fixed",
+          "selectionNote": "Deye manual recommends separate 40 A breakers for the 6 kW inverter; final interrupting rating and installation are site checked."
+        },
+        {
+          "name": "AC distribution board with RCD / branch protection",
+          "quantity": 1,
+          "scope": "site_assessed",
+          "selectionNote": "Board ways, residual-current protection, circuit count and ratings depend on the property circuits."
+        },
+        {
+          "name": "PV mounting structure and module clamps",
+          "quantity": 18,
+          "scope": "site_assessed",
+          "selectionNote": "One module position per panel; rail spans, roof type, wind loading and fasteners need the site survey."
+        },
+        {
+          "name": "PV cable, connectors and string terminations",
+          "quantity": 2,
+          "scope": "site_assessed",
+          "selectionNote": "Two PV strings; exact conductor lengths and connector compatibility depend on array/inverter routing."
+        },
+        {
+          "name": "Battery interconnect and inverter DC cable set",
+          "quantity": 1,
+          "scope": "site_assessed",
+          "selectionNote": "Use the Deye manual cable cross-section recommendation; length, lug type and eight-unit parallel distribution need the final layout."
+        },
+        {
+          "name": "Protective earthing and bonding",
+          "quantity": 1,
+          "scope": "site_assessed",
+          "selectionNote": "Earthing electrode, conductor size and bonding are determined from site electrical conditions and local code."
+        }
+      ]
+    }
+  ]
+}

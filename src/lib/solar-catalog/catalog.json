@@ -1,0 +1,2219 @@
+{
+  "schemaVersion": 1,
+  "version": "2026-11-25.dynamic-recommendation-refresh-01",
+  "reviewedAt": "2026-11-21T23:34:32+00:00",
+  "reviewer": "Picon Phase 2D methodology implementation; manufacturer facts and unverified source identities retained separately",
+  "sources": [
+    {
+      "id": "nikade",
+      "name": "NIKADE Telecoms",
+      "url": "https://itelsolarnigeria.com/products",
+      "note": "Primary pricing reference. All 23 live records lack exact model identifiers; none mapped by capacity. No unattended retrieval permission established."
+    },
+    {
+      "id": "visibility",
+      "name": "Visibility Marketing",
+      "url": "https://itelsolar.com/product-category/itel-solar-retail-price/",
+      "note": "Independent secondary reference. WooCommerce prices converted from NGN minor units. Product-specific claims require manufacturer confirmation."
+    },
+    {
+      "id": "cdcare",
+      "name": "CDcare",
+      "url": "https://www.cdcare.ng/",
+      "note": "Additional supplier source. Exact Deye SE-F5 product, new condition, in-stock status and product-only NGN price observed 2026-11-21T23:21:10Z; delivery is priced separately and availability quantity is not published."
+    },
+    {
+      "id": "winboost",
+      "name": "WinBoost Solar",
+      "url": "https://winboost.com.ng/",
+      "note": "Additional supplier source. Exact itel IESS-3K680N model, listed NGN price and 50-unit stock indicator observed 2026-11-21T23:34:32Z. Product condition is not stated, so this offer is retained but excluded from recommendations and pricing."
+    },
+    {
+      "id": "sunset",
+      "name": "Sunset Energy Solutions",
+      "url": "https://sunsetenergysolutionslimited.com/?ss_item=1000w-2kwh-power-tank-iess-1k20n",
+      "note": "Exact IESS-1K20N product, NGN 629,200 price and in-stock status rechecked 2026-11-25T01:21:49Z. Product detail states new condition; delivery and installation are not included in this observation."
+    },
+    {
+      "id": "kinbu",
+      "name": "Kinbu Power Limited",
+      "url": "https://www.kinbupower.com/products/itel-power-tank-1000-iess-1k20n",
+      "note": "Exact IESS-1K20N, new listing and NGN 629,000 price rechecked 2026-11-25T01:21:49Z. Supplier says available to order but confirms order details directly; stock quantity is not published, so this offer is excluded from availability decisions."
+    }
+  ],
+  "products": [
+    {
+      "id": "itel-ipv-6k48u-pro",
+      "model": "IPV-6K48UPRO",
+      "name": "Hybrid inverter",
+      "manufacturer": "itel Energy",
+      "kind": "inverter",
+      "specs": {
+        "continuousW": 6000,
+        "apparentVA": 6000,
+        "powerFactor": null,
+        "surgeVA": null,
+        "surgeSeconds": 5,
+        "batteryV": 48,
+        "batteryMinV": 40,
+        "batteryMaxV": 60,
+        "phase": 1,
+        "efficiency": null,
+        "maxDischargeA": 130,
+        "maxChargeA": 120,
+        "mpptCount": 1,
+        "maxPvW": 8000,
+        "maxPvV": 500,
+        "mpptMinV": 85,
+        "mpptMaxV": 450,
+        "startV": 80,
+        "inputA": [
+          27
+        ],
+        "shortCircuitA": [
+          32
+        ],
+        "chemistry": null,
+        "communication": [
+          "RS485",
+          "RS232"
+        ],
+        "protection": "IP54",
+        "surgeW": 12000
+      },
+      "warranty": null,
+      "issues": [
+        "One MPPT is now verified by exact Pro manufacturer sheet. Battery-mode 93% is a maximum, not a lower-bound planning efficiency. Approved battery model / BMS pairing remains unconfirmed.",
+        "Phase 2D uses Phase 2C exact manufacturer limits; maximum efficiency is not used as a planning guarantee. Exact battery/BMS pairing and full configuration remain unapproved."
+      ],
+      "evidence": [
+        {
+          "url": "https://itelsolar.com/product/itel-6kw-inverter-hybrid-48v-ip54-1phase-ipv-6k48u-2/",
+          "note": "Supplier-specific claims and SKU captured 2026-11-21T10:06:31.105438+00:00; unresolved specifications are null. Public API: https://itelsolar.com/wp-json/wc/store/v1/products/6398"
+        },
+        {
+          "url": "https://www.itel-life.com/fileadmin/assets/img/ESS/User_Manual/IPV-4K24U_Pro_IPV-6K48U_Pro_Datasheet.pdf",
+          "note": "Exact IPV-4K24U Pro / IPV-6K48U Pro datasheet, 2024-10-15 artwork; one MPP tracker. Short-circuit input from exact Pro manual p7.; exact manufacturer document retrieved 2026-11-21T13:40:26.194176+00:00"
+        }
+      ],
+      "technicalEvidence": [
+        {
+          "url": "https://www.itel-life.com/fileadmin/assets/img/ESS/User_Manual/IPV-4K24U_Pro_IPV-6K48U_Pro_Datasheet.pdf",
+          "revision": "Exact IPV-4K24U Pro / IPV-6K48U Pro datasheet, 2024-10-15 artwork; one MPP tracker. Short-circuit input from exact Pro manual p7.",
+          "fields": [
+            "continuousW",
+            "apparentVA",
+            "batteryV",
+            "batteryMinV",
+            "batteryMaxV",
+            "phase",
+            "maxDischargeA",
+            "maxChargeA",
+            "mpptCount",
+            "maxPvW",
+            "maxPvV",
+            "mpptMinV",
+            "mpptMaxV",
+            "startV",
+            "inputA",
+            "shortCircuitA",
+            "communication",
+            "protection"
+          ],
+          "reviewedAt": "2026-11-21T13:40:26.194176+00:00"
+        },
+        {
+          "url": "https://www.itel-life.com/fileadmin/assets/img/ESS/User_Manual/IPV-4K24U_Pro_IPV-6K48U_Pro_Datasheet.pdf",
+          "revision": "Exact Pro sheet, surge row is W at 5 seconds",
+          "fields": [
+            "surgeW",
+            "surgeSeconds"
+          ],
+          "reviewedAt": "2026-11-21T18:38:24.437467+00:00"
+        }
+      ]
+    },
+    {
+      "id": "itel-ipv-12k48u",
+      "model": "IPV-12K48U",
+      "name": "Hybrid inverter",
+      "manufacturer": "itel Energy",
+      "kind": "inverter",
+      "specs": {
+        "continuousW": 12000,
+        "apparentVA": 12000,
+        "powerFactor": null,
+        "surgeVA": null,
+        "surgeSeconds": 5,
+        "batteryV": 48,
+        "batteryMinV": 40,
+        "batteryMaxV": 60,
+        "phase": 1,
+        "efficiency": null,
+        "maxDischargeA": 250,
+        "maxChargeA": 210,
+        "mpptCount": 2,
+        "maxPvW": 16000,
+        "maxPvV": 500,
+        "mpptMinV": 85,
+        "mpptMaxV": 450,
+        "startV": 75,
+        "inputA": [
+          27,
+          27
+        ],
+        "shortCircuitA": [
+          32,
+          32
+        ],
+        "chemistry": null,
+        "communication": [
+          "WIFI",
+          "RS485",
+          "CAN",
+          "RS232",
+          "Dry Contact"
+        ],
+        "protection": "IP54",
+        "surgeW": 24000
+      },
+      "warranty": null,
+      "issues": [
+        "Manufacturer electrical limits, usable operating efficiency and battery pairing not yet verified.",
+        "Phase 2D uses Phase 2C exact manufacturer limits; maximum efficiency is not used as a planning guarantee. Exact battery/BMS pairing and full configuration remain unapproved."
+      ],
+      "evidence": [
+        {
+          "url": "https://itelsolar.com/product/itel-12kw-inverter-hybrid-48v-ip54-1phase-ipv-12k48u/",
+          "note": "Supplier-specific claims and SKU captured 2026-11-21T10:06:33.555898+00:00; unresolved specifications are null. Public API: https://itelsolar.com/wp-json/wc/store/v1/products/99"
+        }
+      ],
+      "technicalEvidence": [
+        {
+          "url": "https://www.itel-life.com/fileadmin/assets/img/ESS/User_Manual/IP54_IPV-8K48U_IPV-12K48U_Datasheet.pdf",
+          "revision": "Exact IP54 8/12 kW sheet, 12 kW column; short-circuit current from shared manufacturer manual",
+          "fields": [
+            "surgeW",
+            "surgeSeconds",
+            "continuousW",
+            "apparentVA",
+            "batteryV",
+            "batteryMinV",
+            "batteryMaxV",
+            "phase",
+            "maxDischargeA",
+            "maxChargeA",
+            "mpptCount",
+            "maxPvW",
+            "maxPvV",
+            "mpptMinV",
+            "mpptMaxV",
+            "startV",
+            "inputA",
+            "shortCircuitA",
+            "communication",
+            "protection"
+          ],
+          "reviewedAt": "2026-11-21T18:38:24.437467+00:00"
+        }
+      ]
+    },
+    {
+      "id": "itel-ipl-25200x",
+      "model": "IPL-25200X",
+      "name": "Lithium battery",
+      "manufacturer": "itel Energy",
+      "kind": "battery",
+      "specs": {
+        "nominalV": 25.6,
+        "minV": 21.6,
+        "maxV": 28.8,
+        "ah": 200,
+        "nominalWh": 5120,
+        "usableWh": null,
+        "dischargeA": 200,
+        "chargeA": 200,
+        "continuousW": null,
+        "cycleLife": null,
+        "parallelMax": 32,
+        "chemistry": "LiFePO4",
+        "communication": [
+          "RS485",
+          "CAN",
+          "RS232"
+        ],
+        "compatibleInverters": null,
+        "peakDischargeA": 220,
+        "peakSeconds": null
+      },
+      "warranty": null,
+      "issues": [
+        "Manufacturer confirms 25.6 V / 200 Ah / 5.12 kWh, IP20 and 32 parallel units; supplier copied descriptions are superseded for these fields. Usable battery energy, pulse duration and exact inverter / firmware pairing are not established. 80% DoD is a cycle-life test condition, not evidence of usable AC capacity."
+      ],
+      "evidence": [
+        {
+          "url": "https://itelsolar.com/product/itel-5120wh-lithium-battery-wall-mounted-24v-100ah-5-12kwh-ipl-25200x/",
+          "note": "Supplier-specific claims and SKU captured 2026-11-21T10:06:34.927171+00:00; unresolved specifications are null. Public API: https://itelsolar.com/wp-json/wc/store/v1/products/6685"
+        },
+        {
+          "url": "https://transsion-platform01.oss-accelerate.aliyuncs.com/app/packages/IPL-25200X%20Datasheet-PK.pdf",
+          "note": "Exact IPL-25200X Datasheet-PK, retrieved 2026-11-21; original document has no revision number printed; exact manufacturer document retrieved 2026-11-21T13:40:32.360993+00:00"
+        }
+      ],
+      "technicalEvidence": [
+        {
+          "url": "https://transsion-platform01.oss-accelerate.aliyuncs.com/app/packages/IPL-25200X%20Datasheet-PK.pdf",
+          "revision": "Exact IPL-25200X Datasheet-PK, retrieved 2026-11-21; original document has no revision number printed",
+          "fields": [
+            "nominalV",
+            "nominalWh",
+            "minV",
+            "maxV",
+            "ah",
+            "dischargeA",
+            "chargeA",
+            "peakDischargeA",
+            "parallelMax",
+            "chemistry",
+            "communication"
+          ],
+          "reviewedAt": "2026-11-21T13:40:32.360993+00:00"
+        }
+      ]
+    },
+    {
+      "id": "itel-ipl-51314h",
+      "model": "IPL-51314H",
+      "name": "Lithium battery",
+      "manufacturer": "itel Energy",
+      "kind": "battery",
+      "specs": {
+        "nominalV": 51.2,
+        "minV": 43.2,
+        "maxV": 57.6,
+        "ah": 314,
+        "nominalWh": 16000,
+        "usableWh": null,
+        "dischargeA": 157,
+        "chargeA": 157,
+        "continuousW": null,
+        "cycleLife": 6000,
+        "parallelMax": 32,
+        "chemistry": "LiFePO4",
+        "communication": ["CAN", "RS485"],
+        "compatibleInverters": ["IPV-12K48U"],
+        "peakDischargeA": 175,
+        "peakSeconds": 3
+      },
+      "warranty": null,
+      "issues": [],
+      "evidence": [
+        {
+          "url": "https://itelsolar.com/product/itel-16000wh-lithium-battery-standing-48v-314ah-16kwh-ipl-51314h-indoor-ip21/",
+          "note": "Exact SKU and current public price captured from this supplier listing; compatible pairing with IPV-12K48U is explicitly listed on the inverter product page. Public API: https://itelsolar.com/wp-json/wc/store/v1/products/12503"
+        }
+      ],
+      "technicalEvidence": [
+        {
+          "url": "https://transsion-platform01.oss-accelerate.aliyuncs.com/app/packages/IPL-51314H-1.pdf",
+          "revision": "itel Energy IPL-51314H battery datasheet; exact model, 51.2V 314Ah / 16kWh column",
+          "fields": ["nominalV", "minV", "maxV", "ah", "nominalWh", "dischargeA", "chargeA", "cycleLife", "parallelMax", "chemistry", "communication", "peakDischargeA", "peakSeconds"],
+          "reviewedAt": "2026-11-24T00:00:00.000Z"
+        }
+      ]
+    },
+    {
+      "id": "itel-iess-05k10n",
+      "model": "IESS-05K10N",
+      "name": "Portable power station",
+      "manufacturer": "itel Energy",
+      "kind": "portable",
+      "specs": {
+        "nominalWh": 1004.8,
+        "usableAcWh": null,
+        "continuousW": 500,
+        "surgeW": null,
+        "surgeSeconds": null,
+        "solarMaxW": 400,
+        "solarMinV": 11,
+        "solarMaxV": 60,
+        "solarMaxA": 13.5,
+        "chemistry": "LiFePO4",
+        "charging": "Mains AC or supported PV input",
+        "ports": null,
+        "expansion": null,
+        "apparentVA": 600,
+        "surgeVA": 600
+      },
+      "warranty": null,
+      "issues": [
+        "Exact manual resolves internal battery as 3.2 V / 314 Ah (1004.8 Wh nominal). Surge is stated as 600 VA without a duration; it is not 1000 W. Maximum conversion efficiency 87% cannot establish usable AC energy."
+      ],
+      "evidence": [
+        {
+          "url": "https://itelsolar.com/product/itel-500w-solar-generator-1000wh-lithium-battery-iess-05k10p/",
+          "note": "Supplier-specific claims and SKU captured 2026-11-21T10:06:37.484053+00:00; unresolved specifications are null. Public API: https://itelsolar.com/wp-json/wc/store/v1/products/126"
+        },
+        {
+          "url": "https://transsion-platform01.oss-accelerate.aliyuncs.com/app/packages/IESS-05K10N_User%20Manual_EN_V1.0-1.pdf",
+          "note": "IESS-05K10N User Manual EN V1.0-1, PDF page 14 / printed page 11; exact manufacturer document retrieved 2026-11-21T13:40:33.290996+00:00"
+        }
+      ],
+      "technicalEvidence": [
+        {
+          "url": "https://transsion-platform01.oss-accelerate.aliyuncs.com/app/packages/IESS-05K10N_User%20Manual_EN_V1.0-1.pdf",
+          "revision": "IESS-05K10N User Manual EN V1.0-1, PDF page 14 / printed page 11",
+          "fields": [
+            "continuousW",
+            "nominalWh",
+            "solarMaxW",
+            "solarMinV",
+            "solarMaxV",
+            "solarMaxA",
+            "chemistry",
+            "charging",
+            "apparentVA",
+            "surgeVA"
+          ],
+          "reviewedAt": "2026-11-21T13:40:33.290996+00:00"
+        }
+      ]
+    },
+    {
+      "id": "itel-isp-620w",
+      "model": "ISP-620W",
+      "name": "Solar module",
+      "manufacturer": "itel Energy",
+      "kind": "panel",
+      "specs": {
+        "watts": 620,
+        "voc": 49.8,
+        "vmp": 41.8,
+        "isc": 15.91,
+        "imp": 14.84,
+        "vocTolerance": 0.03,
+        "vocTempCoefficient": null,
+        "vmpTempCoefficient": null,
+        "maxSystemV": 1500,
+        "efficiency": 0.2295,
+        "dimensionsMm": [
+          2382,
+          1134,
+          30
+        ],
+        "technology": "N-TOPCon bifacial monocrystalline"
+      },
+      "warranty": null,
+      "issues": [
+        "SKU ISP-620W but short description names ISP-620W-G1; exact module suffix and temperature coefficients require manufacturer confirmation. Electrical values below are supplier claims, not a validated string design."
+      ],
+      "evidence": [
+        {
+          "url": "https://itelsolar.com/product/620w-n-type-bifacial-monocrystalline-solar-panel/",
+          "note": "Supplier-specific claims and SKU captured 2026-11-21T10:06:38.998654+00:00; unresolved specifications are null. Public API: https://itelsolar.com/wp-json/wc/store/v1/products/25467"
+        }
+      ]
+    },
+    {
+      "id": "itel-isp-620wp-review",
+      "model": "ISP-620Wp",
+      "name": "Solar module",
+      "manufacturer": "itel Energy",
+      "kind": "panel",
+      "specs": {
+        "watts": null,
+        "voc": null,
+        "vmp": null,
+        "isc": null,
+        "imp": null,
+        "vocTolerance": null,
+        "vocTempCoefficient": null,
+        "vmpTempCoefficient": null,
+        "maxSystemV": null,
+        "efficiency": null,
+        "dimensionsMm": null,
+        "technology": null
+      },
+      "warranty": null,
+      "issues": [
+        "QUARANTINED: title / SKU say 620 W; table identifies ODA550-36V-MH at 550 W. Not eligible for matching or PV sizing."
+      ],
+      "evidence": [
+        {
+          "url": "https://itelsolar.com/product/itel-620w-solar-panel/",
+          "note": "Supplier-specific claims and SKU captured 2026-11-21T10:06:40.275274+00:00; unresolved specifications are null. Public API: https://itelsolar.com/wp-json/wc/store/v1/products/8684"
+        }
+      ]
+    },
+    {
+      "id": "itel-ipv-6k48u",
+      "model": "IPV-6K48U",
+      "name": "Hybrid inverter (non-PRO)",
+      "manufacturer": "itel Energy",
+      "kind": "inverter",
+      "specs": {
+        "continuousW": 6000,
+        "apparentVA": 6000,
+        "powerFactor": null,
+        "surgeVA": 12000,
+        "surgeSeconds": 5,
+        "batteryV": 48,
+        "batteryMinV": 40,
+        "batteryMaxV": 60,
+        "phase": 1,
+        "efficiency": 0.93,
+        "maxDischargeA": 130,
+        "maxChargeA": 120,
+        "mpptCount": 1,
+        "maxPvW": 6000,
+        "maxPvV": 500,
+        "mpptMinV": 85,
+        "mpptMaxV": 450,
+        "startV": 75,
+        "inputA": [
+          27
+        ],
+        "shortCircuitA": null,
+        "chemistry": [
+          "Lead-acid",
+          "Lithium-ion"
+        ],
+        "communication": [
+          "RS485",
+          "RS232"
+        ],
+        "protection": "IP54"
+      },
+      "warranty": "3-year replacement / 5-year service, manufacturer datasheet; purchase terms must be confirmed",
+      "evidence": [
+        {
+          "url": "https://www.itel-life.com/fileadmin/assets/img/ESS/User_Manual/IPV-6K48U.pdf",
+          "note": "Official non-PRO datasheet read 2026-11-21. Maximum efficiency is a published ceiling, not a guaranteed planning efficiency."
+        }
+      ],
+      "issues": [
+        "No verified current exact-model supplier offer in the reviewed snapshot. Do not substitute PRO price or specifications."
+      ]
+    },
+    {
+      "id": "itel-ihy-8kl3",
+      "model": "IHY-8KL3",
+      "name": "Three-phase hybrid inverter",
+      "manufacturer": "itel Energy",
+      "kind": "inverter",
+      "specs": {
+        "continuousW": 8000,
+        "apparentVA": 8800,
+        "powerFactor": null,
+        "surgeVA": 16000,
+        "surgeSeconds": 15,
+        "batteryV": 48,
+        "batteryMinV": 40,
+        "batteryMaxV": 60,
+        "phase": 3,
+        "efficiency": 0.975,
+        "maxDischargeA": 190,
+        "maxChargeA": 190,
+        "mpptCount": 2,
+        "maxPvW": 16000,
+        "maxPvV": 1000,
+        "mpptMinV": 200,
+        "mpptMaxV": 800,
+        "startV": 150,
+        "inputA": [
+          18,
+          18
+        ],
+        "shortCircuitA": null,
+        "chemistry": [
+          "Lead-acid",
+          "Lithium-ion"
+        ],
+        "communication": [
+          "RS485",
+          "CAN"
+        ],
+        "protection": "IP66"
+      },
+      "warranty": "5-year replacement stated by manufacturer; invoice terms need confirmation",
+      "evidence": [
+        {
+          "url": "https://www.itel-life.com/fileadmin/assets/img/ESS/User_Manual/IP66_IHY-8KL3_IHY-12KL3_Datasheet.pdf",
+          "note": "Official datasheet read 2026-11-21; low-voltage 48 V despite conflicting NIKADE static marketing."
+        }
+      ],
+      "issues": [
+        "Three-phase design is outside this single-phase calculator. No verified exact-model live offer or approved battery pairing."
+      ]
+    },
+    {
+      "id": "itel-iess-320act",
+      "model": "IESS-320ACT",
+      "name": "Portable power station",
+      "manufacturer": "itel Energy",
+      "kind": "portable",
+      "specs": {
+        "nominalWh": 320,
+        "usableAcWh": null,
+        "continuousW": 200,
+        "surgeW": 400,
+        "surgeSeconds": null,
+        "solarMaxW": 100,
+        "solarMinV": 11,
+        "solarMaxV": 24,
+        "solarMaxA": 5,
+        "chemistry": "LiFePO4",
+        "charging": "11–24 V DC adapter or supported solar input; USB-C charging",
+        "ports": [
+          "AC",
+          "USB-C",
+          "USB-A",
+          "12 V DC"
+        ],
+        "expansion": null
+      },
+      "warranty": null,
+      "issues": [
+        "Manufacturer confirms 320 Wh nominal and 200 W AC. It does not give usable AC energy or a duration for 400 W peak; no assumed conversion factor is used."
+      ],
+      "evidence": [
+        {
+          "url": "https://itelsolar.com/product/itel-power-go-pro-320wh-portable-power-station-iess-320act-200w-ac-output-lifepo4-battery-100w-solar-charging/",
+          "note": "Exact model in supplier listing. Source snapshot 2026-11-21T13:15:32Z; supplier claims are not engineering authority."
+        },
+        {
+          "url": "https://transsion-platform01.oss-accelerate.aliyuncs.com/app/packages/320ACT_User%20Manual_EN_V1.0-1.pdf",
+          "note": "320ACT User Manual EN V1.0-1, specification panel on PDF page 1; exact manufacturer document retrieved 2026-11-21T13:40:25.914756+00:00"
+        }
+      ],
+      "technicalEvidence": [
+        {
+          "url": "https://transsion-platform01.oss-accelerate.aliyuncs.com/app/packages/320ACT_User%20Manual_EN_V1.0-1.pdf",
+          "revision": "320ACT User Manual EN V1.0-1, specification panel on PDF page 1",
+          "fields": [
+            "continuousW",
+            "nominalWh",
+            "surgeW",
+            "solarMaxW",
+            "solarMinV",
+            "solarMaxV",
+            "solarMaxA",
+            "chemistry",
+            "charging",
+            "ports"
+          ],
+          "reviewedAt": "2026-11-21T13:40:25.914756+00:00"
+        }
+      ]
+    },
+    {
+      "id": "itel-iess-1k20n",
+      "model": "IESS-1K20N",
+      "name": "Portable power station",
+      "manufacturer": "itel Energy",
+      "kind": "portable",
+      "specs": {
+        "nominalWh": 2009.6,
+        "usableAcWh": null,
+        "continuousW": 1000,
+        "surgeW": null,
+        "surgeSeconds": null,
+        "solarMaxW": 1200,
+        "solarMinV": 11,
+        "solarMaxV": 60,
+        "solarMaxA": 30,
+        "chemistry": "LiFePO4",
+        "charging": "Mains AC or supported PV input",
+        "ports": null,
+        "expansion": null,
+        "apparentVA": 1200,
+        "surgeVA": 1200
+      },
+      "warranty": null,
+      "issues": [
+        "Exact manual: 1000 W AC / 2009.6 Wh nominal, 1200 VA surge without documented duration. Maximum 87% conversion efficiency is not usable AC energy. Supplier observation is out of stock."
+      ],
+      "evidence": [
+        {
+          "url": "https://itelsolar.com/product/power-tank-1000-iess-1k20n/",
+          "note": "Exact model in supplier listing. Source snapshot 2026-11-21T13:15:32Z; supplier claims are not engineering authority."
+        },
+        {
+          "url": "https://transsion-platform01.oss-accelerate.aliyuncs.com/app/packages/IESS-1K20N_User_Manual.pdf",
+          "note": "IESS-1K20N User Manual, PDF page 16 / printed page 13; exact manufacturer document retrieved 2026-11-21T13:40:27.800919+00:00"
+        }
+      ],
+      "technicalEvidence": [
+        {
+          "url": "https://transsion-platform01.oss-accelerate.aliyuncs.com/app/packages/IESS-1K20N_User_Manual.pdf",
+          "revision": "IESS-1K20N User Manual, PDF page 16 / printed page 13",
+          "fields": [
+            "continuousW",
+            "nominalWh",
+            "solarMaxW",
+            "solarMinV",
+            "solarMaxV",
+            "solarMaxA",
+            "chemistry",
+            "charging",
+            "apparentVA",
+            "surgeVA"
+          ],
+          "reviewedAt": "2026-11-21T13:40:27.800919+00:00"
+        }
+      ]
+    },
+    {
+      "id": "itel-iess-3k680n",
+      "model": "IESS-3K680N",
+      "name": "Integrated power unit",
+      "manufacturer": "itel Energy",
+      "kind": "compact",
+      "specs": {
+        "nominalWh": 8038,
+        "usableAcWh": null,
+        "continuousW": 3600,
+        "surgeW": null,
+        "surgeSeconds": 3,
+        "solarMaxW": null,
+        "solarMinV": 40,
+        "solarMaxV": 430,
+        "solarMaxA": null,
+        "chemistry": "LiFePO4",
+        "charging": "Mains AC or supported PV input",
+        "ports": null,
+        "expansion": null,
+        "apparentVA": 3600,
+        "surgeVA": 5400,
+        "batteryModeMinimumW": 3000,
+        "usableBatteryWh": 7235
+      },
+      "warranty": null,
+      "issues": [
+        "Manufacturer confirms 3600 W / 3600 VA and 8.038 kWh nominal. 5400 VA surge is not a watt rating. Maximum 90% conversion efficiency and “up to 2 hours” do not establish usable AC energy for arbitrary loads. Existing supplier snapshots are out of stock; a current WinBoost listing reports 50 available but does not state product condition, so it remains ineligible.",
+        "Phase 2C confirms 7235 Wh usable battery energy and a 3000 W battery-only low-voltage output floor; no usable AC guarantee. PV manual/sheet revision conflict remains pending."
+      ],
+      "evidence": [
+        {
+          "url": "https://itelsolar.com/product/itel-8000w-solar-generator-all-in-one-with-3600w-inverter-8000wh-lithium-battery-iess-3k680n/",
+          "note": "Exact model in supplier listing. Source snapshot 2026-11-21T13:15:32Z; supplier claims are not engineering authority."
+        },
+        {
+          "url": "https://www.itel-life.com/fileadmin/assets/img/ESS/User_Manual/All-in-One_IESS-3K680N_Datasheet.pdf",
+          "note": "Exact All-in-One IESS-3K680N datasheet; no revision printed, retrieved 2026-11-21; exact manufacturer document retrieved 2026-11-21T13:40:23.586782+00:00"
+        }
+      ],
+      "technicalEvidence": [
+        {
+          "url": "https://www.itel-life.com/fileadmin/assets/img/ESS/User_Manual/All-in-One_IESS-3K680N_Datasheet.pdf",
+          "revision": "Exact All-in-One IESS-3K680N datasheet; no revision printed, retrieved 2026-11-21",
+          "fields": [
+            "continuousW",
+            "apparentVA",
+            "nominalWh",
+            "chemistry",
+            "charging",
+            "solarMinV",
+            "solarMaxV",
+            "surgeVA",
+            "surgeSeconds"
+          ],
+          "reviewedAt": "2026-11-21T13:40:23.586782+00:00"
+        },
+        {
+          "url": "https://transsion-platform01.oss-accelerate.aliyuncs.com/app/packages/IESS-3K680N_User%20Manual_EN_V1.0-1.pdf",
+          "revision": "EN V1.0-1, PDF 57-60 / printed 55-58; battery usable energy is DC, not AC; low-voltage battery output floor 3000 W",
+          "fields": [
+            "batteryModeMinimumW",
+            "usableBatteryWh"
+          ],
+          "reviewedAt": "2026-11-21T18:18:38.941228+00:00"
+        }
+      ]
+    },
+    {
+      "id": "itel-ipw-51100-pk2",
+      "model": "IPW-51100",
+      "name": "51.2 V lithium battery — PK2 datasheet configuration",
+      "manufacturer": "itel Energy",
+      "kind": "battery",
+      "specs": {
+        "nominalV": 51.2,
+        "minV": 40,
+        "maxV": 58.4,
+        "ah": 100,
+        "nominalWh": 5120,
+        "usableWh": null,
+        "dischargeA": 100,
+        "chargeA": 100,
+        "continuousW": null,
+        "peakDischargeA": 150,
+        "peakSeconds": null,
+        "cycleLife": 6000,
+        "parallelMax": 15,
+        "chemistry": "LiFePO4",
+        "communication": [
+          "RS485",
+          "CAN",
+          "RS232"
+        ],
+        "compatibleInverters": null
+      },
+      "warranty": null,
+      "issues": [
+        "Exact manufacturer PK2 sheet identifies this 51.2 V / 100 Ah unit. No usable energy or pulse duration is given. Current exact-model supplier availability could not be retrieved (HTTP 403); no price or stock has been assumed. Hardware revision / approved inverter pairing remain unconfirmed."
+      ],
+      "evidence": [
+        {
+          "url": "https://transsion-platform01.oss-accelerate.aliyuncs.com/app/packages/IPL-51100%205.12kWh%EF%BC%8BIPW-51100%205.12kWh%20Datasheet%EF%BC%88PK2%EF%BC%89_2.pdf",
+          "note": "Official manufacturer documentation service links the PK2 sheet for this exact model; table visually inspected on PDF page 2."
+        }
+      ],
+      "technicalEvidence": [
+        {
+          "url": "https://transsion-platform01.oss-accelerate.aliyuncs.com/app/packages/IPL-51100%205.12kWh%EF%BC%8BIPW-51100%205.12kWh%20Datasheet%EF%BC%88PK2%EF%BC%89_2.pdf",
+          "revision": "PK2_2 datasheet, IPW-51100 column, page 2; no revision date printed",
+          "fields": [
+            "nominalV",
+            "minV",
+            "maxV",
+            "ah",
+            "nominalWh",
+            "dischargeA",
+            "chargeA",
+            "peakDischargeA",
+            "cycleLife",
+            "parallelMax",
+            "chemistry",
+            "communication"
+          ],
+          "reviewedAt": "2026-11-21T14:04:12.040834+00:00"
+        }
+      ]
+    },
+    {
+      "id": "deye-sun-6k-og01lp1-eu-am2",
+      "model": "SUN-6K-OG01LP1-EU-AM2",
+      "name": "6 kW single-phase off-grid inverter",
+      "manufacturer": "Deye",
+      "kind": "inverter",
+      "specs": {
+        "continuousW": 6000,
+        "apparentVA": 6000,
+        "powerFactor": null,
+        "surgeVA": null,
+        "surgeSeconds": 10,
+        "batteryV": 48,
+        "batteryMinV": 40,
+        "batteryMaxV": 60,
+        "phase": 1,
+        "efficiency": 0.965,
+        "maxDischargeA": 135,
+        "maxChargeA": 135,
+        "mpptCount": 2,
+        "maxPvW": 9600,
+        "maxPvV": 500,
+        "mpptMinV": 150,
+        "mpptMaxV": 425,
+        "startV": 125,
+        "inputA": [
+          18,
+          18
+        ],
+        "shortCircuitA": [
+          27,
+          27
+        ],
+        "chemistry": [
+          "LiFePO4"
+        ],
+        "communication": [
+          "CAN",
+          "RS485"
+        ],
+        "protection": null,
+        "surgeW": 12000,
+        "fullLoadMpptMinV": 300,
+        "maxPvAccessW": 12000
+      },
+      "warranty": null,
+      "issues": [
+        "The official pairing source documents this inverter with SE-F5/SE-F12 batteries. Power factor and enclosure protection rating are not recorded because the reviewed official data sheet does not establish them.",
+        "No current supplier price is retained: Solar Village search snapshots returned conflicting prices and were crawled two months ago. No current stock or condition is assumed."
+      ],
+      "evidence": [
+        {
+          "url": "https://www.deyeinverter.com/deyeinverter/2025/04/14/%E3%80%90b%E3%80%91deyeoff-gridesssolution20250408v1.0.pdf",
+          "note": "Official Deye off-grid ESS solution identifies the SUN-3.6/5/6K-OG01LP1-EU-AM2 and SE-F5/SE-F12 combination."
+        },
+        {
+          "url": "https://www.deyeinverter.com/deyeinverter/2026/04/06/BManualSUN-36-6K-OG01LP1-EU-AM220260406en-72nS.pdf",
+          "note": "Official SUN-(3.6-6)K-OG01LP1-EU-AM2 manual, datasheet table. Values are recorded for the exact SUN-6K variant; maximum European efficiency is used where planning efficiency is absent."
+        }
+      ],
+      "technicalEvidence": [
+        {
+          "url": "https://www.deyeinverter.com/deyeinverter/2026/04/06/BManualSUN-36-6K-OG01LP1-EU-AM220260406en-72nS.pdf",
+          "revision": "SUN-(3.6-6)K-OG01LP1-EU-AM2 manual v1.1.0, datasheet section",
+          "fields": [
+            "continuousW",
+            "apparentVA",
+            "surgeW",
+            "surgeSeconds",
+            "batteryV",
+            "batteryMinV",
+            "batteryMaxV",
+            "phase",
+            "efficiency",
+            "maxDischargeA",
+            "maxChargeA",
+            "mpptCount",
+            "maxPvW",
+            "maxPvV",
+            "mpptMinV",
+            "mpptMaxV",
+            "startV",
+            "inputA",
+            "shortCircuitA",
+            "chemistry",
+            "communication",
+            "fullLoadMpptMinV",
+            "maxPvAccessW"
+          ],
+          "reviewedAt": "2026-11-21T23:21:10+00:00"
+        }
+      ]
+    },
+    {
+      "id": "deye-se-f5",
+      "model": "SE-F5",
+      "name": "5.12 kWh low-voltage lithium battery",
+      "manufacturer": "Deye",
+      "kind": "battery",
+      "specs": {
+        "nominalV": 51.2,
+        "minV": 44.8,
+        "maxV": 57.6,
+        "ah": 100,
+        "nominalWh": 5120,
+        "usableWh": null,
+        "dischargeA": 120,
+        "chargeA": 50,
+        "continuousW": null,
+        "peakDischargeA": 150,
+        "peakSeconds": 10,
+        "cycleLife": null,
+        "parallelMax": 32,
+        "chemistry": "LiFePO4",
+        "communication": [
+          "CAN",
+          "RS485"
+        ],
+        "compatibleInverters": [
+          "SUN-6K-OG01LP1-EU-AM2"
+        ]
+      },
+      "warranty": null,
+      "issues": [
+        "Manufacturer-recommended depth of discharge is 80%, but guaranteed usable AC energy is not established. Quantity needed for a customer's backup requirement remains subject to the existing Picon sizing policy.",
+        "The supplier page does not state stock quantity. Multiple-unit availability must be confirmed before procurement. Warranty details are confirmed before payment."
+      ],
+      "evidence": [
+        {
+          "url": "https://au.deyeinverter.com/deyeinverter/2025/05/27/rand/64/deye%20ess%20brochure_global_2025%20v2.6.pdf",
+          "note": "Official Deye SE-F5 ESS technical table: LiFePO4, 51.2 V, 44.8–57.6 V, 100 Ah, 5.12 kWh, 50 A continuous charge, 120 A continuous discharge, 150 A peak discharge for 10 seconds, up to 32 in parallel; recommended DoD 80%."
+        }
+      ],
+      "technicalEvidence": [
+        {
+          "url": "https://au.deyeinverter.com/deyeinverter/2025/05/27/rand/64/deye%20ess%20brochure_global_2025%20v2.6.pdf",
+          "revision": "Deye ESS Brochure Global 2025 v2.6, SE-F5 technical table",
+          "fields": [
+            "nominalV",
+            "minV",
+            "maxV",
+            "ah",
+            "nominalWh",
+            "dischargeA",
+            "chargeA",
+            "peakDischargeA",
+            "peakSeconds",
+            "parallelMax",
+            "chemistry",
+            "communication"
+          ],
+          "reviewedAt": "2026-11-21T23:21:10+00:00"
+        }
+      ]
+    },
+    {
+      "id": "jinko-jkm585n-72hl4-bdv",
+      "model": "JKM585N-72HL4-BDV",
+      "name": "Tiger Neo N-type 585W bifacial dual-glass module",
+      "manufacturer": "Jinko Solar",
+      "kind": "panel",
+      "specs": {
+        "watts": 585,
+        "voc": 52.7,
+        "vmp": 44.02,
+        "isc": 14.01,
+        "imp": 13.29,
+        "vocTolerance": null,
+        "vocTempCoefficient": -0.0025,
+        "vmpTempCoefficient": null,
+        "iscTempCoefficient": 0.00045,
+        "maxSystemV": 1500,
+        "efficiency": 0.2265,
+        "dimensionsMm": [
+          2278,
+          1134,
+          30
+        ],
+        "technology": "N-type TOPCon bifacial dual-glass"
+      },
+      "warranty": null,
+      "issues": [
+        "Manufacturer datasheet does not publish module Voc production tolerance; inverter maximum voltage therefore remains unconfirmed.",
+        "No current Nigerian supplier observation confirms exact model, condition and stock; no price is available."
+      ],
+      "evidence": [
+        {
+          "url": "https://www.jinkosolar.com/uploads/JKM570-590N-72HL4-BDV-F9-EN.pdf",
+          "note": "Official Jinko Tiger Neo 72HL4-BDV F9 datasheet; exact JKM585N-72HL4-BDV STC / NOCT values."
+        }
+      ],
+      "technicalEvidence": [
+        {
+          "url": "https://www.jinkosolar.com/uploads/JKM570-590N-72HL4-BDV-F9-EN.pdf",
+          "revision": "Tiger Neo N-type 72HL4-BDV 575-600W F9 EN, exact JKM585N-72HL4-BDV column",
+          "fields": [
+            "watts",
+            "voc",
+            "vmp",
+            "isc",
+            "imp",
+            "vocTempCoefficient",
+            "iscTempCoefficient",
+            "maxSystemV",
+            "efficiency",
+            "dimensionsMm",
+            "technology"
+          ],
+          "reviewedAt": "2026-11-22T00:44:00+00:00"
+        }
+      ]
+    }
+  ],
+  "offers": [
+    {
+      "id": "visibility-6398",
+      "supplier": "visibility",
+      "supplierProductId": "6398",
+      "parentId": null,
+      "productId": "itel-ipv-6k48u-pro",
+      "originalModel": "IPV-6K48UPRO",
+      "name": "itel 6kw Inverter Hybrid 48V IP54 1Phase IPV-6K48UPRO with Wifi 8000W PV input max 6kva IP 54",
+      "url": "https://itelsolar.com/product/itel-6kw-inverter-hybrid-48v-ip54-1phase-ipv-6k48u-2/",
+      "variant": {},
+      "priceNgn": 599500.0,
+      "currency": "NGN",
+      "stock": "in_stock",
+      "condition": "new",
+      "identity": "verified",
+      "priceBasis": "materials",
+      "installation": "not_specified",
+      "accessories": "not_specified",
+      "vat": "unknown",
+      "delivery": "unknown",
+      "retrievedAt": "2026-11-21T20:22:33.750667+00:00",
+      "supplierUpdatedAt": null,
+      "verification": "Exact published SKU / supplier product identity; technical compatibility is a separate review. Price converted from two NGN minor digits."
+    },
+    {
+      "id": "visibility-99",
+      "supplier": "visibility",
+      "supplierProductId": "99",
+      "parentId": null,
+      "productId": "itel-ipv-12k48u",
+      "originalModel": "IPV-12K48U",
+      "name": "itel 12kw Inverter Hybrid 48V IP54 1Phase IPV-12K48U with Wifi",
+      "url": "https://itelsolar.com/product/itel-12kw-inverter-hybrid-48v-ip54-1phase-ipv-12k48u/",
+      "variant": {},
+      "priceNgn": 1254000.0,
+      "currency": "NGN",
+      "stock": "in_stock",
+      "condition": "new",
+      "identity": "verified",
+      "priceBasis": "materials",
+      "installation": "not_specified",
+      "accessories": "not_specified",
+      "vat": "unknown",
+      "delivery": "unknown",
+      "retrievedAt": "2026-11-21T20:22:45.502375+00:00",
+      "supplierUpdatedAt": null,
+      "verification": "Exact published SKU / supplier product identity; technical compatibility is a separate review. Price converted from two NGN minor digits."
+    },
+    {
+      "id": "visibility-6685",
+      "supplier": "visibility",
+      "supplierProductId": "6685",
+      "parentId": null,
+      "productId": "itel-ipl-25200x",
+      "originalModel": "IPL-25200X",
+      "name": "itel 5120Wh Lithium Battery Wall Mounted 24V 200Ah 5.12kWh IPL-25200X IP 21",
+      "url": "https://itelsolar.com/product/itel-5120wh-lithium-battery-wall-mounted-24v-100ah-5-12kwh-ipl-25200x/",
+      "variant": {},
+      "priceNgn": 1037300.0,
+      "currency": "NGN",
+      "stock": "in_stock",
+      "condition": "new",
+      "identity": "verified",
+      "priceBasis": "materials",
+      "installation": "not_specified",
+      "accessories": "not_specified",
+      "vat": "unknown",
+      "delivery": "unknown",
+      "retrievedAt": "2026-11-21T10:06:34.927171+00:00",
+      "supplierUpdatedAt": null,
+      "verification": "Exact published SKU / supplier product identity; technical compatibility is a separate review. Price converted from two NGN minor digits."
+    },
+    {
+      "id": "visibility-12503",
+      "supplier": "visibility",
+      "supplierProductId": "12503",
+      "parentId": null,
+      "productId": "itel-ipl-51314h",
+      "originalModel": "IPL-51314H",
+      "name": "itel 16000Wh Lithium Battery Standing 48V 314Ah 16kWh IPL-51314H Indoor IP21",
+      "url": "https://itelsolar.com/product/itel-16000wh-lithium-battery-standing-48v-314ah-16kwh-ipl-51314h-indoor-ip21/",
+      "variant": {},
+      "priceNgn": 2244000.0,
+      "currency": "NGN",
+      "stock": "out_of_stock",
+      "condition": "new",
+      "identity": "verified",
+      "priceBasis": "materials",
+      "installation": "not_specified",
+      "accessories": "not_specified",
+      "vat": "unknown",
+      "delivery": "unknown",
+      "retrievedAt": "2026-11-21T10:06:36.022962+00:00",
+      "supplierUpdatedAt": null,
+      "verification": "Exact published SKU / supplier product identity; technical compatibility is a separate review. Price converted from two NGN minor digits."
+    },
+    {
+      "id": "visibility-126",
+      "supplier": "visibility",
+      "supplierProductId": "126",
+      "parentId": null,
+      "productId": "itel-iess-05k10n",
+      "originalModel": "IESS-05K10N",
+      "name": "itel 500W Solar Generator 1000Wh Lithium Battery  IESS-05K10N Power Tank",
+      "url": "https://itelsolar.com/product/itel-500w-solar-generator-1000wh-lithium-battery-iess-05k10p/",
+      "variant": {},
+      "priceNgn": 308000.0,
+      "currency": "NGN",
+      "stock": "in_stock",
+      "condition": "new",
+      "identity": "verified",
+      "priceBasis": "materials",
+      "installation": "not_specified",
+      "accessories": "not_specified",
+      "vat": "unknown",
+      "delivery": "unknown",
+      "retrievedAt": "2026-11-21T20:22:33.749993+00:00",
+      "supplierUpdatedAt": null,
+      "verification": "Exact published SKU / supplier product identity; technical compatibility is a separate review. Price converted from two NGN minor digits."
+    },
+    {
+      "id": "visibility-25467",
+      "supplier": "visibility",
+      "supplierProductId": "25467",
+      "parentId": null,
+      "productId": "itel-isp-620w",
+      "originalModel": "ISP-620W",
+      "name": "620W N-Type Bifacial Monocrystalline Solar Panel",
+      "url": "https://itelsolar.com/product/620w-n-type-bifacial-monocrystalline-solar-panel/",
+      "variant": {},
+      "priceNgn": 175000.0,
+      "currency": "NGN",
+      "stock": "in_stock",
+      "condition": "new",
+      "identity": "verified",
+      "priceBasis": "materials",
+      "installation": "not_specified",
+      "accessories": "not_specified",
+      "vat": "unknown",
+      "delivery": "unknown",
+      "retrievedAt": "2026-11-21T20:22:45.503989+00:00",
+      "supplierUpdatedAt": null,
+      "verification": "Exact published SKU / supplier product identity; technical compatibility is a separate review. Price converted from two NGN minor digits."
+    },
+    {
+      "id": "visibility-8684",
+      "supplier": "visibility",
+      "supplierProductId": "8684",
+      "parentId": null,
+      "productId": "itel-isp-620wp-review",
+      "originalModel": "ISP-620Wp",
+      "name": "iTel 620W Solar Panel N-Type Mono cells Bifacial",
+      "url": "https://itelsolar.com/product/itel-620w-solar-panel/",
+      "variant": {},
+      "priceNgn": 175000.0,
+      "currency": "NGN",
+      "stock": "in_stock",
+      "condition": "new",
+      "identity": "needs_review",
+      "priceBasis": "materials",
+      "installation": "not_specified",
+      "accessories": "not_specified",
+      "vat": "unknown",
+      "delivery": "unknown",
+      "retrievedAt": "2026-11-21T10:06:40.275274+00:00",
+      "supplierUpdatedAt": null,
+      "verification": "Exact published SKU / supplier product identity; technical compatibility is a separate review. Price converted from two NGN minor digits."
+    },
+    {
+      "id": "nikade-07z9fm47yzl1q4q",
+      "supplier": "nikade",
+      "supplierProductId": "07z9fm47yzl1q4q",
+      "parentId": null,
+      "productId": null,
+      "originalModel": null,
+      "name": "1.5kW Inverter",
+      "url": "https://itelsolarnigeria.com/products",
+      "variant": {},
+      "priceNgn": 239800,
+      "currency": "NGN",
+      "stock": "in_stock",
+      "condition": "new",
+      "identity": "unmapped",
+      "priceBasis": "materials",
+      "installation": "not_specified",
+      "accessories": "not_specified",
+      "vat": "unknown",
+      "delivery": "unknown",
+      "retrievedAt": "2026-11-21T20:22:33.575180+00:00",
+      "supplierUpdatedAt": "2026-10-02 05:43:56.828Z",
+      "verification": "Live catalogue has no manufacturer model field. Do not link by name, capacity, voltage or matching price. API: https://itelsolarnigeria.com/hcgi/platform/api/collections/catalog_products/records?perPage=100&sort=sort_order%2Cname&filter=visible%3Dtrue"
+    },
+    {
+      "id": "nikade-um6vr0odqvmrfff",
+      "supplier": "nikade",
+      "supplierProductId": "um6vr0odqvmrfff",
+      "parentId": null,
+      "productId": null,
+      "originalModel": null,
+      "name": "3kW Inverter",
+      "url": "https://itelsolarnigeria.com/products",
+      "variant": {},
+      "priceNgn": 328900,
+      "currency": "NGN",
+      "stock": "in_stock",
+      "condition": "new",
+      "identity": "unmapped",
+      "priceBasis": "materials",
+      "installation": "not_specified",
+      "accessories": "not_specified",
+      "vat": "unknown",
+      "delivery": "unknown",
+      "retrievedAt": "2026-11-21T20:22:33.575180+00:00",
+      "supplierUpdatedAt": "2026-10-02 05:43:56.828Z",
+      "verification": "Live catalogue has no manufacturer model field. Do not link by name, capacity, voltage or matching price. API: https://itelsolarnigeria.com/hcgi/platform/api/collections/catalog_products/records?perPage=100&sort=sort_order%2Cname&filter=visible%3Dtrue"
+    },
+    {
+      "id": "nikade-4bmthnuvln80a5x",
+      "supplier": "nikade",
+      "supplierProductId": "4bmthnuvln80a5x",
+      "parentId": null,
+      "productId": null,
+      "originalModel": null,
+      "name": "4kW Inverter",
+      "url": "https://itelsolarnigeria.com/products",
+      "variant": {},
+      "priceNgn": 416900,
+      "currency": "NGN",
+      "stock": "in_stock",
+      "condition": "new",
+      "identity": "unmapped",
+      "priceBasis": "materials",
+      "installation": "not_specified",
+      "accessories": "not_specified",
+      "vat": "unknown",
+      "delivery": "unknown",
+      "retrievedAt": "2026-11-21T20:22:33.575180+00:00",
+      "supplierUpdatedAt": "2026-10-02 05:43:56.829Z",
+      "verification": "Live catalogue has no manufacturer model field. Do not link by name, capacity, voltage or matching price. API: https://itelsolarnigeria.com/hcgi/platform/api/collections/catalog_products/records?perPage=100&sort=sort_order%2Cname&filter=visible%3Dtrue"
+    },
+    {
+      "id": "nikade-dk2murkji701sia",
+      "supplier": "nikade",
+      "supplierProductId": "dk2murkji701sia",
+      "parentId": null,
+      "productId": null,
+      "originalModel": null,
+      "name": "6kW Inverter",
+      "url": "https://itelsolarnigeria.com/products",
+      "variant": {},
+      "priceNgn": 561000,
+      "currency": "NGN",
+      "stock": "in_stock",
+      "condition": "new",
+      "identity": "unmapped",
+      "priceBasis": "materials",
+      "installation": "not_specified",
+      "accessories": "not_specified",
+      "vat": "unknown",
+      "delivery": "unknown",
+      "retrievedAt": "2026-11-21T20:22:33.575180+00:00",
+      "supplierUpdatedAt": "2026-10-02 05:43:56.829Z",
+      "verification": "Live catalogue has no manufacturer model field. Do not link by name, capacity, voltage or matching price. API: https://itelsolarnigeria.com/hcgi/platform/api/collections/catalog_products/records?perPage=100&sort=sort_order%2Cname&filter=visible%3Dtrue"
+    },
+    {
+      "id": "nikade-zoobqmvbivi4lzt",
+      "supplier": "nikade",
+      "supplierProductId": "zoobqmvbivi4lzt",
+      "parentId": null,
+      "productId": null,
+      "originalModel": null,
+      "name": "6.6kW Inverter",
+      "url": "https://itelsolarnigeria.com/products",
+      "variant": {},
+      "priceNgn": 742500,
+      "currency": "NGN",
+      "stock": "in_stock",
+      "condition": "new",
+      "identity": "unmapped",
+      "priceBasis": "materials",
+      "installation": "not_specified",
+      "accessories": "not_specified",
+      "vat": "unknown",
+      "delivery": "unknown",
+      "retrievedAt": "2026-11-21T20:22:33.575180+00:00",
+      "supplierUpdatedAt": "2026-10-02 05:43:56.829Z",
+      "verification": "Live catalogue has no manufacturer model field. Do not link by name, capacity, voltage or matching price. API: https://itelsolarnigeria.com/hcgi/platform/api/collections/catalog_products/records?perPage=100&sort=sort_order%2Cname&filter=visible%3Dtrue"
+    },
+    {
+      "id": "nikade-og7weevury0s5t1",
+      "supplier": "nikade",
+      "supplierProductId": "og7weevury0s5t1",
+      "parentId": null,
+      "productId": null,
+      "originalModel": null,
+      "name": "8kW Inverter",
+      "url": "https://itelsolarnigeria.com/products",
+      "variant": {},
+      "priceNgn": 784300,
+      "currency": "NGN",
+      "stock": "in_stock",
+      "condition": "new",
+      "identity": "unmapped",
+      "priceBasis": "materials",
+      "installation": "not_specified",
+      "accessories": "not_specified",
+      "vat": "unknown",
+      "delivery": "unknown",
+      "retrievedAt": "2026-11-21T20:22:33.575180+00:00",
+      "supplierUpdatedAt": "2026-10-02 05:43:56.829Z",
+      "verification": "Live catalogue has no manufacturer model field. Do not link by name, capacity, voltage or matching price. API: https://itelsolarnigeria.com/hcgi/platform/api/collections/catalog_products/records?perPage=100&sort=sort_order%2Cname&filter=visible%3Dtrue"
+    },
+    {
+      "id": "nikade-puo490yxkcqp2zn",
+      "supplier": "nikade",
+      "supplierProductId": "puo490yxkcqp2zn",
+      "parentId": null,
+      "productId": null,
+      "originalModel": null,
+      "name": "12kW Inverter",
+      "url": "https://itelsolarnigeria.com/products",
+      "variant": {},
+      "priceNgn": 1089000,
+      "currency": "NGN",
+      "stock": "in_stock",
+      "condition": "new",
+      "identity": "unmapped",
+      "priceBasis": "materials",
+      "installation": "not_specified",
+      "accessories": "not_specified",
+      "vat": "unknown",
+      "delivery": "unknown",
+      "retrievedAt": "2026-11-21T20:22:33.575180+00:00",
+      "supplierUpdatedAt": "2026-10-02 05:43:56.829Z",
+      "verification": "Live catalogue has no manufacturer model field. Do not link by name, capacity, voltage or matching price. API: https://itelsolarnigeria.com/hcgi/platform/api/collections/catalog_products/records?perPage=100&sort=sort_order%2Cname&filter=visible%3Dtrue"
+    },
+    {
+      "id": "nikade-0hu6lko74zzvi50",
+      "supplier": "nikade",
+      "supplierProductId": "0hu6lko74zzvi50",
+      "parentId": null,
+      "productId": null,
+      "originalModel": null,
+      "name": "8kW Inverter 3-Phase",
+      "url": "https://itelsolarnigeria.com/products",
+      "variant": {},
+      "priceNgn": 2442000,
+      "currency": "NGN",
+      "stock": "in_stock",
+      "condition": "new",
+      "identity": "unmapped",
+      "priceBasis": "materials",
+      "installation": "not_specified",
+      "accessories": "not_specified",
+      "vat": "unknown",
+      "delivery": "unknown",
+      "retrievedAt": "2026-11-21T20:22:33.575180+00:00",
+      "supplierUpdatedAt": "2026-10-02 05:43:56.829Z",
+      "verification": "Live catalogue has no manufacturer model field. Do not link by name, capacity, voltage or matching price. API: https://itelsolarnigeria.com/hcgi/platform/api/collections/catalog_products/records?perPage=100&sort=sort_order%2Cname&filter=visible%3Dtrue"
+    },
+    {
+      "id": "nikade-9r00lspzl7hqxi4",
+      "supplier": "nikade",
+      "supplierProductId": "9r00lspzl7hqxi4",
+      "parentId": null,
+      "productId": null,
+      "originalModel": null,
+      "name": "12kW Inverter 3-Phase",
+      "url": "https://itelsolarnigeria.com/products",
+      "variant": {},
+      "priceNgn": 2574000,
+      "currency": "NGN",
+      "stock": "in_stock",
+      "condition": "new",
+      "identity": "unmapped",
+      "priceBasis": "materials",
+      "installation": "not_specified",
+      "accessories": "not_specified",
+      "vat": "unknown",
+      "delivery": "unknown",
+      "retrievedAt": "2026-11-21T20:22:33.575180+00:00",
+      "supplierUpdatedAt": "2026-10-02 05:43:56.830Z",
+      "verification": "Live catalogue has no manufacturer model field. Do not link by name, capacity, voltage or matching price. API: https://itelsolarnigeria.com/hcgi/platform/api/collections/catalog_products/records?perPage=100&sort=sort_order%2Cname&filter=visible%3Dtrue"
+    },
+    {
+      "id": "nikade-cl6gf5rj9j71h04",
+      "supplier": "nikade",
+      "supplierProductId": "cl6gf5rj9j71h04",
+      "parentId": null,
+      "productId": null,
+      "originalModel": null,
+      "name": "1.2kWh Battery",
+      "url": "https://itelsolarnigeria.com/products",
+      "variant": {},
+      "priceNgn": 231000,
+      "currency": "NGN",
+      "stock": "in_stock",
+      "condition": "new",
+      "identity": "unmapped",
+      "priceBasis": "materials",
+      "installation": "not_specified",
+      "accessories": "not_specified",
+      "vat": "unknown",
+      "delivery": "unknown",
+      "retrievedAt": "2026-11-21T20:22:33.575180+00:00",
+      "supplierUpdatedAt": "2026-10-02 05:43:56.833Z",
+      "verification": "Live catalogue has no manufacturer model field. Do not link by name, capacity, voltage or matching price. API: https://itelsolarnigeria.com/hcgi/platform/api/collections/catalog_products/records?perPage=100&sort=sort_order%2Cname&filter=visible%3Dtrue"
+    },
+    {
+      "id": "nikade-a9yr11celfzv93c",
+      "supplier": "nikade",
+      "supplierProductId": "a9yr11celfzv93c",
+      "parentId": null,
+      "productId": null,
+      "originalModel": null,
+      "name": "2.5kWh Battery",
+      "url": "https://itelsolarnigeria.com/products",
+      "variant": {},
+      "priceNgn": 601700,
+      "currency": "NGN",
+      "stock": "in_stock",
+      "condition": "new",
+      "identity": "unmapped",
+      "priceBasis": "materials",
+      "installation": "not_specified",
+      "accessories": "not_specified",
+      "vat": "unknown",
+      "delivery": "unknown",
+      "retrievedAt": "2026-11-21T20:22:33.575180+00:00",
+      "supplierUpdatedAt": "2026-10-02 05:43:56.833Z",
+      "verification": "Live catalogue has no manufacturer model field. Do not link by name, capacity, voltage or matching price. API: https://itelsolarnigeria.com/hcgi/platform/api/collections/catalog_products/records?perPage=100&sort=sort_order%2Cname&filter=visible%3Dtrue"
+    },
+    {
+      "id": "nikade-iow19rltanqabts",
+      "supplier": "nikade",
+      "supplierProductId": "iow19rltanqabts",
+      "parentId": null,
+      "productId": null,
+      "originalModel": null,
+      "name": "5kWh 24V Battery",
+      "url": "https://itelsolarnigeria.com/products",
+      "variant": {},
+      "priceNgn": 1037300,
+      "currency": "NGN",
+      "stock": "in_stock",
+      "condition": "new",
+      "identity": "unmapped",
+      "priceBasis": "materials",
+      "installation": "not_specified",
+      "accessories": "not_specified",
+      "vat": "unknown",
+      "delivery": "unknown",
+      "retrievedAt": "2026-11-21T20:22:33.575180+00:00",
+      "supplierUpdatedAt": "2026-10-02 05:43:56.830Z",
+      "verification": "Live catalogue has no manufacturer model field. Do not link by name, capacity, voltage or matching price. API: https://itelsolarnigeria.com/hcgi/platform/api/collections/catalog_products/records?perPage=100&sort=sort_order%2Cname&filter=visible%3Dtrue"
+    },
+    {
+      "id": "nikade-w3c8ajdvsd6qnae",
+      "supplier": "nikade",
+      "supplierProductId": "w3c8ajdvsd6qnae",
+      "parentId": null,
+      "productId": null,
+      "originalModel": null,
+      "name": "5kWh 48V Battery",
+      "url": "https://itelsolarnigeria.com/products",
+      "variant": {},
+      "priceNgn": 1001000,
+      "currency": "NGN",
+      "stock": "in_stock",
+      "condition": "new",
+      "identity": "unmapped",
+      "priceBasis": "materials",
+      "installation": "not_specified",
+      "accessories": "not_specified",
+      "vat": "unknown",
+      "delivery": "unknown",
+      "retrievedAt": "2026-11-21T20:22:33.575180+00:00",
+      "supplierUpdatedAt": "2026-10-02 05:43:56.830Z",
+      "verification": "Live catalogue has no manufacturer model field. Do not link by name, capacity, voltage or matching price. API: https://itelsolarnigeria.com/hcgi/platform/api/collections/catalog_products/records?perPage=100&sort=sort_order%2Cname&filter=visible%3Dtrue"
+    },
+    {
+      "id": "nikade-jbxfjoz4vaejjq0",
+      "supplier": "nikade",
+      "supplierProductId": "jbxfjoz4vaejjq0",
+      "parentId": null,
+      "productId": null,
+      "originalModel": null,
+      "name": "5kWh Stackable Battery",
+      "url": "https://itelsolarnigeria.com/products",
+      "variant": {},
+      "priceNgn": 995500,
+      "currency": "NGN",
+      "stock": "in_stock",
+      "condition": "new",
+      "identity": "unmapped",
+      "priceBasis": "materials",
+      "installation": "not_specified",
+      "accessories": "not_specified",
+      "vat": "unknown",
+      "delivery": "unknown",
+      "retrievedAt": "2026-11-21T20:22:33.575180+00:00",
+      "supplierUpdatedAt": "2026-10-02 05:43:56.830Z",
+      "verification": "Live catalogue has no manufacturer model field. Do not link by name, capacity, voltage or matching price. API: https://itelsolarnigeria.com/hcgi/platform/api/collections/catalog_products/records?perPage=100&sort=sort_order%2Cname&filter=visible%3Dtrue"
+    },
+    {
+      "id": "nikade-y5sly7g0r5v826b",
+      "supplier": "nikade",
+      "supplierProductId": "y5sly7g0r5v826b",
+      "parentId": null,
+      "productId": null,
+      "originalModel": null,
+      "name": "10kWh Battery",
+      "url": "https://itelsolarnigeria.com/products",
+      "variant": {},
+      "priceNgn": 1903000,
+      "currency": "NGN",
+      "stock": "in_stock",
+      "condition": "new",
+      "identity": "unmapped",
+      "priceBasis": "materials",
+      "installation": "not_specified",
+      "accessories": "not_specified",
+      "vat": "unknown",
+      "delivery": "unknown",
+      "retrievedAt": "2026-11-21T20:22:33.575180+00:00",
+      "supplierUpdatedAt": "2026-10-02 06:31:49.805Z",
+      "verification": "Live catalogue has no manufacturer model field. Do not link by name, capacity, voltage or matching price. API: https://itelsolarnigeria.com/hcgi/platform/api/collections/catalog_products/records?perPage=100&sort=sort_order%2Cname&filter=visible%3Dtrue"
+    },
+    {
+      "id": "nikade-ell4glbhw6hv0ah",
+      "supplier": "nikade",
+      "supplierProductId": "ell4glbhw6hv0ah",
+      "parentId": null,
+      "productId": null,
+      "originalModel": null,
+      "name": "16kWh Battery",
+      "url": "https://itelsolarnigeria.com/products",
+      "variant": {},
+      "priceNgn": 2244000,
+      "currency": "NGN",
+      "stock": "in_stock",
+      "condition": "new",
+      "identity": "unmapped",
+      "priceBasis": "materials",
+      "installation": "not_specified",
+      "accessories": "not_specified",
+      "vat": "unknown",
+      "delivery": "unknown",
+      "retrievedAt": "2026-11-21T20:22:33.575180+00:00",
+      "supplierUpdatedAt": "2026-10-02 06:31:49.806Z",
+      "verification": "Live catalogue has no manufacturer model field. Do not link by name, capacity, voltage or matching price. API: https://itelsolarnigeria.com/hcgi/platform/api/collections/catalog_products/records?perPage=100&sort=sort_order%2Cname&filter=visible%3Dtrue"
+    },
+    {
+      "id": "nikade-xceuj2bvtf8uokw",
+      "supplier": "nikade",
+      "supplierProductId": "xceuj2bvtf8uokw",
+      "parentId": null,
+      "productId": null,
+      "originalModel": null,
+      "name": "32kWh Battery",
+      "url": "https://itelsolarnigeria.com/products",
+      "variant": {},
+      "priceNgn": 4653000,
+      "currency": "NGN",
+      "stock": "in_stock",
+      "condition": "new",
+      "identity": "unmapped",
+      "priceBasis": "materials",
+      "installation": "not_specified",
+      "accessories": "not_specified",
+      "vat": "unknown",
+      "delivery": "unknown",
+      "retrievedAt": "2026-11-21T20:22:33.575180+00:00",
+      "supplierUpdatedAt": "2026-10-02 06:31:49.806Z",
+      "verification": "Live catalogue has no manufacturer model field. Do not link by name, capacity, voltage or matching price. API: https://itelsolarnigeria.com/hcgi/platform/api/collections/catalog_products/records?perPage=100&sort=sort_order%2Cname&filter=visible%3Dtrue"
+    },
+    {
+      "id": "nikade-7qn9sg434j5bpdb",
+      "supplier": "nikade",
+      "supplierProductId": "7qn9sg434j5bpdb",
+      "parentId": null,
+      "productId": null,
+      "originalModel": null,
+      "name": "Power Go",
+      "url": "https://itelsolarnigeria.com/products",
+      "variant": {},
+      "priceNgn": 83160,
+      "currency": "NGN",
+      "stock": "in_stock",
+      "condition": "new",
+      "identity": "unmapped",
+      "priceBasis": "materials",
+      "installation": "not_specified",
+      "accessories": "not_specified",
+      "vat": "unknown",
+      "delivery": "unknown",
+      "retrievedAt": "2026-11-21T20:22:33.575180+00:00",
+      "supplierUpdatedAt": "2026-10-02 06:19:01.983Z",
+      "verification": "Live catalogue has no manufacturer model field. Do not link by name, capacity, voltage or matching price. API: https://itelsolarnigeria.com/hcgi/platform/api/collections/catalog_products/records?perPage=100&sort=sort_order%2Cname&filter=visible%3Dtrue"
+    },
+    {
+      "id": "nikade-o6gcrreirmmxsp7",
+      "supplier": "nikade",
+      "supplierProductId": "o6gcrreirmmxsp7",
+      "parentId": null,
+      "productId": null,
+      "originalModel": null,
+      "name": "Power Go Pro",
+      "url": "https://itelsolarnigeria.com/products",
+      "variant": {},
+      "priceNgn": 145200,
+      "currency": "NGN",
+      "stock": "in_stock",
+      "condition": "new",
+      "identity": "unmapped",
+      "priceBasis": "materials",
+      "installation": "not_specified",
+      "accessories": "not_specified",
+      "vat": "unknown",
+      "delivery": "unknown",
+      "retrievedAt": "2026-11-21T20:22:33.575180+00:00",
+      "supplierUpdatedAt": "2026-10-02 05:43:56.831Z",
+      "verification": "Live catalogue has no manufacturer model field. Do not link by name, capacity, voltage or matching price. API: https://itelsolarnigeria.com/hcgi/platform/api/collections/catalog_products/records?perPage=100&sort=sort_order%2Cname&filter=visible%3Dtrue"
+    },
+    {
+      "id": "nikade-ofrvmlodtqw24fl",
+      "supplier": "nikade",
+      "supplierProductId": "ofrvmlodtqw24fl",
+      "parentId": null,
+      "productId": null,
+      "originalModel": null,
+      "name": "500W AIO",
+      "url": "https://itelsolarnigeria.com/products",
+      "variant": {},
+      "priceNgn": 308000,
+      "currency": "NGN",
+      "stock": "in_stock",
+      "condition": "new",
+      "identity": "unmapped",
+      "priceBasis": "materials",
+      "installation": "not_specified",
+      "accessories": "not_specified",
+      "vat": "unknown",
+      "delivery": "unknown",
+      "retrievedAt": "2026-11-21T20:22:33.575180+00:00",
+      "supplierUpdatedAt": "2026-10-02 06:19:01.983Z",
+      "verification": "Live catalogue has no manufacturer model field. Do not link by name, capacity, voltage or matching price. API: https://itelsolarnigeria.com/hcgi/platform/api/collections/catalog_products/records?perPage=100&sort=sort_order%2Cname&filter=visible%3Dtrue"
+    },
+    {
+      "id": "nikade-qbdn5ju9e0dlw6i",
+      "supplier": "nikade",
+      "supplierProductId": "qbdn5ju9e0dlw6i",
+      "parentId": null,
+      "productId": null,
+      "originalModel": null,
+      "name": "410W Panel",
+      "url": "https://itelsolarnigeria.com/products",
+      "variant": {},
+      "priceNgn": 105270,
+      "currency": "NGN",
+      "stock": "in_stock",
+      "condition": "new",
+      "identity": "unmapped",
+      "priceBasis": "materials",
+      "installation": "not_specified",
+      "accessories": "not_specified",
+      "vat": "unknown",
+      "delivery": "unknown",
+      "retrievedAt": "2026-11-21T20:22:33.575180+00:00",
+      "supplierUpdatedAt": "2026-10-02 05:43:56.831Z",
+      "verification": "Live catalogue has no manufacturer model field. Do not link by name, capacity, voltage or matching price. API: https://itelsolarnigeria.com/hcgi/platform/api/collections/catalog_products/records?perPage=100&sort=sort_order%2Cname&filter=visible%3Dtrue"
+    },
+    {
+      "id": "nikade-bcce05fjmwmdu4l",
+      "supplier": "nikade",
+      "supplierProductId": "bcce05fjmwmdu4l",
+      "parentId": null,
+      "productId": null,
+      "originalModel": null,
+      "name": "590W Bifacial Panel",
+      "url": "https://itelsolarnigeria.com/products",
+      "variant": {},
+      "priceNgn": 140250,
+      "currency": "NGN",
+      "stock": "in_stock",
+      "condition": "new",
+      "identity": "unmapped",
+      "priceBasis": "materials",
+      "installation": "not_specified",
+      "accessories": "not_specified",
+      "vat": "unknown",
+      "delivery": "unknown",
+      "retrievedAt": "2026-11-21T20:22:33.575180+00:00",
+      "supplierUpdatedAt": "2026-10-02 05:43:56.833Z",
+      "verification": "Live catalogue has no manufacturer model field. Do not link by name, capacity, voltage or matching price. API: https://itelsolarnigeria.com/hcgi/platform/api/collections/catalog_products/records?perPage=100&sort=sort_order%2Cname&filter=visible%3Dtrue"
+    },
+    {
+      "id": "nikade-06imr5isclz8194",
+      "supplier": "nikade",
+      "supplierProductId": "06imr5isclz8194",
+      "parentId": null,
+      "productId": null,
+      "originalModel": null,
+      "name": "620W Bifacial Panel",
+      "url": "https://itelsolarnigeria.com/products",
+      "variant": {},
+      "priceNgn": 151800,
+      "currency": "NGN",
+      "stock": "in_stock",
+      "condition": "new",
+      "identity": "unmapped",
+      "priceBasis": "materials",
+      "installation": "not_specified",
+      "accessories": "not_specified",
+      "vat": "unknown",
+      "delivery": "unknown",
+      "retrievedAt": "2026-11-21T20:22:33.575180+00:00",
+      "supplierUpdatedAt": "2026-10-02 05:43:56.833Z",
+      "verification": "Live catalogue has no manufacturer model field. Do not link by name, capacity, voltage or matching price. API: https://itelsolarnigeria.com/hcgi/platform/api/collections/catalog_products/records?perPage=100&sort=sort_order%2Cname&filter=visible%3Dtrue"
+    },
+    {
+      "id": "visibility-14032",
+      "supplier": "visibility",
+      "supplierProductId": "14032",
+      "parentId": "13959",
+      "productId": null,
+      "originalModel": "ITL-4KW-CUST-KIT",
+      "name": "4kW Complete Hybrid Solar System Setup (Customizable Battery & Panels) 4kva | Inverter IP 54 | Battery IP 20",
+      "url": "https://itelsolar.com/product/4kw-complete-hybrid-solar-system-setup-customizable-battery-panels/",
+      "variant": {
+        "Hybrid Inverter": "4kw",
+        "Lithium Battery": "2.56kWh",
+        "Panel": "No Panel"
+      },
+      "priceNgn": 1017700.0,
+      "currency": "NGN",
+      "stock": "in_stock",
+      "condition": "new",
+      "identity": "verified",
+      "priceBasis": "unknown",
+      "installation": "not_specified",
+      "accessories": "not_specified",
+      "vat": "unknown",
+      "delivery": "unknown",
+      "retrievedAt": "2026-11-21T10:06:44.773983+00:00",
+      "supplierUpdatedAt": null,
+      "verification": "Exact published SKU / supplier product identity; technical compatibility is a separate review. Price converted from two NGN minor digits."
+    },
+    {
+      "id": "visibility-14036",
+      "supplier": "visibility",
+      "supplierProductId": "14036",
+      "parentId": "13959",
+      "productId": null,
+      "originalModel": "ITL-4KW-CUST-KIT",
+      "name": "4kW Complete Hybrid Solar System Setup (Customizable Battery & Panels) 4kva | Inverter IP 54 | Battery IP 20",
+      "url": "https://itelsolar.com/product/4kw-complete-hybrid-solar-system-setup-customizable-battery-panels/",
+      "variant": {
+        "Hybrid Inverter": "4kw",
+        "Lithium Battery": "2.56kWh",
+        "Panel": "620W 6unit"
+      },
+      "priceNgn": 1974977.8,
+      "currency": "NGN",
+      "stock": "in_stock",
+      "condition": "new",
+      "identity": "verified",
+      "priceBasis": "unknown",
+      "installation": "not_specified",
+      "accessories": "not_specified",
+      "vat": "unknown",
+      "delivery": "unknown",
+      "retrievedAt": "2026-11-21T10:06:45.869457+00:00",
+      "supplierUpdatedAt": null,
+      "verification": "Exact published SKU / supplier product identity; technical compatibility is a separate review. Price converted from two NGN minor digits."
+    },
+    {
+      "id": "visibility-29023",
+      "supplier": "visibility",
+      "supplierProductId": "29023",
+      "parentId": null,
+      "productId": null,
+      "originalModel": null,
+      "name": "Complete 6kW Hybrid Solar System | 16kWh Lithium LiFePO4 Battery + 12x 620W Panels",
+      "url": "https://itelsolar.com/product/complete-6kw-hybrid-solar-system-16kwh-lithium-lifepo4-battery-12x-620w-panels/",
+      "variant": {},
+      "priceNgn": 5233900.0,
+      "currency": "NGN",
+      "stock": "in_stock",
+      "condition": "new",
+      "identity": "verified",
+      "priceBasis": "materials",
+      "installation": "excluded",
+      "accessories": "excluded",
+      "vat": "unknown",
+      "delivery": "unknown",
+      "retrievedAt": "2026-11-21T10:06:41.554079+00:00",
+      "supplierUpdatedAt": null,
+      "verification": "Exact equipment-only supplier bundle. Page quotes optional supplier installation separately; it is not a Picon rate."
+    },
+    {
+      "id": "nikade-package-starter",
+      "supplier": "nikade",
+      "supplierProductId": "starter",
+      "parentId": null,
+      "productId": null,
+      "originalModel": null,
+      "name": "Starter PACK",
+      "url": "https://itelsolarnigeria.com/packages",
+      "variant": {
+        "Published configuration": "1.5 kW inverter / 1.2 kWh battery / 1 × 620 W"
+      },
+      "priceNgn": 468601,
+      "currency": "NGN",
+      "stock": "unknown",
+      "condition": "new",
+      "identity": "verified",
+      "priceBasis": "unknown",
+      "installation": "not_specified",
+      "accessories": "included",
+      "vat": "unknown",
+      "delivery": "unknown",
+      "retrievedAt": "2026-11-21T09:23:38+00:00",
+      "supplierUpdatedAt": null,
+      "verification": "Reviewed published package array in public site bundle https://itelsolarnigeria.com/assets/index-IYF9bMmc.js. Separate from live products feed. Scope / exact model codes require supplier confirmation."
+    },
+    {
+      "id": "nikade-package-premium",
+      "supplier": "nikade",
+      "supplierProductId": "premium",
+      "parentId": null,
+      "productId": null,
+      "originalModel": null,
+      "name": "Premium Whole-Home System",
+      "url": "https://itelsolarnigeria.com/packages",
+      "variant": {
+        "Published configuration": "6 kW inverter / 16 kWh battery / 12 × 620 W"
+      },
+      "priceNgn": 5233900,
+      "currency": "NGN",
+      "stock": "unknown",
+      "condition": "new",
+      "identity": "verified",
+      "priceBasis": "unknown",
+      "installation": "not_specified",
+      "accessories": "included",
+      "vat": "unknown",
+      "delivery": "unknown",
+      "retrievedAt": "2026-11-21T09:23:38+00:00",
+      "supplierUpdatedAt": null,
+      "verification": "Reviewed published package array in public site bundle https://itelsolarnigeria.com/assets/index-IYF9bMmc.js. Separate from live products feed. Scope / exact model codes require supplier confirmation."
+    },
+    {
+      "id": "visibility-29449",
+      "supplier": "visibility",
+      "supplierProductId": "29449",
+      "parentId": null,
+      "productId": "itel-iess-320act",
+      "originalModel": "IESS-320ACT",
+      "originalSku": "IESS-320ACT",
+      "name": "itel Power Go Pro 320Wh Portable Power Station (IESS-320ACT) | 200W AC Output, LiFePO4 Battery & 100W Solar Charging",
+      "url": "https://itelsolar.com/product/itel-power-go-pro-320wh-portable-power-station-iess-320act-200w-ac-output-lifepo4-battery-100w-solar-charging/",
+      "variant": {},
+      "priceNgn": 145200.0,
+      "currency": "NGN",
+      "stock": "in_stock",
+      "condition": "new",
+      "identity": "verified",
+      "priceBasis": "materials",
+      "installation": "not_specified",
+      "accessories": "not_specified",
+      "vat": "unknown",
+      "delivery": "unknown",
+      "retrievedAt": "2026-11-21T20:22:33.749993+00:00",
+      "supplierUpdatedAt": null,
+      "verification": "Exact model in title and manufacturer product menu. Original raw supplier SKU retained separately; truncated descriptive SKU is not used as the manufacturer identity."
+    },
+    {
+      "id": "visibility-27325",
+      "supplier": "visibility",
+      "supplierProductId": "27325",
+      "parentId": null,
+      "productId": "itel-iess-1k20n",
+      "originalModel": "IESS-1K20N",
+      "originalSku": "IESS-1K20N",
+      "name": "Power Tank 1000 | 2000wh Lithium Battery,1000w AC Output and can draw upto to 1200w PV input IESS-1K20N",
+      "url": "https://itelsolar.com/product/power-tank-1000-iess-1k20n/",
+      "variant": {},
+      "priceNgn": 629200.0,
+      "currency": "NGN",
+      "stock": "out_of_stock",
+      "condition": "new",
+      "identity": "verified",
+      "priceBasis": "materials",
+      "installation": "not_specified",
+      "accessories": "not_specified",
+      "vat": "unknown",
+      "delivery": "unknown",
+      "retrievedAt": "2026-11-21T20:22:33.749993+00:00",
+      "supplierUpdatedAt": null,
+      "verification": "Exact model in title and manufacturer product menu. Original raw supplier SKU retained separately; truncated descriptive SKU is not used as the manufacturer identity."
+    },
+    {
+      "id": "visibility-6132",
+      "supplier": "visibility",
+      "supplierProductId": "6132",
+      "parentId": null,
+      "productId": "itel-iess-3k680n",
+      "originalModel": "IESS-3K680N",
+      "originalSku": "itel 3600W Solar Generator 8000Wh Lithium Battery IESS-",
+      "name": "itel 8000Wh Solar Generator All in One with 3600W Inverter, 8000Wh Lithium Battery  IESS-3K680N",
+      "url": "https://itelsolar.com/product/itel-8000w-solar-generator-all-in-one-with-3600w-inverter-8000wh-lithium-battery-iess-3k680n/",
+      "variant": {},
+      "priceNgn": 1680000.0,
+      "currency": "NGN",
+      "stock": "out_of_stock",
+      "condition": "new",
+      "identity": "verified",
+      "priceBasis": "materials",
+      "installation": "not_specified",
+      "accessories": "not_specified",
+      "vat": "unknown",
+      "delivery": "unknown",
+      "retrievedAt": "2026-11-21T20:22:33.749993+00:00",
+      "supplierUpdatedAt": null,
+      "verification": "Exact model in title and manufacturer product menu. Original raw supplier SKU retained separately; truncated descriptive SKU is not used as the manufacturer identity."
+    },
+    {
+      "id": "visibility-116",
+      "supplier": "visibility",
+      "supplierProductId": "116",
+      "parentId": null,
+      "productId": null,
+      "originalModel": "IPW-51100",
+      "name": "itel 5120Wh Lithium Battery Wall Mounted 48V 100Ah 5.12kWh IPW-51100 IP21",
+      "url": "https://itelsolar.com/product/itel-5120wh-lithium-battery-wall-mounted-48v-100ah-5-12kwh-ipw-51100/",
+      "variant": {},
+      "priceNgn": 1001000.0,
+      "currency": "NGN",
+      "stock": "in_stock",
+      "condition": "new",
+      "identity": "needs_review",
+      "priceBasis": "materials",
+      "installation": "not_specified",
+      "accessories": "not_specified",
+      "vat": "unknown",
+      "delivery": "unknown",
+      "retrievedAt": "2026-11-21T20:22:45.505404+00:00",
+      "supplierUpdatedAt": null,
+      "verification": "Exact IPW-51100 listing observed; retailer IP21/IP65 claims do not establish equivalence to IP20 PK2 configuration. No canonical hardware-revision join.",
+      "originalSku": "IPW-51100"
+    },
+    {
+      "id": "cdcare-se-f5-20261121",
+      "supplier": "cdcare",
+      "supplierProductId": "8wjlI6A7INcsIrfNu4jJ",
+      "parentId": null,
+      "productId": "deye-se-f5",
+      "originalModel": "SE-F5",
+      "name": "DEYE Low Voltage 5.12KWH Lithium Battery",
+      "url": "https://www.cdcare.ng/product/8wjlI6A7INcsIrfNu4jJ",
+      "variant": {},
+      "priceNgn": 975862.07,
+      "currency": "NGN",
+      "stock": "in_stock",
+      "condition": "new",
+      "identity": "verified",
+      "priceBasis": "materials",
+      "installation": "not_specified",
+      "accessories": "not_specified",
+      "vat": "unknown",
+      "delivery": "excluded",
+      "retrievedAt": "2026-11-21T23:21:10+00:00",
+      "supplierUpdatedAt": null,
+      "verification": "Exact SE-F5 model, new condition, in-stock status and full product price observed on supplier page. Delivery is calculated separately; no stock quantity, warranty term or installation/accessory inclusion is stated."
+    },
+    {
+      "id": "winboost-709d14eb-20261121",
+      "supplier": "winboost",
+      "supplierProductId": "709D14EB",
+      "parentId": null,
+      "productId": "itel-iess-3k680n",
+      "originalModel": "IESS-3K680N",
+      "originalSku": "709D14EB",
+      "name": "itel 8000Wh Solar Generator All in One with 3600W Inverter, 8000Wh Lithium Battery IESS-3K680N",
+      "url": "https://winboost.com.ng/product/itel-8000wh-solar-generator-all-in-one-with-3600w-inverter-8000wh-lithium-battery-iess-3k680n-95d30",
+      "variant": {},
+      "priceNgn": 2049700,
+      "currency": "NGN",
+      "stock": "in_stock",
+      "condition": "unknown",
+      "identity": "verified",
+      "priceBasis": "materials",
+      "installation": "not_specified",
+      "accessories": "not_specified",
+      "vat": "unknown",
+      "delivery": "unknown",
+      "retrievedAt": "2026-11-21T23:34:32+00:00",
+      "supplierUpdatedAt": null,
+      "verification": "Supplier page lists the exact IESS-3K680N model, ₦2,049,700 and In stock (50 available); page does not state new/used condition, so the item is not price-eligible. No installation, included PV module, delivery or VAT claim is assumed."
+    },
+    {
+      "id": "sunset-iess-1k20n-20261125",
+      "supplier": "sunset",
+      "supplierProductId": "1000w-2kwh-power-tank-iess-1k20n",
+      "parentId": null,
+      "productId": "itel-iess-1k20n",
+      "originalModel": "IESS-1K20N",
+      "name": "1000W / 2kWh Power Tank (IESS-1K20N)",
+      "url": "https://sunsetenergysolutionslimited.com/?ss_item=1000w-2kwh-power-tank-iess-1k20n",
+      "variant": {},
+      "priceNgn": 629200,
+      "currency": "NGN",
+      "stock": "in_stock",
+      "condition": "new",
+      "identity": "verified",
+      "priceBasis": "materials",
+      "installation": "not_specified",
+      "accessories": "not_specified",
+      "vat": "unknown",
+      "delivery": "unknown",
+      "retrievedAt": "2026-11-25T01:21:49Z",
+      "supplierUpdatedAt": null,
+      "verification": "Exact model, displayed unit price, new condition and in-stock state observed on the product detail page. Installation, accessories, VAT and delivery inclusions are not assumed."
+    },
+    {
+      "id": "kinbu-iess-1k20n-20261125",
+      "supplier": "kinbu",
+      "supplierProductId": "itel-power-tank-1000-iess-1k20n",
+      "parentId": null,
+      "productId": "itel-iess-1k20n",
+      "originalModel": "IESS-1K20N",
+      "name": "itel Power Tank 1000 (IESS-1K20N)",
+      "url": "https://www.kinbupower.com/products/itel-power-tank-1000-iess-1k20n",
+      "variant": {},
+      "priceNgn": 629000,
+      "currency": "NGN",
+      "stock": "unknown",
+      "condition": "new",
+      "identity": "verified",
+      "priceBasis": "materials",
+      "installation": "not_specified",
+      "accessories": "not_specified",
+      "vat": "unknown",
+      "delivery": "excluded",
+      "retrievedAt": "2026-11-25T01:21:49Z",
+      "supplierUpdatedAt": null,
+      "verification": "Exact model and current selling price displayed. Listing identifies the product as new and available to order, but stock quantity is unconfirmed; delivery is quoted per order. Excluded from stock eligibility."
+    }
+  ],
+  "packages": [
+    {
+      "id": "visibility-kit-14032",
+      "offerId": "visibility-14032",
+      "name": "4 kW / 2.56 kWh / No Panel",
+      "description": "Exact supplier-selected variant, not the parent starting-price range. Shared SKU is not used as variant identity.",
+      "components": [
+        {
+          "name": "4 kW inverter (parent claims IPV-4k24UPRO-Wifi)",
+          "productId": null,
+          "quantity": 1
+        },
+        {
+          "name": "2.56 kWh battery (exact variant model unconfirmed)",
+          "productId": null,
+          "quantity": 1
+        }
+      ],
+      "accessories": [],
+      "protection": [],
+      "warranty": null,
+      "issues": [
+        "Installation / accessory scope and exact battery model are not confirmed. No materials allowance until price basis is confirmed."
+      ]
+    },
+    {
+      "id": "visibility-kit-14036",
+      "offerId": "visibility-14036",
+      "name": "4 kW / 2.56 kWh / 620W 6unit",
+      "description": "Exact supplier-selected variant, not the parent starting-price range. Shared SKU is not used as variant identity.",
+      "components": [
+        {
+          "name": "4 kW inverter (parent claims IPV-4k24UPRO-Wifi)",
+          "productId": null,
+          "quantity": 1
+        },
+        {
+          "name": "2.56 kWh battery (exact variant model unconfirmed)",
+          "productId": null,
+          "quantity": 1
+        },
+        {
+          "name": "620 W panel (exact model unconfirmed)",
+          "productId": null,
+          "quantity": 6
+        }
+      ],
+      "accessories": [],
+      "protection": [],
+      "warranty": null,
+      "issues": [
+        "Installation / accessory scope and exact battery model are not confirmed. No materials allowance until price basis is confirmed."
+      ]
+    },
+    {
+      "id": "visibility-6kw-kit",
+      "offerId": "visibility-29023",
+      "name": "6 kW / 16 kWh / 12 × 620 W",
+      "description": "Supplier-listed equipment bundle; not a Picon installation or a calculator-confirmed compatible configuration.",
+      "components": [
+        {
+          "name": "6 kW hybrid inverter, exact model unconfirmed",
+          "productId": null,
+          "quantity": 1
+        },
+        {
+          "name": "16 kWh lithium battery, exact model unconfirmed",
+          "productId": null,
+          "quantity": 1
+        },
+        {
+          "name": "620 W panel, exact model unconfirmed",
+          "productId": null,
+          "quantity": 12
+        }
+      ],
+      "accessories": [],
+      "protection": [],
+      "warranty": null,
+      "issues": [
+        "Installation, mounting, protection, cabling and commissioning are described as optional paid services. Confirm scope and exact models before ordering."
+      ]
+    },
+    {
+      "id": "nikade-package-starter",
+      "offerId": "nikade-package-starter",
+      "name": "Starter PACK",
+      "description": "1.5 kW inverter / 1.2 kWh battery / 1 × 620 W",
+      "components": [
+        {
+          "name": "1.5 kW off-grid inverter",
+          "quantity": 1,
+          "productId": null
+        },
+        {
+          "name": "1.2 kWh battery",
+          "quantity": 1,
+          "productId": null
+        },
+        {
+          "name": "620 W panel",
+          "quantity": 1,
+          "productId": null
+        }
+      ],
+      "accessories": [
+        "Cables and mounting listed; quantities unspecified"
+      ],
+      "protection": [],
+      "warranty": null,
+      "issues": [
+        "Package stock, exact component models and installation scope need supplier confirmation. Not a confirmed compatible system."
+      ]
+    },
+    {
+      "id": "nikade-package-premium",
+      "offerId": "nikade-package-premium",
+      "name": "Premium Whole-Home System",
+      "description": "6 kW inverter / 16 kWh battery / 12 × 620 W",
+      "components": [
+        {
+          "name": "6 kW hybrid inverter",
+          "quantity": 1,
+          "productId": null
+        },
+        {
+          "name": "16 kWh battery",
+          "quantity": 1,
+          "productId": null
+        },
+        {
+          "name": "620 W panel",
+          "quantity": 12,
+          "productId": null
+        }
+      ],
+      "accessories": [
+        "Mounting listed; quantities unspecified"
+      ],
+      "protection": [
+        "Protection combo listed; exact contents unconfirmed"
+      ],
+      "warranty": null,
+      "issues": [
+        "Package stock, exact component models and installation scope need supplier confirmation. Not a confirmed compatible system."
+      ]
+    }
+  ],
+  "approvedPairs": [
+    {
+      "inverterId": "deye-sun-6k-og01lp1-eu-am2",
+      "batteryId": "deye-se-f5",
+      "sourceUrl": "https://www.deyeinverter.com/deyeinverter/2025/04/14/%E3%80%90b%E3%80%91deyeoff-gridesssolution20250408v1.0.pdf"
+    },
+    {
+      "inverterId": "itel-ipv-12k48u",
+      "batteryId": "itel-ipl-51314h",
+      "sourceUrl": "https://itelsolar.com/product/itel-12kw-inverter-hybrid-48v-ip54-1phase-ipv-12k48u/",
+      "evidenceType": "supplier_listing"
+    }
+  ]
+}
