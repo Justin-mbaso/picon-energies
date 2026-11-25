@@ -16,7 +16,7 @@ const payload = {
 const configured = {
   apiKey: "re_test_key",
   fromEmail: "onboarding@resend.dev",
-  toEmail: "resend-account@example.com",
+  toEmail: "piconenergies@gmail.com",
 };
 
 test("sends validated enquiry fields and reports provider acceptance", async () => {
@@ -39,7 +39,8 @@ test("sends validated enquiry fields and reports provider acceptance", async () 
   assert.equal(apiKeyUsed, configured.apiKey);
   assert.ok(emailSent);
   assert.equal(emailSent.from, configured.fromEmail);
-  assert.deepEqual(emailSent.to, [configured.toEmail]);
+  assert.equal(configured.toEmail, "piconenergies@gmail.com");
+  assert.deepEqual(emailSent.to, ["piconenergies@gmail.com"]);
   assert.equal(emailSent.replyTo, payload.email);
   assert.equal(emailSent.subject, "New Picon Energies enquiry: Solar");
   assert.match(String(emailSent.html), /Amina &lt;script&gt;alert\(&#39;x&#39;\)&lt;\/script&gt;/);

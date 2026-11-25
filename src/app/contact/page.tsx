@@ -2,9 +2,12 @@ import Image from "next/image";
 import { Container } from "@/components/ui/container";
 import { ContactForm } from "@/components/sections/contact-form";
 import type { ContactIntent } from "@/lib/contact-validation";
+import { parseAssessmentSummary } from "@/lib/solar-calculator/assessment-summary";
+import { solarCatalog } from "@/lib/solar-catalog/products";
+import { systemConfigurations } from "@/lib/solar-catalog/configurations";
 
 type ContactPageProps = {
-  searchParams: Promise<{ intent?: string | string[] }>;
+  searchParams: Promise<{ intent?: string | string[]; solar?: string | string[] }>;
 };
 
 const pageCopy: Record<ContactIntent, { title: string; description: string }> = {
@@ -32,7 +35,7 @@ function resolveIntent(value: string | string[] | undefined): ContactIntent {
 }
 
 export default async function ContactPage({ searchParams }: ContactPageProps) {
-  const { intent: requestedIntent } = await searchParams;
+  const { intent: requestedIntent, solar } = await searchParams;
   const intent = resolveIntent(requestedIntent);
   const copy = pageCopy[intent];
 
@@ -51,7 +54,7 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
         </header>
         <div className="contact-page-layout">
           <section className="contact-page-form-panel" aria-label="Send an enquiry">
-            <ContactForm intent={intent} />
+            <ContactForm intent={intent} initialMessage={intent === "solar-assessment" ? parseAssessmentSummary(solar, solarCatalog, systemConfigurations) : ""} />
           </section>
           <aside className="contact-details-card" aria-labelledby="contact-details-title">
             <figure className="contact-details-image">

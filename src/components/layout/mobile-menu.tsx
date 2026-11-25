@@ -33,13 +33,17 @@ export function MobileMenu() {
 
   return (
     <details className="mobile-menu" ref={menuRef}>
-      <summary aria-label="Toggle navigation menu">MENU</summary>
-      <nav aria-label="Mobile navigation">
+      <summary aria-label="Toggle navigation menu"><span className="menu-lines" aria-hidden="true" /></summary>
+      <nav aria-label="Mobile navigation" onClick={(event) => {
+        if (event.target instanceof Element && event.target.closest("a") && menuRef.current) {
+          menuRef.current.open = false;
+        }
+      }}>
         <ul>
-          <li><Link href="/#capabilities">SOLUTIONS</Link></li>
-          <li><Link href="/#ev-lite">EV LITE</Link></li>
-          <li><Link href="/about">ABOUT</Link></li>
-          <li><Link href="/#contact-frame">CONTACT</Link></li>
+          <li><Link href="/#capabilities">Solutions</Link></li>
+          <li><Link href="/#ev-lite">EV Lite</Link></li>
+          <li><Link href="/about">About</Link></li>
+          <li><Link href="/#contact-frame">Contact</Link></li>
         </ul>
       </nav>
     </details>

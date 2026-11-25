@@ -6,25 +6,18 @@ import { MobileMenu } from "@/components/layout/mobile-menu";
 
 export function Header() {
   return (
-    <header className="site-header">
-      <Container>
+    <header className="site-header site-header--glass">
+      <Container className="header-frame">
         <div className="header-inner">
           <Link className="wordmark" href="/" aria-label="Picon Energies home">
             <Image
-              src="/images/picon-logo.png"
-              alt=""
-              width={186}
-              height={54}
-              priority
-              className="brand-logo header-logo-light"
-            />
-            <Image
               src="/images/picon-logo-2.png"
               alt=""
-              width={186}
-              height={54}
-              priority
-              className="brand-logo header-logo-dark"
+              width={2172}
+              height={724}
+              sizes="(max-width: 650px) 128px, 158px"
+              loading="eager"
+              className="brand-logo"
             />
           </Link>
 
@@ -33,27 +26,28 @@ export function Header() {
               <SolutionsDropdown />
               <li>
                 <Link className="navigation-link" href="/#ev-lite">
-                  EV LITE
+                  EV Lite
                 </Link>
               </li>
               <li>
                 <Link className="navigation-link" href="/about">
-                  ABOUT
+                  About
                 </Link>
               </li>
               <li>
                 <Link className="navigation-link" href="/#contact-frame">
-                  CONTACT
+                  Contact
                 </Link>
               </li>
             </ul>
           </nav>
 
-          <MobileMenu />
-
-          <Link className="header-cta" href="/contact?intent=enquiry">
-            MAKE AN ENQUIRY <span aria-hidden="true">→</span>
-          </Link>
+          <div className="nav-actions">
+            <Link className="header-cta" href="/contact?intent=enquiry">
+              MAKE AN ENQUIRY <svg className="header-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15m-6-6 6 6-6 6" /></svg>
+            </Link>
+            <MobileMenu />
+          </div>
         </div>
       </Container>
     </header>

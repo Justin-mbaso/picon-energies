@@ -47,7 +47,7 @@ function firstInvalidField(errors: ContactFieldErrors): ContactFieldName | undef
   return fieldOrder.find((field) => Boolean(errors[field]));
 }
 
-export function ContactForm({ intent }: { intent: ContactIntent }) {
+export function ContactForm({ intent, initialMessage = "" }: { intent: ContactIntent; initialMessage?: string }) {
   const [fieldErrors, setFieldErrors] = useState<ContactFieldErrors>({});
   const [submissionState, setSubmissionState] = useState<SubmissionState>("idle");
   const [submissionNotice, setSubmissionNotice] = useState("");
@@ -260,6 +260,7 @@ export function ContactForm({ intent }: { intent: ContactIntent }) {
         <label className="contact-field contact-field-wide" htmlFor="message">
           <span>Message / Requirements <span aria-hidden="true">*</span></span>
           <textarea
+            defaultValue={initialMessage}
             id="message"
             name="message"
             rows={6}

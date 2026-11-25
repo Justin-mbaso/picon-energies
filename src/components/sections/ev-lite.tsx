@@ -78,7 +78,6 @@ export function EvLite() {
                     <span className="ev-lite-pillar-title">{pillar.title}</span>
                     <span className="ev-lite-pillar-description">{pillar.detail}</span>
                   </span>
-                  <span className="ev-lite-pillar-arrow" aria-hidden="true">→</span>
                 </li>
               ))}
             </ol>
