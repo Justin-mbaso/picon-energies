@@ -10,6 +10,7 @@ import {
   type ContactFieldName,
   type ContactIntent,
 } from "@/lib/contact-validation";
+import { createContactSubmissionRequest } from "@/lib/contact-submission";
 
 type SubmissionState = "idle" | "invalid" | "submitting" | "success" | "error";
 
@@ -34,6 +35,8 @@ const suggestedService: Partial<Record<ContactIntent, (typeof CONTACT_SERVICES)[
   partnership: "Other / Partnership",
   "solar-assessment": "Solar",
 };
+
+const useNetlifyForms = process.env.NEXT_PUBLIC_CONTACT_DELIVERY_PROVIDER === "netlify-forms";
 
 function isContactFieldErrors(value: unknown): value is ContactFieldErrors {
   if (value === null || typeof value !== "object" || Array.isArray(value)) return false;
@@ -113,13 +116,14 @@ export function ContactForm({ intent, initialMessage = "" }: { intent: ContactIn
     const timeout = window.setTimeout(() => controller.abort(), 15_000);
 
     try {
-      const response = await fetch("/api/contact", {
+      const submission = createContactSubmissionRequest(payload, useNetlifyForms);
+      const response = await fetch(submission.endpoint, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
+        headers: { "Content-Type": submission.contentType },
+        body: submission.body,
         signal: controller.signal,
       });
-      const reply = await response.json().catch(() => null) as SubmissionReply | null;
+      const reply = useNetlifyForms ? null : await response.json().catch(() => null) as SubmissionReply | null;
 
       if (response.status === 422 && isContactFieldErrors(reply?.fieldErrors)) {
         setFieldErrors(reply.fieldErrors);
@@ -129,7 +133,7 @@ export function ContactForm({ intent, initialMessage = "" }: { intent: ContactIn
         return;
       }
 
-      if (response.ok && reply?.ok === true) {
+      if (response.ok && (useNetlifyForms || reply?.ok === true)) {
         form.reset();
         setSubmissionState("success");
         setSubmissionNotice("Thank you. Your enquiry has been sent.");
