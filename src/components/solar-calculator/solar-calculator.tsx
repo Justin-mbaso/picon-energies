@@ -1,14 +1,16 @@
 "use client";
 
 import Link from "next/link";
-import { useId, useMemo, useRef, useState } from "react";
+import { useEffect, useId, useMemo, useRef, useState } from "react";
 import type { CalculatorRequest, CustomerPlan } from "@/lib/solar-calculator/recommendation-types";
 import { SystemResults } from "./system-results";
 import { APPLIANCES, BACKUP_MODEL, DEFAULT_ASSUMPTIONS, suggestAppliance } from "@/lib/solar-calculator/solar-config";
 import { parseNumber, validateInputs, type Appliance } from "@/lib/solar-calculator/solar-calculations";
 import { assessmentUrl } from "@/lib/solar-calculator/assessment-summary";
+import { addOrIncrementAppliance, decrementAppliance, removeAppliance } from "@/lib/solar-calculator/appliance-selection";
+import { armCalculatorReturn, clearCalculatorSession, consumeCalculatorReturn, readCalculatorSession, saveCalculatorSession, type CalculatorDraft, type CalculatorSession } from "@/lib/solar-calculator/session-state";
 
-type Draft = { id: string; name: string; quantity: string; watts: string; hours: string; startingW: string };
+type Draft = CalculatorDraft;
 const convert = (d: Draft): Appliance => ({ ...d, quantity: parseNumber(d.quantity), watts: parseNumber(d.watts), hours: parseNumber(d.hours), startingW: d.startingW === "" ? null : parseNumber(d.startingW) });
 const labels = ["Choose appliances", "Check your load", "Your solar plan"];
 function Icon({ name = "power" }: { name?: string }) {
@@ -25,7 +27,7 @@ function NumberField({ label, value, onChange, hint, invalid = false, suffix }: 
   return <label className="sc-field" htmlFor={id}><span>{label}</span><span className="sc-input-wrap"><input id={id} aria-label={label} aria-describedby={hint ? `${id}-hint` : undefined} type="text" inputMode="decimal" value={value} onChange={(e) => onChange(e.target.value)} aria-invalid={invalid || value !== "" && !/^-?(?:\d+(?:\.\d*)?|\.\d+)$/.test(value) || undefined} /><span aria-hidden="true">{suffix}</span></span>{hint && <small id={`${id}-hint`}>{hint}</small>}</label>;
 }
 
-export function SolarCalculator() {
+export function SolarCalculator({assessmentFallback}:{assessmentFallback?:{request:CalculatorRequest;configurationId:string|null}}={}) {
   const [step,setStep] = useState(0), [drafts,setDrafts] = useState<Draft[]>([]);
   const [customName,setCustomName] = useState(""), [customW,setCustomW] = useState(""), [customH,setCustomH] = useState("");
   const [customError,setCustomError] = useState(""), [errors,setErrors] = useState<string[]>([]);
@@ -34,12 +36,42 @@ export function SolarCalculator() {
   const [selectedId,setSelectedId] = useState<string|null>(null);
   const [calculatedRequest,setCalculatedRequest] = useState<CalculatorRequest|null>(null);
   const [isCalculating,setIsCalculating] = useState(false);
+  const [manuallySelected,setManuallySelected] = useState(false), [activeSession,setActiveSession] = useState(false);
   const calculation = useRef<AbortController|null>(null);
   const heading = useRef<HTMLHeadingElement>(null), customId = useRef(0);
   const loads = useMemo(() => drafts.map(convert),[drafts]);
   const validLoads = loads.filter((l) => !validateInputs([l],DEFAULT_ASSUMPTIONS).length);
   const livePeak = validLoads.reduce((s,l) => s + l.quantity*l.watts,0);
   const liveDaily = validLoads.reduce((s,l) => s+l.quantity*l.watts*l.hours,0);
+  useEffect(() => {
+    const returning = consumeCalculatorReturn();
+    const snapshot = readCalculatorSession();
+    const navigationType = (performance.getEntriesByType("navigation")[0] as PerformanceNavigationTiming | undefined)?.type;
+    if (snapshot && (returning || navigationType === "reload")) {
+      queueMicrotask(() => {
+        setDrafts(snapshot.drafts); setCustomName(snapshot.customName); setCustomW(snapshot.customW); setCustomH(snapshot.customH);
+        setSettings(snapshot.settings as typeof settings); setResult(snapshot.result); setSelectedId(snapshot.selectedId);
+        setManuallySelected(snapshot.manuallySelected); setCalculatedRequest(snapshot.calculatedRequest); setStep(snapshot.step); setActiveSession(true);
+        customId.current = snapshot.drafts.reduce((max,d) => Math.max(max,Number(d.id.match(/^custom-(\d+)$/)?.[1] ?? 0)),0);
+      });
+    } else if (assessmentFallback && (returning || navigationType === "reload")) {
+      const request=assessmentFallback.request;
+      queueMicrotask(() => {
+        setDrafts(request.loads.map((load)=>({id:load.id,name:load.name,quantity:String(load.quantity),watts:String(load.watts),hours:String(load.hours),startingW:load.startingW===null?"":String(load.startingW)})));
+        setSettings(Object.fromEntries(Object.keys(DEFAULT_ASSUMPTIONS).map((key)=>[key,String(request.assumptions[key as keyof typeof DEFAULT_ASSUMPTIONS])])));
+        setSelectedId(assessmentFallback.configurationId); setManuallySelected(assessmentFallback.configurationId!==null);
+        setCalculatedRequest(null); setResult(null); setStep(1); setActiveSession(false);
+      });
+      clearCalculatorSession();
+    } else clearCalculatorSession();
+  }, []);
+  useEffect(() => {
+    if (!activeSession || !result || !calculatedRequest) return;
+    const savedSettings={...settings};
+    if (step===2) savedSettings.backupHours=String(calculatedRequest.assumptions.backupHours);
+    const snapshot: CalculatorSession = {version:1,step:step as 0|1|2,drafts,customName,customW,customH,settings:savedSettings,result,selectedId,manuallySelected,calculatedRequest};
+    saveCalculatorSession(snapshot);
+  }, [activeSession,step,drafts,customName,customW,customH,settings,result,selectedId,manuallySelected,calculatedRequest]);
   function navigate(next: number) {
     if(next!==2) { calculation.current?.abort(); calculation.current=null; setIsCalculating(false); }
     setStep(next); setErrors([]);
@@ -48,10 +80,11 @@ export function SolarCalculator() {
       heading.current?.scrollIntoView({ block:"start", behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "instant" : "smooth" });
     });
   }
-  function toggle(id: string) {
+  function addTile(id: string) {
     const item = APPLIANCES.find((a) => a[0] === id)!;
-    setDrafts((current) => current.some((d) => d.id === id) ? current.filter((d) => d.id !== id) : [...current,{ id,name:item[1],quantity:"1",watts:String(item[2]),hours:String(item[3]),startingW:"" }]);
+    setDrafts((current) => addOrIncrementAppliance(current,{ id,name:item[1],quantity:"1",watts:String(item[2]),hours:String(item[3]),startingW:"" }));
   }
+  function removeOneTile(id: string) { setDrafts((current) => decrementAppliance(current,id)); }
   function update(id: string, key: keyof Draft, value: string) { setDrafts((current) => current.map((d) => d.id === id ? { ...d,[key]:value } : d)); }
   function addCustom() {
     const candidate = { id:`custom-${++customId.current}`,name:customName,quantity:1,watts:parseNumber(customW),hours:parseNumber(customH),startingW:null };
@@ -60,14 +93,10 @@ export function SolarCalculator() {
     setDrafts((current) => [...current,{ ...candidate,quantity:"1",watts:customW,hours:customH,startingW:"" }]);
     setCustomName("");setCustomW("");setCustomH("");setCustomError("");
   }
-  async function runCalculation() {
-    if(calculation.current)return;
-    const a = Object.fromEntries(Object.entries(settings).map(([k,v]) => [k,parseNumber(v)])) as typeof DEFAULT_ASSUMPTIONS;
-    a.coldC = /^-?(?:\d+(?:\.\d*)?|\.\d+)$/.test(settings.coldC) ? Number(settings.coldC) : NaN;
-    const invalid = validateInputs(loads,a);
+  async function calculateRequest(request: CalculatorRequest) {
+    calculation.current?.abort();
+    const invalid = validateInputs(request.loads,request.assumptions);
     if (invalid.length) { setErrors(invalid); return; }
-    // Keep the legacy API field for old assessment summaries; conventional PV is always sized by the recommendation engine.
-    const request: CalculatorRequest = {loads,assumptions:a,solarCharging:false};
     const controller=new AbortController();calculation.current=controller;setIsCalculating(true);setErrors([]);
     const timeout=setTimeout(()=>controller.abort(),20000);
     try {
@@ -76,7 +105,8 @@ export function SolarCalculator() {
       if(!response.ok || !data.energy || !Array.isArray(data.options))throw new Error("Calculation unavailable");
       if(calculation.current!==controller)return;
       setCalculatedRequest(request);
-      setResult(data);setSelectedId(data.bestFitId??data.options[0]?.id??null);
+      setResult(data);setSelectedId(data.bestFitId??data.options[0]?.id??null);setManuallySelected(false);
+      setActiveSession(true);
       navigate(2);
     } catch {
       if(calculation.current===controller)setErrors(["We couldn’t complete your plan right now. Your appliances are still here; please try again."]);
@@ -84,6 +114,18 @@ export function SolarCalculator() {
       clearTimeout(timeout);
       if(calculation.current===controller){calculation.current=null;setIsCalculating(false);}
     }
+  }
+  function runCalculation() {
+    if (calculation.current) return;
+    const a = Object.fromEntries(Object.entries(settings).map(([k,v]) => [k,parseNumber(v)])) as typeof DEFAULT_ASSUMPTIONS;
+    a.coldC = /^-?(?:\d+(?:\.\d*)?|\.\d+)$/.test(settings.coldC) ? Number(settings.coldC) : NaN;
+    // Keep the legacy API field for old assessment summaries; conventional PV is sized by the recommendation engine.
+    void calculateRequest({loads,assumptions:a,solarCharging:false});
+  }
+  function saveBeforeAssessment() {
+    if (!result || !calculatedRequest) return;
+    armCalculatorReturn();
+    saveCalculatorSession({version:1,step:2,drafts,customName,customW,customH,settings:{...settings,backupHours:String(calculatedRequest.assumptions.backupHours)},result,selectedId,manuallySelected,calculatedRequest});
   }
   const suggested = suggestAppliance(customName);
   const handoff = result && calculatedRequest ? assessmentUrl({v:3,request:calculatedRequest,configurationId:selectedId}) : "/contact?intent=solar-assessment";
@@ -97,13 +139,13 @@ export function SolarCalculator() {
         <div className="sc-panel-heading"><div><p className="sc-kicker">STEP 0{step+1}</p><h2 id="sc-step-heading" ref={heading} tabIndex={-1}>{["What would you like to power?","Make it your own.","Your power, in perspective."][step]}</h2></div>{step < 2 && <span className="sc-count">{drafts.length} selected</span>}</div>
         {step === 0 && <>
           <p className="sc-muted">Choose your appliances. The wattages and hours below are typical editable estimates. Use the nameplate or measured consumption where possible.</p>
-          <div className="sc-appliance-grid">{APPLIANCES.map(([id,name,w,h,icon]) => { const selected=drafts.some((d) => d.id === id); return <button type="button" className="sc-appliance" aria-pressed={selected} key={id} onClick={() => toggle(id)}><span className="sc-appliance-top"><Icon name={icon} /><span className="sc-toggle-mark" aria-hidden="true">{selected ? "✓" : "+"}</span></span><strong>{name}</strong><small>{w} W <span>·</span> {h} h/day</small></button>; })}</div>
+          <div className="sc-appliance-grid">{APPLIANCES.map(([id,name,w,h,icon]) => { const draft=drafts.find((d) => d.id === id); const quantity=draft ? parseNumber(draft.quantity) : 0; const selected=quantity > 0; return <div className="sc-appliance-card" key={id}><button type="button" className="sc-appliance" aria-pressed={selected} onClick={() => addTile(id)}><span className="sc-appliance-top"><Icon name={icon} />{!selected && <span className="sc-toggle-mark" aria-hidden="true">+</span>}</span><strong>{name}</strong><small>{w} W <span>·</span> {h} h/day</small></button>{selected && <button type="button" className="sc-appliance-quantity" aria-label={`Remove one ${name}`} onClick={() => removeOneTile(id)}>{quantity} ×</button>}</div>; })}</div>
           <div className="sc-custom"><h3>Something else?</h3><p className="sc-muted">Add a custom appliance. Recognised names suggest editable starting values.</p><div className="sc-custom-fields"><label className="sc-field"><span>Appliance name</span><input value={customName} maxLength={100} placeholder="e.g. Blender" onChange={(e) => { const name=e.target.value;setCustomName(name);const s=suggestAppliance(name);if(s){setCustomW(String(s.watts));setCustomH(String(s.hours));} }} /></label><NumberField label="Watts" value={customW} onChange={setCustomW} suffix="W" /><NumberField label="Hours per day" value={customH} onChange={setCustomH} suffix="h" /><button className="sc-button sc-button-outline" type="button" onClick={addCustom}>Add appliance <span aria-hidden="true">+</span></button></div>{suggested && <p className="sc-small">Suggested values for “{customName}”; check your actual appliance.</p>}{customError && <p className="sc-error" role="alert">{customError}</p>}</div>
           <div className="sc-step-actions"><span className="sc-small">Your plan stays in this tab.</span><button className="sc-button" type="button" disabled={!drafts.length} onClick={() => navigate(1)}>Check your load <span aria-hidden="true">→</span></button></div>
         </>}
         {step === 1 && <fieldset className="sc-step-fields" disabled={isCalculating}>
           <div className="sc-review-tools"><p className="sc-muted">Edit each appliance to reflect your actual use. Starting watts are optional. Leave them blank to use preliminary estimates for recognised appliances.</p><button className="sc-text-button" type="button" onClick={() => { setDrafts([]);navigate(0); }}>Clear all</button></div>
-          <div className="sc-loads">{drafts.map((d,index) => { const rowErrors=validateInputs([convert(d)],DEFAULT_ASSUMPTIONS);return <fieldset className="sc-load" key={d.id}><legend>Appliance {index+1}</legend><div className="sc-load-top"><label className="sc-field"><span>Appliance name</span><input aria-label={`Appliance ${index+1} name`} value={d.name} maxLength={100} onChange={(e) => update(d.id,"name",e.target.value)} /></label><button type="button" className="sc-remove" aria-label={`Remove ${d.name}`} onClick={() => setDrafts((current) => current.filter((l) => l.id !== d.id))}>×</button></div><div className="sc-load-fields"><label className="sc-field"><span>Quantity</span><span className="sc-quantity"><button type="button" aria-label={`Decrease ${d.name} quantity`} disabled={!Number.isInteger(parseNumber(d.quantity)) || parseNumber(d.quantity)<=1} onClick={() => update(d.id,"quantity",String(parseNumber(d.quantity)-1))}>−</button><input inputMode="numeric" value={d.quantity} aria-label={`${d.name} quantity`} onChange={(e) => update(d.id,"quantity",e.target.value)} /><button type="button" aria-label={`Increase ${d.name} quantity`} disabled={!Number.isInteger(parseNumber(d.quantity)) || parseNumber(d.quantity)>=999} onClick={() => update(d.id,"quantity",String(parseNumber(d.quantity)+1))}>+</button></span></label><NumberField label="Running watts" value={d.watts} onChange={(v) => update(d.id,"watts",v)} suffix="W" /><NumberField label="Daily hours" value={d.hours} onChange={(v) => update(d.id,"hours",v)} suffix="h" /><NumberField label="Starting watts" value={d.startingW} onChange={(v) => update(d.id,"startingW",v)} hint="Optional; blank uses an appliance screening estimate." suffix="W" /></div>{rowErrors.length>0 && <p className="sc-error">{rowErrors[0]}</p>}</fieldset>; })}</div>
+          <div className="sc-loads">{drafts.map((d,index) => { const rowErrors=validateInputs([convert(d)],DEFAULT_ASSUMPTIONS);return <fieldset className="sc-load" key={d.id}><legend>Appliance {index+1}</legend><div className="sc-load-top"><label className="sc-field"><span>Appliance name</span><input aria-label={`Appliance ${index+1} name`} value={d.name} maxLength={100} onChange={(e) => update(d.id,"name",e.target.value)} /></label><button type="button" className="sc-remove" aria-label={`Remove ${d.name}`} onClick={() => setDrafts((current) => removeAppliance(current,d.id))}>×</button></div><div className="sc-load-fields"><label className="sc-field"><span>Quantity</span><span className="sc-quantity"><button type="button" aria-label={`Decrease ${d.name} quantity`} disabled={!Number.isInteger(parseNumber(d.quantity)) || parseNumber(d.quantity)<=1} onClick={() => update(d.id,"quantity",String(parseNumber(d.quantity)-1))}>−</button><input inputMode="numeric" value={d.quantity} aria-label={`${d.name} quantity`} onChange={(e) => update(d.id,"quantity",e.target.value)} /><button type="button" aria-label={`Increase ${d.name} quantity`} disabled={!Number.isInteger(parseNumber(d.quantity)) || parseNumber(d.quantity)>=999} onClick={() => update(d.id,"quantity",String(parseNumber(d.quantity)+1))}>+</button></span></label><NumberField label="Running watts" value={d.watts} onChange={(v) => update(d.id,"watts",v)} suffix="W" /><NumberField label="Daily hours" value={d.hours} onChange={(v) => update(d.id,"hours",v)} suffix="h" /><NumberField label="Starting watts" value={d.startingW} onChange={(v) => update(d.id,"startingW",v)} hint="Optional; blank uses an appliance screening estimate." suffix="W" /></div>{rowErrors.length>0 && <p className="sc-error">{rowErrors[0]}</p>}</fieldset>; })}</div>
           <button type="button" className="sc-text-button" onClick={() => navigate(0)}>+ Add more appliances</button>
           <div className="sc-config"><h3>How long do you need backup?</h3><NumberField label="Backup window" value={settings.backupHours} onChange={(v) => setSettings({...settings,backupHours:v})} suffix="hours" /><p className="sc-small">{BACKUP_MODEL}</p></div>
           <details className="sc-details"><summary>Planning assumptions <span>Review before calculating</span></summary><p className="sc-small">Preliminary Picon planning inputs, not a site survey or runtime guarantee. PV sizing is a daily energy target before electrical validation.</p><div className="sc-assumption-grid">{([['headroom','Inverter headroom','0.25–1; minimum 25%'],['powerFactor','Load power factor','0–1; used for VA, not W'],['peakSunHours','Peak sun hours','Location / season dependent'],['pvPerformance','PV performance ratio','0–1; heat / wiring / system loss'],['coldC','Minimum site temperature','°C; for cold Voc'],['hotCellC','Maximum cell temperature','°C; for hot Vmp'],['surgeSeconds','Starting surge duration','seconds; verify appliance data']] as const).map(([key,label,hint]) => <NumberField key={key} label={label} value={settings[key]} hint={hint} onChange={(v) => setSettings({...settings,[key]:v})} />)}</div><p className="sc-small">One motor is screened as starting at a time while the other appliances run. A qualified designer must verify actual starting behaviour and any solar wiring, protection and site conditions.</p></details>
@@ -112,7 +154,7 @@ export function SolarCalculator() {
         </fieldset>}
         {step === 2 && result && <>
           <p className="sc-muted sc-results-announcement" role="status">Your energy plan is ready.</p>
-          <SystemResults plan={result} selectedId={selectedId} onSelect={setSelectedId} assessmentHref={handoff} />
+          <SystemResults plan={result} selectedId={selectedId} onSelect={(id)=>{setSelectedId(id);setManuallySelected(true);}} assessmentHref={handoff} onAssessmentNavigate={saveBeforeAssessment} />
           <div className="sc-step-actions"><button type="button" className="sc-text-button" onClick={() => navigate(1)}>← Edit my load</button></div>
         </>}
       </section>

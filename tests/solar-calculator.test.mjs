@@ -11,6 +11,8 @@ const { loadModel, validateInputs, calculateSolar, checkInverter, checkBattery, 
 const { DEFAULT_ASSUMPTIONS: a, suggestAppliance, APPLIANCES } = await import("../src/lib/solar-calculator/solar-config.ts");
 const { SIZING_POLICY, estimatedAcEnergy, runtimeHours, startingEstimate, systemEnergy } = await import("../src/lib/solar-calculator/sizing-policy.ts");
 const { assessmentUrl, parseAssessmentSummary } = await import("../src/lib/solar-calculator/assessment-summary.ts");
+const { addOrIncrementAppliance, decrementAppliance, removeAppliance } = await import("../src/lib/solar-calculator/appliance-selection.ts");
+const { CALCULATOR_SESSION_KEY, saveCalculatorSession, readCalculatorSession, armCalculatorReturn, consumeCalculatorReturn, clearCalculatorSession } = await import("../src/lib/solar-calculator/session-state.ts");
 const c = JSON.parse(await readFile(new URL("../src/lib/solar-catalog/catalog.json",import.meta.url),"utf8"));
 const now = new Date("2026-11-21T21:00:00Z");
 const loads = [{ id:"load",name:"Measured appliance",quantity:2,watts:500,hours:1,startingW:800 }];
@@ -68,6 +70,36 @@ test("source appliance catalogue and editable suggestions retain all original de
   assert.deepEqual(suggestAppliance("Desktop computer"),{watts:200,hours:6});
   assert.equal(suggestAppliance("backpack"),null); assert.equal(suggestAppliance("unknown widget"),null);
 });
+test("appliance cards add and decrement one unit by stable ID without duplicate rows", () => {
+  const led={id:"led",name:"LED bulbs",quantity:"1",watts:"10",hours:"6",startingW:""};
+  const fan={id:"fan",name:"Fan",quantity:"1",watts:"60",hours:"8",startingW:""};
+  let rows=[];
+  rows=addOrIncrementAppliance(rows,led);
+  rows=addOrIncrementAppliance(rows,led);
+  for(let i=0;i<5;i++) rows=addOrIncrementAppliance(rows,led);
+  assert.equal(rows.length,1);assert.equal(rows[0].id,"led");assert.equal(rows[0].quantity,"7");
+  rows=addOrIncrementAppliance(rows,fan);
+  rows=decrementAppliance(rows,"led");
+  assert.deepEqual(rows.map(({id,quantity})=>({id,quantity})),[{id:"led",quantity:"6"},{id:"fan",quantity:"1"}]);
+  for(let i=0;i<5;i++) rows=decrementAppliance(rows,"led");
+  assert.deepEqual(rows.map(({id,quantity})=>({id,quantity})),[{id:"led",quantity:"1"},{id:"fan",quantity:"1"}]);
+  rows=decrementAppliance(rows,"led");
+  assert.deepEqual(rows.map(({id,quantity})=>({id,quantity})),[{id:"fan",quantity:"1"}]);
+  rows=addOrIncrementAppliance(rows,{...led,quantity:"1"});
+  rows=removeAppliance(rows,"led");
+  assert.deepEqual(rows.map((row)=>row.id),["fan"],"existing remove-row action leaves other selections intact");
+  assert.equal(addOrIncrementAppliance([{...led,quantity:"999"}],led)[0].quantity,"999","card clicks preserve the existing 999-item validation limit");
+});
+test("calculator session round-trips input state and consumes the return marker once", () => {
+  const originalWindow=globalThis.window,values=new Map();
+  globalThis.window={sessionStorage:{setItem:(key,value)=>values.set(key,value),getItem:(key)=>values.get(key)??null,removeItem:(key)=>values.delete(key)}};
+  try {
+    const snapshot={version:1,step:2,drafts:[{id:"fan",name:"Standing fan",quantity:"2",watts:"60",hours:"8",startingW:""}],customName:"",customW:"",customH:"",settings:{backupHours:"6"},result:{energy:{},options:[]},selectedId:null,manuallySelected:false,calculatedRequest:{assumptions:{backupHours:6},loads:[]}};
+    saveCalculatorSession(snapshot);assert.deepEqual(readCalculatorSession(),snapshot);assert.ok(values.has(CALCULATOR_SESSION_KEY));
+    armCalculatorReturn();assert.equal(consumeCalculatorReturn(),true);assert.equal(consumeCalculatorReturn(),false);
+    clearCalculatorSession();assert.equal(readCalculatorSession(),null);
+  } finally { if(originalWindow===undefined)delete globalThis.window;else globalThis.window=originalWindow; }
+});
 test("central policy distinguishes evidence, chemistry estimates, starting screening and runtime",()=>{
   assert.equal(SIZING_POLICY.powerHeadroom,.25);assert.equal(SIZING_POLICY.peakSunHours,4.5);assert.equal(SIZING_POLICY.pvPerformance,.75);
   assert.equal(estimatedAcEnergy(1000,"LiFePO4").usableAcWh,595);
@@ -98,6 +130,14 @@ test("peak, daily, backup, headroom, VA and PV are separate dimensions; schedule
   assert.equal(m.pvW,1000/(4.5*.75));
   assert.equal(loadModel([{...loads[0],hours:24}],{...a,backupHours:6}).backupWh,6000);
   assert.equal(loadModel([{...loads[0],hours:.3}],a).dailyWh,300);
+});
+test("backup duration recalculates scheduled backup energy without changing inverter peak or daily PV sizing", () => {
+  const short=loadModel([{...loads[0],hours:8}],{...a,backupHours:2});
+  const long=loadModel([{...loads[0],hours:8}],{...a,backupHours:6});
+  assert.equal(short.backupWh,2000);
+  assert.equal(long.backupWh,6000);
+  assert.equal(short.minimumInverterW,long.minimumInverterW);
+  assert.equal(short.pvW,long.pvW);
 });
 test("all appliance / assumption validation boundaries reject malformed values without zero coercion", () => {
   for (const patch of [{name:" "},{quantity:0},{quantity:-1},{quantity:1.2},{watts:0},{watts:-1},{watts:Infinity},{watts:NaN},{hours:0},{hours:24.1},{hours:-1},{startingW:499}]) assert.ok(validateInputs([{...loads[0],...patch}],a).length,JSON.stringify(patch));

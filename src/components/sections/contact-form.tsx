@@ -11,6 +11,7 @@ import {
   type ContactIntent,
 } from "@/lib/contact-validation";
 import { createContactSubmissionRequest } from "@/lib/contact-submission";
+import { armCalculatorReturn } from "@/lib/solar-calculator/session-state";
 
 type SubmissionState = "idle" | "invalid" | "submitting" | "success" | "error";
 
@@ -50,11 +51,15 @@ function firstInvalidField(errors: ContactFieldErrors): ContactFieldName | undef
   return fieldOrder.find((field) => Boolean(errors[field]));
 }
 
-export function ContactForm({ intent, initialMessage = "" }: { intent: ContactIntent; initialMessage?: string }) {
+export function ContactForm({ intent, initialMessage = "", solarPayload = "" }: { intent: ContactIntent; initialMessage?: string; solarPayload?: string }) {
   const [fieldErrors, setFieldErrors] = useState<ContactFieldErrors>({});
   const [submissionState, setSubmissionState] = useState<SubmissionState>("idle");
   const [submissionNotice, setSubmissionNotice] = useState("");
+  const [selectedService, setSelectedService] = useState<string>(suggestedService[intent] ?? "");
+  const [solarShortcutExpanded, setSolarShortcutExpanded] = useState(true);
   const submitting = useRef(false);
+  const hasSolarAssessment = initialMessage.length > 0;
+  const calculatorReturnHref = solarPayload ? `/solar-calculator?solar=${encodeURIComponent(solarPayload)}` : "/solar-calculator";
 
   function focusFirstInvalid(errors: ContactFieldErrors) {
     const field = firstInvalidField(errors);
@@ -135,6 +140,7 @@ export function ContactForm({ intent, initialMessage = "" }: { intent: ContactIn
 
       if (response.ok && (useNetlifyForms || reply?.ok === true)) {
         form.reset();
+        setSelectedService(suggestedService[intent] ?? "");
         setSubmissionState("success");
         setSubmissionNotice("Thank you. Your enquiry has been sent.");
         return;
@@ -168,6 +174,7 @@ export function ContactForm({ intent, initialMessage = "" }: { intent: ContactIn
   const isSubmitting = submissionState === "submitting";
 
   return (
+    <>
     <form className="contact-form" method="post" noValidate onSubmit={handleSubmit} aria-busy={isSubmitting}>
       <input type="hidden" name="intent" value={intent} />
       <div className="contact-form-honeypot" aria-hidden="true">
@@ -181,12 +188,12 @@ export function ContactForm({ intent, initialMessage = "" }: { intent: ContactIn
           <select
             id="service"
             name="service"
-            defaultValue={suggestedService[intent] ?? ""}
+            value={selectedService}
             required
             disabled={isSubmitting}
             aria-invalid={invalid("service")}
             aria-describedby={describedBy("service")}
-            onChange={revalidateField("service")}
+            onChange={(event) => { setSelectedService(event.currentTarget.value); revalidateField("service")(event); }}
           >
             <option value="" disabled>Select a service</option>
             {CONTACT_SERVICES.map((service) => <option key={service} value={service}>{service}</option>)}
@@ -294,5 +301,19 @@ export function ContactForm({ intent, initialMessage = "" }: { intent: ContactIn
         </p>
       )}
     </form>
+    {selectedService === "Solar" && <aside className={`contact-solar-shortcut${solarShortcutExpanded ? " is-expanded" : ""}`} aria-label="Solar calculator shortcut">
+      <div className="contact-solar-shortcut-content" aria-hidden={!solarShortcutExpanded}>
+        {hasSolarAssessment
+          ? <a className="contact-solar-shortcut-action" href={calculatorReturnHref} tabIndex={solarShortcutExpanded ? 0 : -1} onClick={armCalculatorReturn}><SolarCalculatorIcon /><span>Back to Calculator</span></a>
+          : <a className="contact-solar-shortcut-action" href="/solar-calculator" target="_blank" rel="noopener noreferrer" tabIndex={solarShortcutExpanded ? 0 : -1}><SolarCalculatorIcon /><span>Use Solar Calculator</span></a>}
+        <button className="contact-solar-shortcut-collapse" type="button" tabIndex={solarShortcutExpanded ? 0 : -1} aria-label="Collapse Solar Calculator shortcut" aria-expanded={solarShortcutExpanded} onClick={() => setSolarShortcutExpanded(false)}>−</button>
+      </div>
+      <button className="contact-solar-shortcut-reopen" type="button" tabIndex={solarShortcutExpanded ? -1 : 0} aria-hidden={solarShortcutExpanded} aria-label="Expand Solar Calculator shortcut" aria-expanded={solarShortcutExpanded} onClick={() => setSolarShortcutExpanded(true)}><SolarCalculatorIcon /></button>
+    </aside>}
+    </>
   );
+}
+
+function SolarCalculatorIcon() {
+  return <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><rect x="5" y="2.5" width="14" height="19" rx="2"/><path d="M8 6.5h8M8.5 11h.01M12 11h.01M15.5 11h.01M8.5 15h.01M12 15h.01M15.5 15h.01M8.5 18.5h.01M12 18.5h.01"/></svg>;
 }

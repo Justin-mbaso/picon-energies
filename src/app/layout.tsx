@@ -13,7 +13,7 @@ const geistSans = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Picon Energies | Reliable energy solutions",
+  title: "Picon Energies",
   description:
     "Picon Energies provides solar, energy storage, and EV infrastructure solutions for homes and businesses in Nigeria.",
 };
