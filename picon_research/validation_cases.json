@@ -1,0 +1,349 @@
+{
+  "note": "Expected reference fixtures, not executed against application. Numeric tolerance 1e-6 unless rounding specified. Use existing engine schema mapping. All cases synthetic except audit energy values and manufacturer spec inputs.",
+  "cases": [
+    {
+      "id": "T01",
+      "input": {
+        "running_w": 2460,
+        "hours": 8
+      },
+      "expected": {
+        "backup_kwh": 19.68
+      },
+      "notes": "No duty reduction for continuous aggregate example."
+    },
+    {
+      "id": "T02",
+      "input": {
+        "running_w": 2460,
+        "hours": 6
+      },
+      "expected": {
+        "backup_kwh": 14.76
+      }
+    },
+    {
+      "id": "T03",
+      "input": {
+        "modules": 8,
+        "module_kwh": 5.12,
+        "dod": 0.8
+      },
+      "expected": {
+        "nominal_kwh": 40.96,
+        "dod_limited_dc_kwh": 32.768
+      }
+    },
+    {
+      "id": "T04",
+      "input": {
+        "modules": 8,
+        "audit_usable_ac_kwh": 24.37,
+        "required_ac_kwh": 19.68
+      },
+      "expected": {
+        "margin_kwh": 4.69,
+        "energy_screen": "pass",
+        "engineering_approved": false
+      }
+    },
+    {
+      "id": "T05",
+      "input": {
+        "modules": 6,
+        "module_kwh": 5.12,
+        "effective_fraction": 0.594970703125,
+        "required_ac_kwh": 19.68
+      },
+      "expected": {
+        "usable_ac_kwh": 18.2775,
+        "energy_screen": "fail"
+      }
+    },
+    {
+      "id": "T06",
+      "input": {
+        "modules": 7,
+        "module_kwh": 5.12,
+        "effective_fraction": 0.594970703125,
+        "required_ac_kwh": 19.68
+      },
+      "expected": {
+        "usable_ac_kwh": 21.32375,
+        "energy_screen": "pass",
+        "engineering_approved": false
+      }
+    },
+    {
+      "id": "T07",
+      "input": {
+        "battery_min_v": 44.8,
+        "inverter_discharge_a": 135,
+        "efficiency": 0.93,
+        "ac_request_w": 6000
+      },
+      "expected": {
+        "max_battery_only_ac_w": 5624.64,
+        "power_screen": "fail"
+      }
+    },
+    {
+      "id": "T08",
+      "input": {
+        "battery_min_v": 51.2,
+        "inverter_discharge_a": 135,
+        "efficiency": 0.93,
+        "inverter_rated_w": 6000
+      },
+      "expected": {
+        "battery_only_ac_w_capped": 6000
+      }
+    },
+    {
+      "id": "T09",
+      "input": {
+        "series": 9,
+        "voc_stc_v": 51.67,
+        "beta_voc": -0.0025,
+        "min_temp_c": 10,
+        "positive_tolerance": 0.03,
+        "absolute_limit_v": 500
+      },
+      "expected": {
+        "voc_v": 496.94268375,
+        "absolute_voltage_screen": "pass",
+        "engineering_approved": false
+      }
+    },
+    {
+      "id": "T10",
+      "input": {
+        "series": 9,
+        "voc_stc_v": 52.7,
+        "beta_voc": -0.0025,
+        "min_temp_c": 10,
+        "positive_tolerance": 0.03,
+        "absolute_limit_v": 500
+      },
+      "expected": {
+        "voc_v": 506.8488375,
+        "absolute_voltage_screen": "fail"
+      }
+    },
+    {
+      "id": "T11",
+      "input": {
+        "series": 8,
+        "voc_stc_v": 52.7,
+        "beta_voc": -0.0025,
+        "min_temp_c": 10,
+        "positive_tolerance": 0.03,
+        "absolute_limit_v": 500
+      },
+      "expected": {
+        "voc_v": 450.5323,
+        "absolute_voltage_screen": "pass",
+        "engineering_approved": false
+      }
+    },
+    {
+      "id": "T12",
+      "input": {
+        "module_w": 585,
+        "panel_count": 18,
+        "input_limit_w": 9600,
+        "access_limit_w": 12000
+      },
+      "expected": {
+        "array_w": 10530,
+        "oversizing_review": true
+      }
+    },
+    {
+      "id": "T13",
+      "input": {
+        "module_w": 585,
+        "panel_count": 16,
+        "input_limit_w": 9600,
+        "access_limit_w": 12000
+      },
+      "expected": {
+        "array_w": 9360,
+        "oversizing_review": false,
+        "engineering_approved": false
+      }
+    },
+    {
+      "id": "T14",
+      "input": {
+        "array_kwp": 9.36,
+        "modelled_ac_yield": 2.88
+      },
+      "expected": {
+        "daily_ac_kwh": 26.9568
+      }
+    },
+    {
+      "id": "T15",
+      "input": {
+        "battery_nominal_v": 25.6,
+        "inverter_battery_v_range": [
+          40,
+          60
+        ]
+      },
+      "expected": {
+        "compatibility": "fail"
+      }
+    },
+    {
+      "id": "T16",
+      "input": {
+        "inverter_phase": 3,
+        "site_phase": 1
+      },
+      "expected": {
+        "compatibility": "fail_as_direct_replacement"
+      }
+    },
+    {
+      "id": "T17",
+      "input": {
+        "mppt_count": 1,
+        "proposed_independent_trackers": 2
+      },
+      "expected": {
+        "compatibility": "fail"
+      }
+    },
+    {
+      "id": "T18",
+      "input": {
+        "mppt_operating_limit_a": 18,
+        "parallel_strings": 2,
+        "imp_a": 13.69
+      },
+      "expected": {
+        "operating_current_a": 27.38,
+        "current_screen": "fail"
+      }
+    },
+    {
+      "id": "T19",
+      "input": {
+        "hot_vmp_coefficient": null,
+        "voltage_screen": "pass"
+      },
+      "expected": {
+        "engineering_approved": false
+      }
+    },
+    {
+      "id": "T20",
+      "input": {
+        "exact_revision_match": false,
+        "listed_stock": "in_stock",
+        "confirmed_stock_qty": null,
+        "price_ngn": 122000
+      },
+      "expected": {
+        "procurement_eligible": false
+      }
+    },
+    {
+      "id": "T21",
+      "input": {
+        "materials": [
+          {
+            "qty": 1,
+            "price_ngn": 516500
+          },
+          {
+            "qty": null,
+            "price_ngn": 4200
+          }
+        ]
+      },
+      "expected": {
+        "partial_subtotal_ngn": 516500,
+        "complete_material_total_ngn": null
+      }
+    },
+    {
+      "id": "T22",
+      "input": {
+        "stacked_modules": 8,
+        "max_physical_stack": 6
+      },
+      "expected": {
+        "physical_stack_screen": "fail"
+      }
+    },
+    {
+      "id": "T23",
+      "input": {
+        "voc_corrected_v": 500,
+        "absolute_limit_v": 500
+      },
+      "expected": {
+        "absolute_voltage_screen": "fail"
+      }
+    },
+    {
+      "id": "T24",
+      "input": {
+        "nominal_kwh": 5.12,
+        "effective_fraction": 0,
+        "required_ac_kwh": 19.68
+      },
+      "expected": {
+        "validation_error": true
+      }
+    },
+    {
+      "id": "T25",
+      "input": {
+        "same_brand": true,
+        "voltage_overlap": true,
+        "bms_pairing_evidence": null
+      },
+      "expected": {
+        "engineering_approved": false
+      }
+    },
+    {
+      "id": "T26",
+      "input": {
+        "running_w": 3000,
+        "pf": 0.6,
+        "inverter_w": 6000,
+        "inverter_va": 4000
+      },
+      "expected": {
+        "running_va": 5000,
+        "apparent_power_screen": "fail"
+      }
+    },
+    {
+      "id": "T27",
+      "input": {
+        "inverter_approved": true,
+        "quote_valid_until": "2026-11-23",
+        "as_of": "2026-11-24"
+      },
+      "expected": {
+        "procurement_eligible": false
+      }
+    },
+    {
+      "id": "T28",
+      "input": {
+        "product_revision_changed": true,
+        "prior_approval": true
+      },
+      "expected": {
+        "engineering_approved": false
+      }
+    }
+  ]
+}

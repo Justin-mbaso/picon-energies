@@ -5,13 +5,16 @@ import { INSTALLATION_NOTE, naira } from "@/lib/solar-catalog/pricing";
 import type { CustomerOption, CustomerPlan } from "@/lib/solar-calculator/recommendation-types";
 
 const groups={portable:"Portable Power Systems",compact:"Compact Power Systems",full:"Full Solar Systems"};
-export function SystemResults({plan,selectedId,onSelect,assessmentHref}:{plan:CustomerPlan;selectedId:string|null;onSelect:(id:string)=>void;assessmentHref:string}) {
+export function SystemResults({plan,selectedId,onSelect,assessmentHref,onAssessmentNavigate}:{plan:CustomerPlan;selectedId:string|null;onSelect:(id:string)=>void;assessmentHref:string;onAssessmentNavigate?:()=>void}) {
   const {energy}=plan;
   const bestCategory=plan.options.find((o)=>o.bestFit)?.category;
   const categories=(["portable","compact","full"] as const).toSorted((a,b)=>a===bestCategory ? -1 : b===bestCategory ? 1 : 0);
   return <>
     <div className="sc-result-stats" aria-label="Your energy requirements">
-      {[[`${(energy.peakW/1000).toFixed(2)} kW`,"Peak simultaneous load"],[`${(energy.dailyWh/1000).toFixed(2)} kWh`,"Daily energy"],[`${(energy.backupWh/1000).toFixed(2)} kWh`,"Backup energy"],[`${energy.backupHours} hours`,"Backup window"]].map(([value,label])=><div key={label}><strong>{value}</strong><span>{label}</span></div>)}
+      <div><strong>{(energy.peakW/1000).toFixed(2)} kW</strong><span>Peak simultaneous load</span></div>
+      <div><strong>{(energy.dailyWh/1000).toFixed(2)} kWh</strong><span>Daily energy</span></div>
+      <div><strong>{(energy.backupWh/1000).toFixed(2)} kWh</strong><span>Backup energy</span></div>
+      <div><strong>{energy.backupHours} hours</strong><span>Backup window</span></div>
     </div>
     <section className="sc-suitable" aria-labelledby="sc-suitable-title">
       <p className="sc-kicker">A solution around your use</p>
@@ -39,7 +42,7 @@ export function SystemResults({plan,selectedId,onSelect,assessmentHref}:{plan:Cu
     </div>
     <div className="sc-assessment">
       <div><p className="sc-kicker">Your next step</p><h3>Let’s design around you.</h3><p>During an on-site assessment, Picon reviews your property, installation requirements, equipment arrangement and site-specific needs before confirming the project cost.</p></div>
-      <Link className="sc-button" href={assessmentHref}>Request a Solar Assessment <span aria-hidden="true">↗</span></Link>
+      <Link className="sc-button" href={assessmentHref} onClick={onAssessmentNavigate}>Request a Solar Assessment <span aria-hidden="true">↗</span></Link>
     </div>
   </>;
 }

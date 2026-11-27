@@ -54,7 +54,7 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
         </header>
         <div className="contact-page-layout">
           <section className="contact-page-form-panel" aria-label="Send an enquiry">
-            <ContactForm intent={intent} initialMessage={intent === "solar-assessment" ? parseAssessmentSummary(solar, solarCatalog, systemConfigurations) : ""} />
+            <ContactForm intent={intent} initialMessage={intent === "solar-assessment" ? parseAssessmentSummary(solar, solarCatalog, systemConfigurations) : ""} solarPayload={typeof solar === "string" ? solar : ""} />
           </section>
           <aside className="contact-details-card" aria-labelledby="contact-details-title">
             <figure className="contact-details-image">

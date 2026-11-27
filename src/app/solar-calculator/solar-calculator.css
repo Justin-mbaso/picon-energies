@@ -84,9 +84,14 @@ body:has(.solar-calculator-page) .site-header--glass .header-inner { background:
 .sc-muted { color: var(--sc-muted); font-size: 14px; line-height: 1.6; }
 .sc-small { font-size: 12px; line-height: 1.6; color: var(--sc-muted); }
 .sc-appliance-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 12px; margin-top: 24px; }
+.sc-appliance-card { min-width: 0; position: relative; }
 .sc-appliance { border: 1px solid var(--sc-line); border-radius: 13px; background: white; padding: 16px; text-align: left; display: flex; flex-direction: column; min-height: 139px; gap: 10px; transition: border-color 180ms, background 180ms, box-shadow 180ms, transform 180ms; }
+.sc-appliance-card > .sc-appliance { width: 100%; height: 100%; }
 .sc-appliance:hover { border-color: #789fe9; transform: translateY(-2px); }
 .sc-appliance[aria-pressed=true] { border-color: var(--sc-blue); background: #f0f5ff; box-shadow: inset 0 0 0 1px var(--sc-blue); }
+.sc-appliance-quantity { position: absolute; top: 8px; right: 8px; z-index: 1; border: 1px solid var(--sc-blue); border-radius: 99px; background: var(--sc-blue); color: white; padding: 4px 9px; font: inherit; font-size: 11px; font-weight: 650; line-height: 1.3; cursor: pointer; }
+.sc-appliance-quantity:hover { background: #174ec5; }
+.sc-appliance-quantity:focus-visible { outline: 2px solid var(--sc-blue); outline-offset: 3px; }
 .sc-appliance-top { width: 100%; display: flex; align-items: center; justify-content: space-between; color: var(--sc-blue); }
 .sc-appliance svg { width: 26px; height: 26px; }
 .sc-toggle-mark { width: 22px; height: 22px; border: 1px solid var(--sc-line); border-radius: 50%; display: grid; place-items: center; font-size: 15px; }
@@ -279,3 +284,4 @@ body:has(.solar-calculator-page) .site-header--glass .header-inner { background:
 .sc-installation-brief p { margin: 0; max-width: 850px; color: #485a74; font-size: 14px; line-height: 1.7; }
 @media(max-width:520px) { .sc-installation-brief { grid-template-columns: 1fr; gap: 12px; } }
 @media (prefers-reduced-motion: reduce) { .solar-calculator-page *, .solar-calculator-page *::before, .solar-calculator-page *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; } }
+.sc-equipment-role { display:inline-flex; align-items:center; width:fit-content; margin-bottom:5px; padding:5px 9px; border-radius:6px; background:#eef3ff; color:#1e4fd8; font-size:12px; font-weight:700; letter-spacing:.05em; line-height:1.3; }

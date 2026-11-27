@@ -51,7 +51,7 @@ test("Scenario A catalogue options reach SystemResults, render, select, and reta
   const selectedId=portable[1].id;
   const href = assessmentUrl({ v: 3, request: scenario.request, configurationId: selectedId });
   const markup = renderToStaticMarkup(React.createElement(SystemResults, {
-    plan, selectedId, onSelect: () => {}, assessmentHref: href,
+    plan, selectedId, onSelect: () => {}, assessmentHref: href, onAssessmentNavigate:()=>{},
   }));
 
   assert.match(markup, /value="dynamic-portable-itel-iess-320act"/);
@@ -59,6 +59,9 @@ test("Scenario A catalogue options reach SystemResults, render, select, and reta
   assert.match(markup, /148,104–₦152,460/);
   assert.match(markup, /314,160–₦323,400/);
   assert.match(markup, /Portable Power Systems/);
+  assert.doesNotMatch(markup, /Adjust your backup duration|Choose how long you want your selected loads/);
+  assert.match(markup, new RegExp(`<strong>${plan.energy.backupHours} hours</strong><span>Backup window</span>`));
+  assert.doesNotMatch(markup, /sc-backup-controls|EST\. BACKUP TIME|If running at max load without sun|aria-label="(?:Decrease|Increase) estimated backup time/);
   const standard=plan.options.find(({id})=>id==="dynamic-portable-itel-iess-320act"),tank=plan.options.find(({id})=>id==="dynamic-portable-itel-iess-05k10n");
   assert.deepEqual(standard.solarCharging,{maxW:100,minV:11,maxV:24,maxA:5});
   assert.deepEqual(tank.solarCharging,{maxW:400,minV:11,maxV:60,maxA:13.5});
@@ -73,7 +76,8 @@ test("Scenario A catalogue options reach SystemResults, render, select, and reta
   assert.match(markup, /href="\/contact\?intent=solar-assessment&amp;solar=/);
 
   const selected = [];
-  const tree = SystemResults({ plan, selectedId: null, onSelect: (id) => selected.push(id), assessmentHref: href });
+  let assessmentNavigated=0;
+  const tree = SystemResults({ plan, selectedId: null, onSelect: (id) => selected.push(id), assessmentHref: href, onAssessmentNavigate:()=>assessmentNavigated++ });
   const inputs = [];
   const visit = (node) => {
     if (Array.isArray(node)) return node.forEach(visit);
@@ -86,11 +90,24 @@ test("Scenario A catalogue options reach SystemResults, render, select, and reta
   assert.ok(inputs.length >= 2);
   inputs.find(({props})=>props.value===selectedId).props.onChange();
   assert.deepEqual(selected, [selectedId]);
+  assert.doesNotMatch(markup, /<button\b|<input[^>]*type="(?:button|number)"/i);
+  const links=[];
+  const findLinks=(node)=>{if(Array.isArray(node))return node.forEach(findLinks);if(!React.isValidElement(node))return;if(node.type==="a"){links.push(node);return;}if(typeof node.type==="function")return findLinks(node.type(node.props));findLinks(node.props.children);};
+  findLinks(tree); links.find(({props})=>props.href===href).props.onClick(); assert.equal(assessmentNavigated,1);
 
   const handoff = new URL(href, "https://picon.test");
   const summary = parseAssessmentSummary(handoff.searchParams.get("solar"), catalog, configurations, now);
   assert.match(summary, /Selected system: Portable Power System/);
   assert.match(summary, new RegExp(`Configuration reference: ${selectedId}`));
+});
+
+test("the original calculator retains backup-duration selection and submits it for recommendation sizing", async () => {
+  const source = await readFile(new URL("../src/components/solar-calculator/solar-calculator.tsx", import.meta.url), "utf8");
+
+  assert.match(source, /<NumberField label="Backup window" value=\{settings\.backupHours\} onChange=\{\(v\) => setSettings\(\{\.\.\.settings,backupHours:v\}\)\}/);
+  assert.match(source, /void calculateRequest\(\{loads,assumptions:a,solarCharging:false\}\)/);
+  assert.match(source, /<SystemResults plan=\{result\} selectedId=\{selectedId\}/);
+  assert.doesNotMatch(source, /function changeBackupDuration/);
 });
 
 test("the screenshot-scale demand receives a priced custom system and renders the assessment path", () => {
